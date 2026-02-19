@@ -130,6 +130,14 @@ body {
   color: var(--text);
 }
 
+.nav a[aria-current="page"] {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  padding: 6px 11px;
+}
+
 .menu-toggle {
   display: none;
   width: 44px;
@@ -567,6 +575,13 @@ body.nav-open {
     border-radius: 10px;
     border: 1px solid transparent;
     background: rgba(255, 255, 255, 0.02);
+  }
+
+  .nav a[aria-current="page"] {
+    background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(255, 255, 255, 0.2);
+    padding: 10px 12px;
+    border-radius: 10px;
   }
 
   .nav a:hover {
