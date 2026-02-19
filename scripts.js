@@ -76,3 +76,212 @@ document.querySelectorAll(".site-header").forEach((header) => {
   closeMenu();
   updateOnScroll();
 });
+
+const COOKIE_STORAGE_KEY = "vibenode_cookie_consent_v1";
+
+const readCookieConsent = () => {
+  try {
+    return JSON.parse(localStorage.getItem(COOKIE_STORAGE_KEY) || "null");
+  } catch {
+    return null;
+  }
+};
+
+const writeCookieConsent = (value) => {
+  localStorage.setItem(COOKIE_STORAGE_KEY, JSON.stringify(value));
+};
+
+const buildCookieBanner = () => {
+  const banner = document.createElement("section");
+  banner.className = "cookie-banner";
+  banner.setAttribute("aria-live", "polite");
+  banner.innerHTML = `
+    <div class="cookie-banner-content">
+      <div class="cookie-banner-text">
+        <strong>Cookie Preferences 2026</strong>
+        <p>We use cookies to run this site and improve performance. You can accept, reject optional cookies, or customize your settings.</p>
+      </div>
+      <div class="cookie-actions">
+        <button class="cookie-btn" data-cookie-action="reject">Reject Optional</button>
+        <button class="cookie-btn" data-cookie-action="settings">Cookie Settings</button>
+        <button class="cookie-btn primary" data-cookie-action="accept">Accept All</button>
+      </div>
+    </div>
+  `;
+  return banner;
+};
+
+const buildCookiePanel = () => {
+  const panel = document.createElement("section");
+  panel.className = "cookie-panel";
+  panel.setAttribute("aria-label", "Cookie settings");
+  panel.innerHTML = `
+    <h3>Cookie Settings</h3>
+    <p>Choose how optional cookies are used. Essential cookies stay enabled to keep the site working.</p>
+    <div class="cookie-row">
+      <div>
+        <strong>Essential</strong>
+        <span>Security, routing, and consent storage.</span>
+      </div>
+      <input class="cookie-switch" type="checkbox" checked disabled />
+    </div>
+    <div class="cookie-row">
+      <div>
+        <strong>Analytics</strong>
+        <span>Usage statistics and performance insights.</span>
+      </div>
+      <input class="cookie-switch" type="checkbox" data-cookie-key="analytics" />
+    </div>
+    <div class="cookie-row">
+      <div>
+        <strong>Preferences</strong>
+        <span>Remembered settings and display options.</span>
+      </div>
+      <input class="cookie-switch" type="checkbox" data-cookie-key="preferences" />
+    </div>
+    <div class="cookie-row">
+      <div>
+        <strong>Marketing</strong>
+        <span>Campaign relevance and conversion measurement.</span>
+      </div>
+      <input class="cookie-switch" type="checkbox" data-cookie-key="marketing" />
+    </div>
+    <div class="cookie-panel-actions">
+      <button class="cookie-btn" data-cookie-action="panel-reject">Reject Optional</button>
+      <button class="cookie-btn" data-cookie-action="panel-save">Save Choices</button>
+      <button class="cookie-btn primary" data-cookie-action="panel-accept">Accept All</button>
+    </div>
+    <button class="cookie-link-btn" data-cookie-action="panel-close">Close</button>
+  `;
+  return panel;
+};
+
+const initCookieConsent = () => {
+  const banner = buildCookieBanner();
+  const panel = buildCookiePanel();
+  const stored = readCookieConsent();
+
+  document.body.appendChild(banner);
+  document.body.appendChild(panel);
+
+  const bannerButtons = banner.querySelectorAll("[data-cookie-action]");
+  const panelButtons = panel.querySelectorAll("[data-cookie-action]");
+  const switches = panel.querySelectorAll("[data-cookie-key]");
+  const settingsLinks = document.querySelectorAll(".cookie-settings-link");
+
+  const setSwitches = (prefs) => {
+    switches.forEach((input) => {
+      input.checked = Boolean(prefs?.[input.dataset.cookieKey]);
+    });
+  };
+
+  const closePanel = () => {
+    panel.classList.remove("show");
+  };
+
+  const openPanel = () => {
+    panel.classList.add("show");
+  };
+
+  const showBanner = () => {
+    banner.classList.add("show");
+    document.body.classList.add("cookie-consent-required");
+  };
+
+  const hideBanner = () => {
+    banner.classList.remove("show");
+    document.body.classList.remove("cookie-consent-required");
+  };
+
+  const saveConsent = (prefs, status) => {
+    const payload = {
+      essential: true,
+      analytics: Boolean(prefs.analytics),
+      preferences: Boolean(prefs.preferences),
+      marketing: Boolean(prefs.marketing),
+      status,
+      updatedAt: new Date().toISOString(),
+    };
+    writeCookieConsent(payload);
+    hideBanner();
+    closePanel();
+  };
+
+  const acceptAll = () => {
+    saveConsent({ analytics: true, preferences: true, marketing: true }, "accepted_all");
+  };
+
+  const rejectOptional = () => {
+    saveConsent({ analytics: false, preferences: false, marketing: false }, "rejected_optional");
+  };
+
+  const saveFromPanel = () => {
+    const preferences = {};
+    switches.forEach((input) => {
+      preferences[input.dataset.cookieKey] = input.checked;
+    });
+    saveConsent(preferences, "custom");
+  };
+
+  const blockInteractionsUntilChoice = (event) => {
+    if (!document.body.classList.contains("cookie-consent-required")) return;
+    if (event.target.closest(".cookie-banner") || event.target.closest(".cookie-panel")) return;
+    event.preventDefault();
+    event.stopPropagation();
+  };
+
+  document.addEventListener("click", blockInteractionsUntilChoice, true);
+  document.addEventListener("submit", blockInteractionsUntilChoice, true);
+
+  bannerButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const action = button.dataset.cookieAction;
+      if (action === "accept") acceptAll();
+      if (action === "reject") rejectOptional();
+      if (action === "settings") openPanel();
+    });
+  });
+
+  panelButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const action = button.dataset.cookieAction;
+      if (action === "panel-accept") acceptAll();
+      if (action === "panel-reject") rejectOptional();
+      if (action === "panel-save") saveFromPanel();
+      if (action === "panel-close") closePanel();
+    });
+  });
+
+  settingsLinks.forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      openPanel();
+      if (!readCookieConsent()) {
+        showBanner();
+      }
+    });
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closePanel();
+    }
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!panel.classList.contains("show")) return;
+    if (event.target.closest(".cookie-panel")) return;
+    if (event.target.closest(".cookie-settings-link")) return;
+    if (event.target.closest(".cookie-banner")) return;
+    closePanel();
+  });
+
+  if (stored) {
+    setSwitches(stored);
+  } else {
+    showBanner();
+    setSwitches({ analytics: false, preferences: false, marketing: false });
+  }
+};
+
+initCookieConsent();
