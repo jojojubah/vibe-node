@@ -14,16 +14,12 @@ document.querySelectorAll(".site-header").forEach((header) => {
     header.classList.remove("menu-open");
     button.setAttribute("aria-expanded", "false");
     nav.setAttribute("aria-hidden", isMobile() ? "true" : "false");
-    document.body.classList.remove("nav-open");
   };
 
   const openMenu = () => {
     header.classList.add("menu-open");
     button.setAttribute("aria-expanded", "true");
     nav.setAttribute("aria-hidden", "false");
-    if (isMobile()) {
-      document.body.classList.add("nav-open");
-    }
   };
 
   button.addEventListener("click", () => {
