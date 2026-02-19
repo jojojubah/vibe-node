@@ -55,6 +55,20 @@ body {
   font-size: 20px;
   letter-spacing: 0.6px;
   transition: transform 160ms ease, letter-spacing 160ms ease;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.logo:visited,
+.logo:hover,
+.logo:active {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.logo:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
 }
 
 .site-header .logo:hover {
