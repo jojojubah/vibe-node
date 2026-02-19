@@ -29,7 +29,7 @@ body {
   position: relative;
   max-width: 1160px;
   margin: 0 auto;
-  padding: 34px 28px 90px;
+  padding: 0 28px 90px;
 }
 
 .page::before {
@@ -819,7 +819,7 @@ body.cookie-consent-required {
 
 @media (max-width: 640px) {
   .page {
-    padding: 24px 18px 60px;
+    padding: 0 18px 60px;
   }
 
   .hero h1 {
