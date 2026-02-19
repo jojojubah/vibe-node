@@ -59,9 +59,11 @@ body {
   text-decoration: none;
 }
 
-.logo:visited,
-.logo:hover,
-.logo:active {
+.site-header .logo,
+.site-header .logo:link,
+.site-header .logo:visited,
+.site-header .logo:hover,
+.site-header .logo:active {
   color: var(--text);
   text-decoration: none;
 }
@@ -110,6 +112,7 @@ body {
 }
 
 .menu-toggle-bar {
+  display: block;
   width: 18px;
   height: 2px;
   border-radius: 999px;
@@ -173,6 +176,15 @@ button {
   border-radius: 999px;
   font-weight: 600;
   cursor: pointer;
+}
+
+button.menu-toggle {
+  padding: 0;
+  border-radius: 10px;
+  font-weight: 400;
+  line-height: 0;
+  appearance: none;
+  -webkit-appearance: none;
 }
 
 .primary {
