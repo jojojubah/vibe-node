@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Vibe Node Services</title>
-    <link rel="stylesheet" href="/styles.css?v=20260227o" />
+    <link rel="stylesheet" href="/styles.css?v=20260227p" />
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=20260227m" />
   </head>
   <body>
@@ -22,127 +22,86 @@
         </nav>
       </header>
 
-      <section class="services-overview" id="services">
-        <div class="section-header">
-          <h2>Services</h2>
-          <p>Modern product services for teams ready to launch, iterate, and scale.</p>
-        </div>
-        <div class="services-grid">
-          <article class="service-card">
-            <figure class="service-media">
-              <picture>
-                <source srcset="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=640 640w, https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1280 1280w" sizes="(max-width: 960px) 100vw, 33vw" />
-                <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=960" alt="Team members discussing product planning" loading="lazy" decoding="async" />
-              </picture>
-            </figure>
-            <div class="service-copy">
-              <h3>Product Strategy</h3>
-              <p>Discovery, roadmap planning, and product positioning aligned to measurable outcomes.</p>
-              <ul>
-                <li>Research workshops</li>
-                <li>Go-to-market planning</li>
-                <li>Execution roadmap</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="service-card">
-            <figure class="service-media">
-              <picture>
-                <source srcset="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=640 640w, https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=1280 1280w" sizes="(max-width: 960px) 100vw, 33vw" />
-                <img src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=960" alt="Design and engineering team working on product screens" loading="lazy" decoding="async" />
-              </picture>
-            </figure>
-            <div class="service-copy">
-              <h3>Design &amp; Build</h3>
-              <p>End-to-end UI/UX and production engineering for modern web and mobile products.</p>
-              <ul>
-                <li>UI systems</li>
-                <li>Frontend development</li>
-                <li>Release-ready handoff</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="service-card">
-            <figure class="service-media">
-              <picture>
-                <source srcset="https://images.pexels.com/photos/1181396/pexels-photo-1181396.jpeg?auto=compress&cs=tinysrgb&w=640 640w, https://images.pexels.com/photos/1181396/pexels-photo-1181396.jpeg?auto=compress&cs=tinysrgb&w=1280 1280w" sizes="(max-width: 960px) 100vw, 33vw" />
-                <img src="https://images.pexels.com/photos/1181396/pexels-photo-1181396.jpeg?auto=compress&cs=tinysrgb&w=960" alt="Growth analytics dashboards on laptop" loading="lazy" decoding="async" />
-              </picture>
-            </figure>
-            <div class="service-copy">
-              <h3>Growth Support</h3>
-              <p>Launch support, analytics instrumentation, and optimization loops for sustainable growth.</p>
-              <ul>
-                <li>Launch planning</li>
-                <li>Metrics dashboards</li>
-                <li>Conversion optimization</li>
-              </ul>
-            </div>
-          </article>
-        </div>
+      <section class="products-intro" id="services">
+        <p class="eyebrow">Services</p>
+        <h1>Onboarding services for teams building ambitious products.</h1>
+        <p class="lead">
+          Strategy, design, and delivery support structured to reduce launch risk
+          and increase execution speed.
+        </p>
       </section>
 
-      <section class="service-cta" id="service-cta">
-        <div class="service-cta-copy">
+      <section class="products-sections" aria-label="Service sections">
+        <article class="home-panel home-panel-apps">
+          <p class="home-panel-kicker">Strategy</p>
+          <h2>Product direction that de-risks launch</h2>
+          <p>Discovery workshops, roadmap shaping, and execution planning for focused releases.</p>
+          <a class="home-link-inline" href="#service-enquiry">Discuss your roadmap</a>
+        </article>
+
+        <article class="home-panel home-panel-services">
+          <p class="home-panel-kicker">Build</p>
+          <h2>Design and engineering delivery</h2>
+          <p>Interface systems and implementation support that keeps product quality high under tight timelines.</p>
+          <a class="home-link-inline" href="#service-enquiry">Plan your build</a>
+        </article>
+
+        <article class="home-panel home-panel-tools">
+          <p class="home-panel-kicker">Growth</p>
+          <h2>Launch, measure, and improve</h2>
+          <p>Instrumentation, growth loops, and optimization workflows to scale outcomes after launch.</p>
+          <a class="home-link-inline" href="#service-enquiry">Design growth plan</a>
+        </article>
+
+        <article class="home-panel home-panel-services" id="service-enquiry">
+          <p class="home-panel-kicker">Enquiry</p>
           <h2>Build with us</h2>
-          <p>Bring your ideas to life. Contact now for enquiry and let us shape your next product together.</p>
-          <a class="primary service-cta-link" href="#service-enquiry">
-            Contact now for enquiry
-          </a>
-        </div>
-      </section>
-
-      <section class="service-form-wrap" id="service-enquiry">
-        <div class="section-header">
-          <h2>Service Enquiry Form</h2>
-          <p>Share your project details and we will get back to you.</p>
-        </div>
-        <form
-          class="service-form"
-          action="https://formsubmit.co/ajax/hello@vibenode.co.uk"
-          method="POST"
-          data-async-form
-          novalidate
-        >
-          <div class="service-form-grid">
-            <label>
-              Full name
-              <input type="text" name="name" autocomplete="name" required />
-            </label>
-            <label>
-              Work email
-              <input type="email" name="email" autocomplete="email" required />
-            </label>
-            <label>
-              Company
-              <input type="text" name="company" autocomplete="organization" />
-            </label>
-            <label>
-              Budget range
-              <select name="budget" required>
-                <option value="">Select budget</option>
-                <option value="under-5k">Under £5,000</option>
-                <option value="5k-20k">£5,000 - £20,000</option>
-                <option value="20k-50k">£20,000 - £50,000</option>
-                <option value="50k-plus">£50,000+</option>
-              </select>
-            </label>
-            <label class="service-form-full">
-              Project goals
-              <textarea name="message" rows="6" minlength="20" placeholder="Tell us what you want to build..." required></textarea>
-            </label>
-          </div>
-          <input class="service-hp" type="text" name="_honey" tabindex="-1" autocomplete="off" />
-          <input type="hidden" name="_subject" value="New Vibe Node service enquiry" />
-          <input type="hidden" name="_template" value="table" />
-          <button class="primary service-submit" type="submit">Send enquiry</button>
-          <p class="service-form-status" data-form-status aria-live="polite"></p>
-          <p class="service-form-note">
-            First-time setup: FormSubmit will send a one-time activation email to <code>hello@vibenode.co.uk</code>. After activation, enquiries are delivered automatically.
-          </p>
-        </form>
+          <p>Bring your ideas to life. Send your project brief and we will get back to you.</p>
+          <form
+            class="service-form"
+            action="https://formsubmit.co/ajax/hello@vibenode.co.uk"
+            method="POST"
+            data-async-form
+            novalidate
+          >
+            <div class="service-form-grid">
+              <label>
+                Full name
+                <input type="text" name="name" autocomplete="name" required />
+              </label>
+              <label>
+                Work email
+                <input type="email" name="email" autocomplete="email" required />
+              </label>
+              <label>
+                Company
+                <input type="text" name="company" autocomplete="organization" />
+              </label>
+              <label>
+                Budget range
+                <select name="budget" required>
+                  <option value="">Select budget</option>
+                  <option value="under-5k">Under £5,000</option>
+                  <option value="5k-20k">£5,000 - £20,000</option>
+                  <option value="20k-50k">£20,000 - £50,000</option>
+                  <option value="50k-plus">£50,000+</option>
+                </select>
+              </label>
+              <label class="service-form-full">
+                Project goals
+                <textarea name="message" rows="6" minlength="20" placeholder="Tell us what you want to build..." required></textarea>
+              </label>
+            </div>
+            <input class="service-hp" type="text" name="_honey" tabindex="-1" autocomplete="off" />
+            <input type="hidden" name="_subject" value="New Vibe Node service enquiry" />
+            <input type="hidden" name="_template" value="table" />
+            <button class="primary service-submit" type="submit">Send enquiry</button>
+            <p class="service-form-status" data-form-status aria-live="polite"></p>
+            <p class="service-form-note">
+              First-time setup: FormSubmit will send a one-time activation email to <code>hello@vibenode.co.uk</code>. After activation, enquiries are delivered automatically.
+            </p>
+          </form>
+        </article>
       </section>
 
       <footer class="site-footer" id="services-footer">
@@ -186,6 +145,6 @@
         </div>
       </footer>
     </div>
-      <script src="/scripts.js?v=20260227o" defer></script>
+      <script src="/scripts.js?v=20260227p" defer></script>
   </body>
 </html>

@@ -50,7 +50,7 @@
 - Every page loads:
   - `<link rel="stylesheet" href="/styles.css?v=...">`
   - `<script src="/scripts.js?v=..." defer></script>`
-- Current cache version in markup: `v=20260227o`
+- Current cache version in markup: `v=20260227p`
 - Rule: when CSS/JS changes, bump the shared `?v=` value across all HTML files.
 
 ## Key Behavior Notes

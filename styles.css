@@ -698,6 +698,13 @@ button.menu-toggle {
   padding: 20px;
 }
 
+.home-panel .service-form {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 4px 0 0;
+}
+
 .service-form-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
