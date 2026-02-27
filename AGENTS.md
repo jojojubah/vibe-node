@@ -9,10 +9,14 @@
 - Live domain (`CNAME`): `vibenode.co.uk`
 
 ## Current Product State
-- Home (`/`) is now a simplified software-company landing page:
-  - Text-first hero
-  - Two primary pathways only: `Game` and `Services`
-  - No legacy hero collage/stats/join blocks
+- Home (`/`) is now an Apple-inspired, section-based landing page:
+  - Text-first intro
+  - Three stacked content sections (Game, Services, Platform)
+  - Product links now point into the products hub sections
+- Products (`/products/`) is the main product hub:
+  - Section order: `Apps` -> `Games` -> `Tools`
+  - Uses large section panels similar to home
+  - Replaces the need to navigate between separate product category pages
 - Games (`/games/`):
   - Single game card: `Dotz & Boxz`
   - Includes official App Store and Google Play badge links
@@ -23,12 +27,13 @@
   - On-page enquiry form with async submit (no `mailto` flow)
 - Apps (`/apps/`) and Tools (`/tools/`):
   - Minimal pages showing `Coming soon.`
-- Services is live (no `Coming soon` label in nav/footer links).
+- Top navigation across site is now primarily `Products` + `Services`.
 
 ## Site Structure
 - Home page: `/index.html`
 - Folder routes (each with `index.html`):
   - `/about/`
+  - `/products/`
   - `/games/`
   - `/apps/`
   - `/tools/`
@@ -45,7 +50,7 @@
 - Every page loads:
   - `<link rel="stylesheet" href="/styles.css?v=...">`
   - `<script src="/scripts.js?v=..." defer></script>`
-- Current cache version in markup: `v=20260227j`
+- Current cache version in markup: `v=20260227o`
 - Rule: when CSS/JS changes, bump the shared `?v=` value across all HTML files.
 
 ## Key Behavior Notes
@@ -82,7 +87,8 @@
 ## Quick QA Checklist
 - Desktop/mobile nav opens and closes correctly on all pages.
 - Active nav state (`aria-current="page"`) is correct per route.
-- Home links route correctly to `/games/` and `/services/`.
+- Home links route correctly to `/products/#games`, `/products/#tools`, and `/services/`.
+- Products page sections render in order: Apps, Games, Tools.
 - Games page shows one card and both store badges open external links.
 - Services CTA jumps to enquiry form and form shows submit status.
 - Cookie banner/settings still work.
@@ -93,5 +99,6 @@
   - `python3 -m http.server 4173`
 - Validate:
   - `http://localhost:4173/`
+  - `http://localhost:4173/products/`
   - `http://localhost:4173/games/`
   - `http://localhost:4173/services/`
