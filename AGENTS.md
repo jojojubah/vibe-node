@@ -16,6 +16,7 @@
 - Games (`/games/`):
   - Single game card: `Dotz & Boxz`
   - Includes official App Store and Google Play badge links
+  - Uses reusable store badge component (local assets, no hotlinking)
 - Services (`/services/`):
   - Modern service cards with stock imagery
   - Clear CTA: Build with us / Bring your ideas to life
@@ -36,6 +37,7 @@
   - `/terms/`
   - `/cookies/`
 - Static assets directory: `/assets/`
+- Reusable snippets directory: `/snippets/`
 
 ## Shared Files
 - Global styles: `/styles.css`
@@ -43,7 +45,7 @@
 - Every page loads:
   - `<link rel="stylesheet" href="/styles.css?v=...">`
   - `<script src="/scripts.js?v=..." defer></script>`
-- Current cache version in markup: `v=20260227i`
+- Current cache version in markup: `v=20260227j`
 - Rule: when CSS/JS changes, bump the shared `?v=` value across all HTML files.
 
 ## Key Behavior Notes
@@ -60,13 +62,22 @@
   - Async submission handled in `/scripts.js` (`initAsyncForms`)
   - Endpoint currently: `https://formsubmit.co/ajax/hello@vibenode.co.uk`
   - Includes honeypot field and inline status UI
+- Reusable store badges:
+  - Local assets:
+    - `/assets/badges/download-on-the-app-store.svg`
+    - `/assets/badges/google-play-badge.png`
+  - Reusable snippet:
+    - `/snippets/store-badge-links.html`
+  - CSS component classes:
+    - `.store-badge-links` (reusable wrapper)
+    - `.app-store-badge` and `.play-store-badge` (size controls)
 
 ## Editing Rules
 - Keep clean folder URLs (edit `*/index.html`; do not introduce root-level route `.html` files).
 - Preserve shared header/footer and nav consistency unless explicitly redesigning globally.
 - Preserve accessibility attributes used by JS (`aria-expanded`, `aria-controls`, `aria-hidden`, `aria-current`).
 - Prefer existing design tokens/components in `/styles.css` before adding new one-off styles.
-- Keep external store badges/stock imagery links valid if used in page content.
+- Prefer local store badge assets from `/assets/badges/` (avoid external badge hotlinks).
 
 ## Quick QA Checklist
 - Desktop/mobile nav opens and closes correctly on all pages.

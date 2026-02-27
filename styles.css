@@ -730,7 +730,8 @@ button.menu-toggle {
   pointer-events: none;
 }
 
-.store-badges {
+.store-badges,
+.store-badge-links {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -738,24 +739,28 @@ button.menu-toggle {
   margin-top: 12px;
 }
 
-.store-badges a {
+.store-badges a,
+.store-badge-links a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
 
-.store-badges img {
+.store-badges img,
+.store-badge-links img {
   display: block;
   height: 44px;
   width: auto;
 }
 
-.store-badges .app-store-badge {
+.store-badges .app-store-badge,
+.store-badge-links .app-store-badge {
   height: 44px;
 }
 
-.store-badges .play-store-badge {
-  height: 56px;
+.store-badges .play-store-badge,
+.store-badge-links .play-store-badge {
+  height: 58px;
 }
 
 .site-footer {
