@@ -91,6 +91,67 @@ const writeCookieConsent = (value) => {
   localStorage.setItem(COOKIE_STORAGE_KEY, JSON.stringify(value));
 };
 
+const initAsyncForms = () => {
+  const forms = document.querySelectorAll("form[data-async-form]");
+  if (!forms.length) return;
+
+  forms.forEach((form) => {
+    const statusNode = form.querySelector("[data-form-status]");
+    const submitButton = form.querySelector("button[type='submit']");
+
+    const setStatus = (message, state) => {
+      if (!statusNode) return;
+      statusNode.textContent = message;
+      statusNode.dataset.state = state;
+    };
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const endpoint = form.getAttribute("action") || "";
+      if (!endpoint || endpoint.includes("YOUR_FORM_ID")) {
+        setStatus("Form endpoint is not configured yet. Add your live form id first.", "error");
+        return;
+      }
+
+      if (submitButton) submitButton.disabled = true;
+      form.setAttribute("aria-busy", "true");
+      setStatus("Sending enquiry...", "info");
+
+      try {
+        const response = await fetch(endpoint, {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+          },
+          body: new FormData(form),
+        });
+
+        const payload = await response.json().catch(() => ({}));
+        if (!response.ok) {
+          const firstError = payload?.errors?.[0]?.message;
+          const fallbackMessage = payload?.error || "We could not submit your enquiry. Please try again.";
+          setStatus(firstError || fallbackMessage, "error");
+          return;
+        }
+
+        form.reset();
+        setStatus("Thanks. Your enquiry has been sent successfully.", "success");
+      } catch {
+        setStatus("Network error. Please retry in a moment.", "error");
+      } finally {
+        form.removeAttribute("aria-busy");
+        if (submitButton) submitButton.disabled = false;
+      }
+    });
+  });
+};
+
 const buildCookieBanner = () => {
   const banner = document.createElement("section");
   banner.className = "cookie-banner";
@@ -285,3 +346,4 @@ const initCookieConsent = () => {
 };
 
 initCookieConsent();
+initAsyncForms();

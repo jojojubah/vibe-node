@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Vibe Node Services | Coming Soon</title>
-    <link rel="stylesheet" href="/styles.css?v=20260219g" />
+    <title>Vibe Node Services</title>
+    <link rel="stylesheet" href="/styles.css?v=20260227i" />
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
   </head>
   <body>
@@ -20,34 +20,134 @@
           <a href="/games/">Games</a>
           <a href="/apps/">Apps (Coming soon)</a>
           <a href="/tools/">Tools (Coming soon)</a>
-          <a href="/services/" aria-current="page">Services (Coming soon)</a>
+          <a href="/services/" aria-current="page">Services</a>
         </nav>
       </header>
 
-      <section class="games" id="services">
+      <section class="services-overview" id="services">
         <div class="section-header">
           <h2>Services</h2>
-          <p>Coming soon.</p>
+          <p>Modern product services for teams ready to launch, iterate, and scale.</p>
         </div>
-        <div class="games-grid">
-          <div class="game-list">
-            <article class="game-item">
-              <div class="game-logo cover">
-                <img src="/assets/hero-5.jpg" alt="Coming soon" />
-              </div>
-              <div>
-                <h3>Services</h3>
-                <p>Coming soon.</p>
-              </div>
-            </article>
+        <div class="services-grid">
+          <article class="service-card">
+            <figure class="service-media">
+              <picture>
+                <source srcset="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=640 640w, https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1280 1280w" sizes="(max-width: 960px) 100vw, 33vw" />
+                <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=960" alt="Team members discussing product planning" loading="lazy" decoding="async" />
+              </picture>
+            </figure>
+            <div class="service-copy">
+              <h3>Product Strategy</h3>
+              <p>Discovery, roadmap planning, and product positioning aligned to measurable outcomes.</p>
+              <ul>
+                <li>Research workshops</li>
+                <li>Go-to-market planning</li>
+                <li>Execution roadmap</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <figure class="service-media">
+              <picture>
+                <source srcset="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=640 640w, https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=1280 1280w" sizes="(max-width: 960px) 100vw, 33vw" />
+                <img src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=960" alt="Design and engineering team working on product screens" loading="lazy" decoding="async" />
+              </picture>
+            </figure>
+            <div class="service-copy">
+              <h3>Design &amp; Build</h3>
+              <p>End-to-end UI/UX and production engineering for modern web and mobile products.</p>
+              <ul>
+                <li>UI systems</li>
+                <li>Frontend development</li>
+                <li>Release-ready handoff</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <figure class="service-media">
+              <picture>
+                <source srcset="https://images.pexels.com/photos/1181396/pexels-photo-1181396.jpeg?auto=compress&cs=tinysrgb&w=640 640w, https://images.pexels.com/photos/1181396/pexels-photo-1181396.jpeg?auto=compress&cs=tinysrgb&w=1280 1280w" sizes="(max-width: 960px) 100vw, 33vw" />
+                <img src="https://images.pexels.com/photos/1181396/pexels-photo-1181396.jpeg?auto=compress&cs=tinysrgb&w=960" alt="Growth analytics dashboards on laptop" loading="lazy" decoding="async" />
+              </picture>
+            </figure>
+            <div class="service-copy">
+              <h3>Growth Support</h3>
+              <p>Launch support, analytics instrumentation, and optimization loops for sustainable growth.</p>
+              <ul>
+                <li>Launch planning</li>
+                <li>Metrics dashboards</li>
+                <li>Conversion optimization</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="service-cta" id="service-cta">
+        <div class="service-cta-copy">
+          <h2>Build with us</h2>
+          <p>Bring your ideas to life. Contact now for enquiry and let us shape your next product together.</p>
+          <a class="primary service-cta-link" href="#service-enquiry">
+            Contact now for enquiry
+          </a>
+        </div>
+        <figure class="service-cta-media">
+          <img src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Team ideation session at whiteboard" loading="lazy" decoding="async" />
+        </figure>
+      </section>
+
+      <section class="service-form-wrap" id="service-enquiry">
+        <div class="section-header">
+          <h2>Service Enquiry Form</h2>
+          <p>Share your project details and we will get back to you.</p>
+        </div>
+        <form
+          class="service-form"
+          action="https://formsubmit.co/ajax/hello@vibenode.co.uk"
+          method="POST"
+          data-async-form
+          novalidate
+        >
+          <div class="service-form-grid">
+            <label>
+              Full name
+              <input type="text" name="name" autocomplete="name" required />
+            </label>
+            <label>
+              Work email
+              <input type="email" name="email" autocomplete="email" required />
+            </label>
+            <label>
+              Company
+              <input type="text" name="company" autocomplete="organization" />
+            </label>
+            <label>
+              Budget range
+              <select name="budget" required>
+                <option value="">Select budget</option>
+                <option value="under-5k">Under £5,000</option>
+                <option value="5k-20k">£5,000 - £20,000</option>
+                <option value="20k-50k">£20,000 - £50,000</option>
+                <option value="50k-plus">£50,000+</option>
+              </select>
+            </label>
+            <label class="service-form-full">
+              Project goals
+              <textarea name="message" rows="6" minlength="20" placeholder="Tell us what you want to build..." required></textarea>
+            </label>
           </div>
-          <aside class="game-collage" aria-hidden="true">
-            <div class="collage-item c1"></div>
-            <div class="collage-item c2"></div>
-            <div class="collage-item c3"></div>
-            <div class="collage-item c4"></div>
-          </aside>
-        </div>
+          <input class="service-hp" type="text" name="_honey" tabindex="-1" autocomplete="off" />
+          <input type="hidden" name="_subject" value="New Vibe Node service enquiry" />
+          <input type="hidden" name="_template" value="table" />
+          <button class="primary service-submit" type="submit">Send enquiry</button>
+          <p class="service-form-status" data-form-status aria-live="polite"></p>
+          <p class="service-form-note">
+            First-time setup: FormSubmit will send a one-time activation email to <code>hello@vibenode.co.uk</code>. After activation, enquiries are delivered automatically.
+          </p>
+        </form>
       </section>
 
       <footer class="site-footer" id="services-footer">
@@ -68,7 +168,7 @@
             <a href="/games/">Games</a>
             <a href="/apps/">Apps (Coming soon)</a>
             <a href="/tools/">Tools (Coming soon)</a>
-            <a href="/services/">Services (Coming soon)</a>
+            <a href="/services/">Services</a>
           </div>
           <div class="footer-col">
             <h4>Company</h4>
@@ -91,6 +191,6 @@
         </div>
       </footer>
     </div>
-      <script src="/scripts.js?v=20260219g" defer></script>
+      <script src="/scripts.js?v=20260227i" defer></script>
   </body>
 </html>
