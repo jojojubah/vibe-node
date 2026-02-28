@@ -10,9 +10,10 @@
 
 ## Current Product State
 - Visual theme:
-  - Site background is black with subtle blue and purple radial glows
+  - Site background is solid black (no page background gradients)
   - Card surfaces are black with a reusable 2px blue/purple gradient rim
-  - Gradient rim motion is tied to page scroll for subtle movement
+  - Rim color appears on one side of each card edge (not full perimeter)
+  - Rim motion is tied to page scroll and each card has offset variation
 - Home (`/`) is now an Apple-inspired, section-based landing page:
   - Text-first intro
   - Three stacked content sections (Game, Services, Platform)
@@ -54,7 +55,7 @@
 - Every page loads:
   - `<link rel="stylesheet" href="/styles.css?v=...">`
   - `<script src="/scripts.js?v=..." defer></script>`
-- Current cache version in markup: `v=20260227r`
+- Current cache version in markup: `v=20260227s`
 - Rule: when CSS/JS changes, bump the shared `?v=` value across all HTML files.
 
 ## Key Behavior Notes
