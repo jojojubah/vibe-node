@@ -9,6 +9,10 @@
 - Live domain (`CNAME`): `vibenode.co.uk`
 
 ## Current Product State
+- Visual theme:
+  - Site background is black with subtle blue and purple radial glows
+  - Card surfaces are black with a reusable 2px blue/purple gradient rim
+  - Gradient rim motion is tied to page scroll for subtle movement
 - Home (`/`) is now an Apple-inspired, section-based landing page:
   - Text-first intro
   - Three stacked content sections (Game, Services, Platform)
@@ -50,10 +54,13 @@
 - Every page loads:
   - `<link rel="stylesheet" href="/styles.css?v=...">`
   - `<script src="/scripts.js?v=..." defer></script>`
-- Current cache version in markup: `v=20260227p`
+- Current cache version in markup: `v=20260227r`
 - Rule: when CSS/JS changes, bump the shared `?v=` value across all HTML files.
 
 ## Key Behavior Notes
+- Scroll-driven gradient rims:
+  - `/scripts.js` `initScrollGradientRims` updates CSS variable `--scroll-angle`
+  - `/styles.css` applies this variable to conic-gradient card borders
 - Mobile nav:
   - Controlled by `.menu-toggle` `aria-expanded` and header class `menu-open`
   - Hamburger icon animation tied to `aria-expanded="true"` in CSS

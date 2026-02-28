@@ -152,6 +152,30 @@ const initAsyncForms = () => {
   });
 };
 
+const initScrollGradientRims = () => {
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  if (reduceMotion.matches) return;
+
+  const root = document.documentElement;
+  let rafId = 0;
+
+  const updateAngle = () => {
+    rafId = 0;
+    const scrollY = window.scrollY || 0;
+    const angle = (scrollY * 0.14) % 360;
+    root.style.setProperty("--scroll-angle", `${angle.toFixed(2)}deg`);
+  };
+
+  const queueUpdate = () => {
+    if (rafId) return;
+    rafId = window.requestAnimationFrame(updateAngle);
+  };
+
+  queueUpdate();
+  window.addEventListener("scroll", queueUpdate, { passive: true });
+  window.addEventListener("resize", queueUpdate);
+};
+
 const buildCookieBanner = () => {
   const banner = document.createElement("section");
   banner.className = "cookie-banner";
@@ -347,3 +371,4 @@ const initCookieConsent = () => {
 
 initCookieConsent();
 initAsyncForms();
+initScrollGradientRims();
