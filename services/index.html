@@ -4,8 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Vibe Node Services</title>
-    <link rel="stylesheet" href="/styles.css?v=20260303ad" />
-    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=20260303ad" />
+    <link rel="stylesheet" href="/styles.css?v=20260303ae" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=20260303ae" />
   </head>
   <body>
     <div class="page">
@@ -142,10 +142,12 @@
           <p>Tell us what you want to improve, automate, or launch, and we will map a practical AI path from concept to delivery.</p>
           <form
             class="service-form"
-            action="https://formsubmit.co/ajax/contact@vibenode.co.uk"
+            action="mailto:contact@vibenode.co.uk"
             method="POST"
-            data-async-form
-            novalidate
+            enctype="text/plain"
+            data-mailto-form
+            data-mailto-to="contact@vibenode.co.uk"
+            data-mailto-subject="New Vibe Node service enquiry"
           >
             <div class="service-form-grid">
               <label>
@@ -183,13 +185,9 @@
                 <textarea name="message" rows="6" minlength="20" placeholder="Tell us what you want to build..." required></textarea>
               </label>
             </div>
-            <input class="service-hp" type="text" name="_honey" tabindex="-1" autocomplete="off" />
-            <input type="hidden" name="_subject" value="New Vibe Node service enquiry" />
-            <input type="hidden" name="_template" value="table" />
             <button class="primary service-submit" type="submit">Send enquiry</button>
-            <p class="service-form-status" data-form-status aria-live="polite"></p>
             <p class="service-form-note">
-              First-time setup: FormSubmit will send a one-time activation email to <code>contact@vibenode.co.uk</code>. After activation, enquiries are delivered automatically.
+              Send opens your email app with the enquiry pre-filled to <code>contact@vibenode.co.uk</code>.
             </p>
           </form>
         </article>
@@ -244,6 +242,6 @@
         </div>
       </footer>
     </div>
-      <script src="/scripts.js?v=20260303ad" defer></script>
+      <script src="/scripts.js?v=20260303ae" defer></script>
   </body>
 </html>

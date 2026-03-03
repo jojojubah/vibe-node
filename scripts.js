@@ -91,6 +91,81 @@ const writeCookieConsent = (value) => {
   localStorage.setItem(COOKIE_STORAGE_KEY, JSON.stringify(value));
 };
 
+const initClientTypeFields = () => {
+  const forms = document.querySelectorAll("form");
+  if (!forms.length) return;
+
+  forms.forEach((form) => {
+    const clientTypeField = form.querySelector("select[name='client_type']");
+    const companyField = form.querySelector("input[name='company']");
+    if (!clientTypeField || !companyField) return;
+
+    const companyPlaceholder = companyField.getAttribute("placeholder") || "";
+
+    const updateCompanyFieldState = () => {
+      const isIndividual = clientTypeField.value === "individual";
+      companyField.disabled = isIndividual;
+      companyField.setAttribute("aria-disabled", isIndividual ? "true" : "false");
+
+      if (isIndividual) {
+        companyField.value = "";
+        companyField.setAttribute("placeholder", "Not required for individual");
+      } else {
+        companyField.setAttribute("placeholder", companyPlaceholder);
+      }
+    };
+
+    clientTypeField.addEventListener("change", updateCompanyFieldState);
+    updateCompanyFieldState();
+  });
+};
+
+const initMailtoForms = () => {
+  const forms = document.querySelectorAll("form[data-mailto-form]");
+  if (!forms.length) return;
+
+  const fieldLabels = {
+    name: "Full name",
+    email: "Work email",
+    client_type: "I am a",
+    company: "Company",
+    budget: "Budget range",
+    message: "Project goals",
+  };
+
+  forms.forEach((form) => {
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const to = form.dataset.mailtoTo || "contact@vibenode.co.uk";
+      const subject = form.dataset.mailtoSubject || "New enquiry";
+      const formData = new FormData(form);
+      const lines = [];
+
+      formData.forEach((value, key) => {
+        const cleaned = String(value).trim();
+        if (!cleaned) return;
+        const label = fieldLabels[key] || key;
+        lines.push(`${label}: ${cleaned}`);
+      });
+
+      const body = [
+        "New build enquiry submitted via vibenode.co.uk",
+        "",
+        ...lines,
+      ].join("\n");
+
+      const mailtoHref = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailtoHref;
+    });
+  });
+};
+
 const initAsyncForms = () => {
   const forms = document.querySelectorAll("form[data-async-form]");
   if (!forms.length) return;
@@ -98,34 +173,12 @@ const initAsyncForms = () => {
   forms.forEach((form) => {
     const statusNode = form.querySelector("[data-form-status]");
     const submitButton = form.querySelector("button[type='submit']");
-    const clientTypeField = form.querySelector("select[name='client_type']");
-    const companyField = form.querySelector("input[name='company']");
 
     const setStatus = (message, state) => {
       if (!statusNode) return;
       statusNode.textContent = message;
       statusNode.dataset.state = state;
     };
-
-    if (clientTypeField && companyField) {
-      const companyPlaceholder = companyField.getAttribute("placeholder") || "";
-
-      const updateCompanyFieldState = () => {
-        const isIndividual = clientTypeField.value === "individual";
-        companyField.disabled = isIndividual;
-        companyField.setAttribute("aria-disabled", isIndividual ? "true" : "false");
-
-        if (isIndividual) {
-          companyField.value = "";
-          companyField.setAttribute("placeholder", "Not required for individual");
-        } else {
-          companyField.setAttribute("placeholder", companyPlaceholder);
-        }
-      };
-
-      clientTypeField.addEventListener("change", updateCompanyFieldState);
-      updateCompanyFieldState();
-    }
 
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
@@ -451,6 +504,8 @@ const initCookieConsent = () => {
 };
 
 initCookieConsent();
+initClientTypeFields();
+initMailtoForms();
 initAsyncForms();
 initScrollGradientRims();
 initHomeHeroTypewriter();
