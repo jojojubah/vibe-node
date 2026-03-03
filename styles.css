@@ -670,6 +670,63 @@ button {
   aspect-ratio: 16 / 6;
 }
 
+.model-intel {
+  margin: 0 4px 50px;
+}
+
+.model-intel h2 {
+  font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+  font-size: clamp(1.5rem, 3.6vw, 2.2rem);
+  line-height: 1.14;
+  margin-bottom: 8px;
+}
+
+.model-intel-note {
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.model-intel-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid rgba(120, 152, 228, 0.22);
+}
+
+.model-intel-list li {
+  display: grid;
+  grid-template-columns: 44px 20px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 0;
+  border-bottom: 1px solid rgba(120, 152, 228, 0.22);
+}
+
+.model-intel-rank {
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0.6px;
+}
+
+.model-intel-icon {
+  width: 18px;
+  height: 18px;
+  display: block;
+  filter: brightness(0) invert(0.9);
+}
+
+.model-intel-name {
+  color: var(--text);
+  font-size: 15px;
+}
+
+.model-intel-company {
+  color: var(--accent-soft);
+  font-size: 12px;
+  letter-spacing: 0.55px;
+  text-transform: uppercase;
+}
+
 .service-panel-media img {
   width: 100%;
   height: 100%;
@@ -1101,6 +1158,32 @@ body.cookie-consent-required {
 
   .products-intro.home-hero {
     grid-template-columns: 1fr;
+  }
+
+  .model-intel-list li {
+    grid-template-columns: 36px 18px minmax(0, 1fr);
+    grid-template-areas:
+      "rank icon name"
+      ". company company";
+    row-gap: 5px;
+  }
+
+  .model-intel-rank {
+    grid-area: rank;
+  }
+
+  .model-intel-icon {
+    grid-area: icon;
+  }
+
+  .model-intel-name {
+    grid-area: name;
+  }
+
+  .model-intel-company {
+    grid-area: company;
+    font-size: 11px;
+    letter-spacing: 0.45px;
   }
 
   .about-grid,
