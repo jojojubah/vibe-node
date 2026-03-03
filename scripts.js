@@ -98,12 +98,34 @@ const initAsyncForms = () => {
   forms.forEach((form) => {
     const statusNode = form.querySelector("[data-form-status]");
     const submitButton = form.querySelector("button[type='submit']");
+    const clientTypeField = form.querySelector("select[name='client_type']");
+    const companyField = form.querySelector("input[name='company']");
 
     const setStatus = (message, state) => {
       if (!statusNode) return;
       statusNode.textContent = message;
       statusNode.dataset.state = state;
     };
+
+    if (clientTypeField && companyField) {
+      const companyPlaceholder = companyField.getAttribute("placeholder") || "";
+
+      const updateCompanyFieldState = () => {
+        const isIndividual = clientTypeField.value === "individual";
+        companyField.disabled = isIndividual;
+        companyField.setAttribute("aria-disabled", isIndividual ? "true" : "false");
+
+        if (isIndividual) {
+          companyField.value = "";
+          companyField.setAttribute("placeholder", "Not required for individual");
+        } else {
+          companyField.setAttribute("placeholder", companyPlaceholder);
+        }
+      };
+
+      clientTypeField.addEventListener("change", updateCompanyFieldState);
+      updateCompanyFieldState();
+    }
 
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
@@ -174,6 +196,65 @@ const initScrollGradientRims = () => {
   queueUpdate();
   window.addEventListener("scroll", queueUpdate, { passive: true });
   window.addEventListener("resize", queueUpdate);
+};
+
+const initHomeHeroTypewriter = () => {
+  const typewriterNode = document.querySelector(".home-hero-typewriter");
+  if (!typewriterNode) return;
+
+  const items = (typewriterNode.dataset.typewriterItems || "")
+    .split(",")
+    .map((item) => item.trim())
+    .filter(Boolean);
+
+  if (!items.length) return;
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduceMotion) {
+    typewriterNode.textContent = items[0];
+    return;
+  }
+
+  let itemIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+
+  const typeSpeed = 90;
+  const deleteSpeed = 55;
+  const holdAtWordMs = 1100;
+  const pauseAfterDeleteMs = 260;
+
+  const tick = () => {
+    const activeItem = items[itemIndex];
+
+    if (!isDeleting) {
+      charIndex = Math.min(activeItem.length, charIndex + 1);
+      typewriterNode.textContent = activeItem.slice(0, charIndex);
+
+      if (charIndex === activeItem.length) {
+        isDeleting = true;
+        window.setTimeout(tick, holdAtWordMs);
+        return;
+      }
+
+      window.setTimeout(tick, typeSpeed);
+      return;
+    }
+
+    charIndex = Math.max(0, charIndex - 1);
+    typewriterNode.textContent = activeItem.slice(0, charIndex);
+
+    if (charIndex === 0) {
+      isDeleting = false;
+      itemIndex = (itemIndex + 1) % items.length;
+      window.setTimeout(tick, pauseAfterDeleteMs);
+      return;
+    }
+
+    window.setTimeout(tick, deleteSpeed);
+  };
+
+  tick();
 };
 
 const buildCookieBanner = () => {
@@ -372,3 +453,4 @@ const initCookieConsent = () => {
 initCookieConsent();
 initAsyncForms();
 initScrollGradientRims();
+initHomeHeroTypewriter();

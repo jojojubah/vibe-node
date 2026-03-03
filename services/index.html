@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Vibe Node Services</title>
-    <link rel="stylesheet" href="/styles.css?v=20260227u" />
+    <link rel="stylesheet" href="/styles.css?v=20260303v" />
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=20260227m" />
   </head>
   <body>
@@ -22,50 +22,53 @@
         </nav>
       </header>
 
-      <section class="products-intro" id="services">
-        <p class="eyebrow">Services</p>
-        <h1>Onboarding services for teams building ambitious products.</h1>
-        <p class="lead">
-          Strategy, design, and delivery support structured to reduce launch risk
-          and increase execution speed.
-        </p>
+      <section class="products-intro home-hero" id="services">
+        <div class="home-hero-copy">
+          <p class="eyebrow">Services</p>
+          <h1>Build with us at the practical frontier of AI.</h1>
+          <p class="lead">
+            Whether you are an individual creator or a business team, we help you
+            use AI to optimize workflows, ship better products, and move from idea
+            to execution faster.
+          </p>
+        </div>
+        <aside class="home-hero-shell" aria-label="Build assistant preview">
+          <div class="home-chat-head">
+            <p class="home-hero-title">
+              Build
+              <span class="home-hero-typewriter" data-typewriter-items="apps,games,extensions,websites,web apps,CLI tools,automation workflows"></span>
+              <span class="home-hero-caret" aria-hidden="true"></span>
+            </p>
+          </div>
+        </aside>
       </section>
 
       <section class="products-sections" aria-label="Service sections">
         <article class="home-panel home-panel-apps">
-          <figure class="service-panel-media">
-            <img src="https://images.pexels.com/photos/5125366/pexels-photo-5125366.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Colorful source code on a dark screen" loading="lazy" decoding="async" />
-          </figure>
-          <p class="home-panel-kicker">Strategy</p>
-          <h2>Product direction that de-risks launch</h2>
-          <p>Discovery workshops, roadmap shaping, and execution planning for focused releases.</p>
-          <a class="home-link-inline" href="#service-enquiry">Discuss your roadmap</a>
+          <p class="home-panel-kicker">Individuals</p>
+          <h2>Turn your idea into an AI-powered product</h2>
+          <p>We help independent builders shape, design, and launch products with AI across apps, games, tools, and automations.</p>
+          <a class="home-link-inline" href="#service-enquiry">Start your build plan</a>
         </article>
 
         <article class="home-panel home-panel-services">
-          <figure class="service-panel-media">
-            <img src="https://images.pexels.com/photos/33798614/pexels-photo-33798614.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Close-up of a circuit board with RGB lighting" loading="lazy" decoding="async" />
-          </figure>
-          <p class="home-panel-kicker">Build</p>
-          <h2>Design and engineering delivery</h2>
-          <p>Interface systems and implementation support that keeps product quality high under tight timelines.</p>
-          <a class="home-link-inline" href="#service-enquiry">Plan your build</a>
+          <p class="home-panel-kicker">Businesses</p>
+          <h2>Optimize operations and unlock growth with AI</h2>
+          <p>From delivery workflows to internal systems, we help teams automate repetitive work and improve measurable outcomes.</p>
+          <a class="home-link-inline" href="#service-enquiry">Explore business use cases</a>
         </article>
 
         <article class="home-panel home-panel-tools">
-          <figure class="service-panel-media">
-            <img src="https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Close-up of a keyboard with blue backlighting" loading="lazy" decoding="async" />
-          </figure>
-          <p class="home-panel-kicker">Growth</p>
-          <h2>Launch, measure, and improve</h2>
-          <p>Instrumentation, growth loops, and optimization workflows to scale outcomes after launch.</p>
-          <a class="home-link-inline" href="#service-enquiry">Design growth plan</a>
+          <p class="home-panel-kicker">Build Tracks</p>
+          <h2>From Chrome extensions to command-line tools</h2>
+          <p>We design and deliver production-ready AI experiences across web products, browser extensions, CLI tools, and custom platforms.</p>
+          <a class="home-link-inline" href="#service-enquiry">See what we can build</a>
         </article>
 
         <article class="home-panel home-panel-services" id="service-enquiry">
           <p class="home-panel-kicker">Enquiry</p>
-          <h2>Build with us</h2>
-          <p>Bring your ideas to life. Send your project brief and we will get back to you.</p>
+          <h2>Build with Vibe Node</h2>
+          <p>Tell us what you want to improve, automate, or launch, and we will map a practical AI path from concept to delivery.</p>
           <form
             class="service-form"
             action="https://formsubmit.co/ajax/contact@vibenode.co.uk"
@@ -81,6 +84,14 @@
               <label>
                 Work email
                 <input type="email" name="email" autocomplete="email" required />
+              </label>
+              <label>
+                I am a
+                <select name="client_type" required>
+                  <option value="">Select type</option>
+                  <option value="individual">Individual</option>
+                  <option value="business">Company / Business</option>
+                </select>
               </label>
               <label>
                 Company
@@ -118,10 +129,18 @@
           <div class="logo">Vibe Node</div>
           <p>Entertain the world.</p>
           <div class="social-links">
-            <a href="#" aria-label="Vibe Node on LinkedIn">LinkedIn</a>
-            <a href="#" aria-label="Vibe Node on X">X</a>
-            <a href="#" aria-label="Vibe Node on Instagram">Instagram</a>
-            <a href="#" aria-label="Vibe Node on TikTok">TikTok</a>
+            <a href="#" aria-label="Vibe Node on LinkedIn">
+              <img class="social-icon" src="/assets/icons/social/linkedin.svg" alt="" loading="lazy" decoding="async" />
+            </a>
+            <a href="#" aria-label="Vibe Node on X">
+              <img class="social-icon" src="/assets/icons/social/x.svg" alt="" loading="lazy" decoding="async" />
+            </a>
+            <a href="#" aria-label="Vibe Node on Instagram">
+              <img class="social-icon" src="/assets/icons/social/instagram.svg" alt="" loading="lazy" decoding="async" />
+            </a>
+            <a href="#" aria-label="Vibe Node on TikTok">
+              <img class="social-icon" src="/assets/icons/social/tiktok.svg" alt="" loading="lazy" decoding="async" />
+            </a>
           </div>
           <div class="copyright">© 2026 Vibe Node</div>
         </div>
@@ -154,6 +173,6 @@
         </div>
       </footer>
     </div>
-      <script src="/scripts.js?v=20260227u" defer></script>
+      <script src="/scripts.js?v=20260303v" defer></script>
   </body>
 </html>
