@@ -1,4 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">Vibe Node Mark</title>
+  <desc id="desc">V Node logo mark with blue gradient.</desc>
   <defs>
     <linearGradient id="logo-gradient" x1="0%" y1="100%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#1f5ebf" />
