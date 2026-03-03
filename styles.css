@@ -635,10 +635,10 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(132, 172, 247, 0.25);
-  border-radius: 11px;
-  padding: 2px 6px;
-  background: rgba(7, 15, 32, 0.8);
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  background: transparent;
 }
 
 .store-badges .app-store-badge,
