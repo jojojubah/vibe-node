@@ -1470,6 +1470,10 @@ body.cookie-consent-required {
     grid-template-columns: 1fr;
   }
 
+  #services.home-hero {
+    grid-template-columns: 1fr;
+  }
+
   .model-intel-marquee {
     --marquee-duration: 42s;
     padding: 10px 0;
