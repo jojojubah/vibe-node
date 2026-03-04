@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1200" viewBox="0 0 1000 1200" fill="none">
+  <defs>
+    <linearGradient id="bg3" x1="160" y1="40" x2="920" y2="1160" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#091634"/>
+      <stop offset="0.52" stop-color="#2254A3"/>
+      <stop offset="1" stop-color="#0A1428"/>
+    </linearGradient>
+    <filter id="blurC" x="-120" y="-120" width="1260" height="1460">
+      <feGaussianBlur stdDeviation="52"/>
+    </filter>
+  </defs>
+  <rect width="1000" height="1200" fill="url(#bg3)"/>
+  <g filter="url(#blurC)" opacity="0.6">
+    <circle cx="178" cy="300" r="170" fill="#87D2FF"/>
+    <circle cx="804" cy="208" r="168" fill="#9ED7FF"/>
+    <circle cx="690" cy="940" r="290" fill="#69C0FF"/>
+  </g>
+  <rect x="120" y="94" width="760" height="998" rx="84" fill="rgba(193,226,255,0.12)" stroke="rgba(255,255,255,0.36)" stroke-width="2"/>
+  <rect x="172" y="148" width="656" height="108" rx="54" fill="rgba(255,255,255,0.24)"/>
+  <rect x="204" y="178" width="212" height="48" rx="24" fill="rgba(255,255,255,0.3)"/>
+  <rect x="448" y="178" width="126" height="48" rx="24" fill="rgba(255,255,255,0.22)"/>
+  <rect x="600" y="178" width="188" height="48" rx="24" fill="rgba(255,255,255,0.26)"/>
+  <rect x="172" y="294" width="304" height="262" rx="54" fill="rgba(255,255,255,0.2)"/>
+  <rect x="524" y="294" width="304" height="118" rx="56" fill="rgba(255,255,255,0.22)"/>
+  <rect x="524" y="438" width="304" height="118" rx="56" fill="rgba(255,255,255,0.17)"/>
+  <rect x="172" y="592" width="656" height="146" rx="52" fill="rgba(255,255,255,0.2)"/>
+  <rect x="172" y="770" width="656" height="146" rx="52" fill="rgba(255,255,255,0.17)"/>
+  <rect x="172" y="948" width="430" height="96" rx="48" fill="rgba(255,255,255,0.2)"/>
+  <rect x="632" y="948" width="196" height="96" rx="48" fill="rgba(255,255,255,0.26)"/>
+</svg>

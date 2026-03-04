@@ -342,6 +342,35 @@ const initHeroWindowPhraseRotators = () => {
   });
 };
 
+const initLiquidGlassCardRotators = () => {
+  const rotators = document.querySelectorAll("[data-liquid-glass-rotator]");
+  if (!rotators.length) return;
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const cycleDelayMs = 3200;
+
+  rotators.forEach((rotator) => {
+    const slides = Array.from(rotator.querySelectorAll(".liquid-glass-card-image"));
+    if (!slides.length) return;
+
+    let activeIndex = Math.max(
+      0,
+      slides.findIndex((slide) => slide.classList.contains("is-active")),
+    );
+    slides.forEach((slide, index) => {
+      slide.classList.toggle("is-active", index === activeIndex);
+    });
+
+    if (slides.length < 2 || reduceMotion) return;
+
+    window.setInterval(() => {
+      slides[activeIndex].classList.remove("is-active");
+      activeIndex = (activeIndex + 1) % slides.length;
+      slides[activeIndex].classList.add("is-active");
+    }, cycleDelayMs);
+  });
+};
+
 const initStickySectionNav = () => {
   const sectionGroup = document.querySelector(".products-sections");
   if (!sectionGroup) return;
@@ -768,6 +797,7 @@ initAsyncForms();
 initScrollGradientRims();
 initHomeHeroTypewriter();
 initHeroWindowPhraseRotators();
+initLiquidGlassCardRotators();
 initStickySectionNav();
 initViewportAnimations();
 initModelIntelMarquee();

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1200" viewBox="0 0 1000 1200" fill="none">
+  <defs>
+    <linearGradient id="bg1" x1="100" y1="40" x2="860" y2="1180" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0B1A3C"/>
+      <stop offset="0.56" stop-color="#1E4F9A"/>
+      <stop offset="1" stop-color="#0A1224"/>
+    </linearGradient>
+    <linearGradient id="glass1" x1="260" y1="160" x2="760" y2="780" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#BFD8FF" stop-opacity="0.14"/>
+    </linearGradient>
+    <filter id="blurA" x="-100" y="-100" width="1200" height="1400">
+      <feGaussianBlur stdDeviation="56"/>
+    </filter>
+  </defs>
+  <rect width="1000" height="1200" fill="url(#bg1)"/>
+  <g filter="url(#blurA)" opacity="0.58">
+    <circle cx="230" cy="220" r="170" fill="#6EC6FF"/>
+    <circle cx="810" cy="340" r="190" fill="#8CC7FF"/>
+    <circle cx="520" cy="910" r="250" fill="#5AB2FF"/>
+  </g>
+  <rect x="120" y="106" width="760" height="160" rx="80" fill="url(#glass1)" stroke="rgba(255,255,255,0.54)" stroke-width="2"/>
+  <rect x="160" y="158" width="180" height="56" rx="28" fill="rgba(255,255,255,0.33)"/>
+  <rect x="364" y="158" width="312" height="56" rx="28" fill="rgba(255,255,255,0.22)"/>
+  <rect x="706" y="158" width="132" height="56" rx="28" fill="rgba(255,255,255,0.28)"/>
+  <rect x="120" y="322" width="760" height="356" rx="52" fill="rgba(212,231,255,0.18)" stroke="rgba(255,255,255,0.43)" stroke-width="2"/>
+  <rect x="174" y="372" width="278" height="208" rx="40" fill="rgba(255,255,255,0.26)"/>
+  <rect x="488" y="372" width="338" height="66" rx="33" fill="rgba(255,255,255,0.24)"/>
+  <rect x="488" y="464" width="280" height="48" rx="24" fill="rgba(255,255,255,0.18)"/>
+  <rect x="488" y="536" width="218" height="44" rx="22" fill="rgba(255,255,255,0.16)"/>
+  <rect x="120" y="726" width="760" height="332" rx="56" fill="rgba(173,211,255,0.16)" stroke="rgba(255,255,255,0.36)" stroke-width="2"/>
+  <rect x="170" y="784" width="660" height="66" rx="33" fill="rgba(255,255,255,0.24)"/>
+  <rect x="170" y="878" width="520" height="58" rx="29" fill="rgba(255,255,255,0.19)"/>
+  <rect x="710" y="878" width="120" height="58" rx="29" fill="rgba(255,255,255,0.27)"/>
+</svg>

@@ -697,6 +697,54 @@ textarea {
   margin-bottom: 16px;
 }
 
+.liquid-glass-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 172px;
+  gap: 16px;
+  align-items: start;
+}
+
+.liquid-glass-card-content {
+  min-width: 0;
+}
+
+.liquid-glass-card-media {
+  width: 172px;
+  position: relative;
+  justify-self: end;
+  border-radius: 14px;
+  border: 1px solid rgba(125, 170, 255, 0.2);
+  background: rgba(8, 18, 38, 0.55);
+  overflow: hidden;
+  aspect-ratio: 5 / 6;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.34);
+}
+
+.liquid-glass-card-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 600ms ease;
+}
+
+.liquid-glass-card-image.is-active {
+  opacity: 1;
+}
+
+@media (max-width: 720px) {
+  .liquid-glass-card {
+    grid-template-columns: 1fr;
+  }
+
+  .liquid-glass-card-media {
+    justify-self: start;
+    width: min(170px, 52vw);
+  }
+}
+
 .home-panel:nth-child(2) {
   --rim-offset: 134deg;
 }

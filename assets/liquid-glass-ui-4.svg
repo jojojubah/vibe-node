@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1200" viewBox="0 0 1000 1200" fill="none">
+  <defs>
+    <linearGradient id="bg4" x1="90" y1="20" x2="920" y2="1180" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#081330"/>
+      <stop offset="0.48" stop-color="#1F4B99"/>
+      <stop offset="1" stop-color="#091326"/>
+    </linearGradient>
+    <filter id="blurD" x="-120" y="-120" width="1260" height="1460">
+      <feGaussianBlur stdDeviation="58"/>
+    </filter>
+  </defs>
+  <rect width="1000" height="1200" fill="url(#bg4)"/>
+  <g filter="url(#blurD)" opacity="0.56">
+    <ellipse cx="242" cy="244" rx="220" ry="160" fill="#7CCEFF"/>
+    <ellipse cx="790" cy="294" rx="214" ry="166" fill="#A7DAFF"/>
+    <ellipse cx="504" cy="972" rx="334" ry="238" fill="#5EB7FF"/>
+  </g>
+  <rect x="120" y="102" width="760" height="238" rx="74" fill="rgba(210,232,255,0.16)" stroke="rgba(255,255,255,0.44)" stroke-width="2"/>
+  <rect x="176" y="162" width="300" height="118" rx="59" fill="rgba(255,255,255,0.25)"/>
+  <rect x="518" y="162" width="304" height="54" rx="27" fill="rgba(255,255,255,0.24)"/>
+  <rect x="518" y="228" width="210" height="52" rx="26" fill="rgba(255,255,255,0.2)"/>
+  <rect x="120" y="382" width="760" height="316" rx="74" fill="rgba(186,222,255,0.15)" stroke="rgba(255,255,255,0.38)" stroke-width="2"/>
+  <rect x="176" y="444" width="228" height="190" rx="48" fill="rgba(255,255,255,0.24)"/>
+  <rect x="440" y="444" width="382" height="82" rx="41" fill="rgba(255,255,255,0.23)"/>
+  <rect x="440" y="548" width="288" height="66" rx="33" fill="rgba(255,255,255,0.18)"/>
+  <rect x="120" y="740" width="760" height="350" rx="74" fill="rgba(177,213,255,0.15)" stroke="rgba(255,255,255,0.33)" stroke-width="2"/>
+  <rect x="176" y="808" width="646" height="72" rx="36" fill="rgba(255,255,255,0.21)"/>
+  <rect x="176" y="906" width="392" height="56" rx="28" fill="rgba(255,255,255,0.17)"/>
+  <rect x="176" y="982" width="248" height="56" rx="28" fill="rgba(255,255,255,0.17)"/>
+</svg>
