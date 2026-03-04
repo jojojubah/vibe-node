@@ -310,6 +310,264 @@ const initHomeHeroTypewriter = () => {
   tick();
 };
 
+const initHeroWindowPhraseRotators = () => {
+  const phraseNodes = document.querySelectorAll(".hero-window-phrase");
+  if (!phraseNodes.length) return;
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const cycleDelayMs = 3200;
+  const fadeDurationMs = 180;
+
+  phraseNodes.forEach((phraseNode) => {
+    const items = (phraseNode.dataset.heroPhrases || "")
+      .split(",")
+      .map((item) => item.trim())
+      .filter(Boolean);
+
+    if (!items.length) return;
+
+    let itemIndex = 0;
+    phraseNode.textContent = items[itemIndex];
+
+    if (items.length === 1 || reduceMotion) return;
+
+    window.setInterval(() => {
+      phraseNode.classList.add("is-exiting");
+      window.setTimeout(() => {
+        itemIndex = (itemIndex + 1) % items.length;
+        phraseNode.textContent = items[itemIndex];
+        phraseNode.classList.remove("is-exiting");
+      }, fadeDurationMs);
+    }, cycleDelayMs);
+  });
+};
+
+const initStickySectionNav = () => {
+  const sectionGroup = document.querySelector(".products-sections");
+  if (!sectionGroup) return;
+
+  const sections = Array.from(sectionGroup.children).filter((node) => node.classList.contains("home-panel"));
+  if (sections.length < 3) return;
+
+  const usedIds = new Set(Array.from(document.querySelectorAll("[id]")).map((node) => node.id));
+  const slugify = (value) =>
+    value
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+
+  sections.forEach((section, index) => {
+    if (section.id) return;
+    const labelSource =
+      section.querySelector(".home-panel-kicker")?.textContent ||
+      section.querySelector("h2, h3")?.textContent ||
+      `section-${index + 1}`;
+    const baseId = slugify(labelSource) || `section-${index + 1}`;
+    let candidate = baseId;
+    let suffix = 2;
+    while (usedIds.has(candidate)) {
+      candidate = `${baseId}-${suffix}`;
+      suffix += 1;
+    }
+    section.id = candidate;
+    usedIds.add(candidate);
+  });
+
+  const nav = document.createElement("nav");
+  nav.className = "vn-sticky-nav";
+  nav.setAttribute("aria-label", "Section navigation");
+  nav.setAttribute("data-viewport", "in");
+  nav.setAttribute("data-viewport-threshold", "0.05");
+
+  const list = document.createElement("ul");
+  list.className = "vn-sticky-nav-list";
+
+  const links = [];
+  sections.forEach((section) => {
+    const item = document.createElement("li");
+    item.className = "vn-sticky-nav-item";
+
+    const link = document.createElement("a");
+    link.className = "vn-sticky-nav-link";
+    link.href = `#${section.id}`;
+    link.textContent =
+      section.querySelector(".home-panel-kicker")?.textContent?.trim() ||
+      section.querySelector("h2, h3")?.textContent?.trim() ||
+      "Section";
+    link.setAttribute("data-section-target", `#${section.id}`);
+
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+      history.replaceState(null, "", `#${section.id}`);
+    });
+
+    links.push({ section, link: item });
+    item.appendChild(link);
+    list.appendChild(item);
+  });
+
+  nav.appendChild(list);
+  sectionGroup.before(nav);
+
+  const setActiveLink = (activeSection) => {
+    links.forEach(({ section, link }) => {
+      link.classList.toggle("is-active", section === activeSection);
+    });
+  };
+
+  const sectionEntries = new Map();
+  const sectionObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        sectionEntries.set(entry.target, entry);
+      });
+
+      let activeEntry = null;
+      sectionEntries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        if (!activeEntry) {
+          activeEntry = entry;
+          return;
+        }
+        if (entry.intersectionRatio > activeEntry.intersectionRatio) {
+          activeEntry = entry;
+          return;
+        }
+        if (
+          entry.intersectionRatio === activeEntry.intersectionRatio &&
+          entry.boundingClientRect.top < activeEntry.boundingClientRect.top
+        ) {
+          activeEntry = entry;
+        }
+      });
+
+      if (activeEntry) {
+        setActiveLink(activeEntry.target);
+      }
+    },
+    {
+      threshold: Array.from({ length: 21 }, (_, index) => index * 0.05),
+      rootMargin: "-8% 0px -58% 0px",
+    },
+  );
+
+  sections.forEach((section) => sectionObserver.observe(section));
+  setActiveLink(sections[0]);
+};
+
+const initViewportAnimations = () => {
+  const targets = new Set();
+  const rules = [
+    {
+      selector:
+        ".products-intro, .about, .games, .section-header, .model-intel, .home-hero-copy, .home-hero-shell, .site-footer",
+      mode: "once",
+      threshold: 0.14,
+    },
+    {
+      selector: ".products-sections > .home-panel, .game-list > .game-item, .stats > .stat",
+      mode: "once",
+      threshold: 0.12,
+      staggerChildren: true,
+    },
+    {
+      selector: "[data-viewport]",
+      mode: "once",
+      threshold: 0.14,
+    },
+  ];
+
+  rules.forEach((rule) => {
+    document.querySelectorAll(rule.selector).forEach((node) => {
+      const element = node;
+      if (!element.dataset.viewport) {
+        element.dataset.viewport = rule.mode;
+      }
+      if (!element.dataset.viewportThreshold) {
+        element.dataset.viewportThreshold = String(rule.threshold);
+      }
+      if (rule.staggerChildren && !element.hasAttribute("data-viewport-stagger")) {
+        element.setAttribute("data-viewport-stagger", "");
+        Array.from(element.children).forEach((child, index) => {
+          child.style.setProperty("--vn-stagger-index", String(index));
+        });
+      }
+      targets.add(element);
+    });
+  });
+
+  if (!targets.size) return;
+
+  document.documentElement.classList.add("vn-scrollfx-ready");
+
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    targets.forEach((element) => {
+      element.classList.add("vn-onscreen");
+    });
+    return;
+  }
+
+  const viewportObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        const element = entry.target;
+        const threshold = Number.parseFloat(element.dataset.viewportThreshold || "0.14");
+        const mode = element.dataset.viewport || "once";
+        const viewportTrigger = window.innerHeight * (1 - Math.min(0.85, threshold));
+        const geometricHit =
+          entry.boundingClientRect.top <= viewportTrigger && entry.boundingClientRect.bottom >= 0;
+        const isOnscreen = entry.isIntersecting && (entry.intersectionRatio >= threshold || geometricHit);
+
+        if (isOnscreen) {
+          element.classList.add("vn-onscreen");
+          if (mode === "once") {
+            observer.unobserve(element);
+          }
+          return;
+        }
+
+        if (mode === "in") {
+          element.classList.remove("vn-onscreen");
+        }
+      });
+    },
+    {
+      threshold: Array.from({ length: 21 }, (_, index) => index * 0.05),
+      rootMargin: "0px 0px -8% 0px",
+    },
+  );
+
+  targets.forEach((element) => viewportObserver.observe(element));
+};
+
+const initModelIntelMarquee = () => {
+  const marquees = document.querySelectorAll(".model-intel-marquee");
+  if (!marquees.length) return;
+
+  const isTouchPrimary = window.matchMedia("(hover: none), (pointer: coarse)").matches;
+  if (!isTouchPrimary) return;
+
+  marquees.forEach((marquee) => {
+    marquee.setAttribute("tabindex", "0");
+    marquee.setAttribute("aria-label", `${marquee.getAttribute("aria-label") || "Model banner"}. Tap to pause or resume.`);
+    marquee.setAttribute("data-paused", "false");
+
+    const togglePaused = () => {
+      const nextPaused = !marquee.classList.contains("is-paused");
+      marquee.classList.toggle("is-paused", nextPaused);
+      marquee.setAttribute("data-paused", nextPaused ? "true" : "false");
+    };
+
+    marquee.addEventListener("click", togglePaused);
+    marquee.addEventListener("keydown", (event) => {
+      if (event.key !== " " && event.key !== "Enter") return;
+      event.preventDefault();
+      togglePaused();
+    });
+  });
+};
+
 const buildCookieBanner = () => {
   const banner = document.createElement("section");
   banner.className = "cookie-banner";
@@ -509,3 +767,7 @@ initMailtoForms();
 initAsyncForms();
 initScrollGradientRims();
 initHomeHeroTypewriter();
+initHeroWindowPhraseRotators();
+initStickySectionNav();
+initViewportAnimations();
+initModelIntelMarquee();

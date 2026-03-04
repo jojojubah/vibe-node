@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">V Node Mark</title>
+  <desc id="desc">Monogram V with connected node symbol, transparent background.</desc>
+  <defs>
+    <clipPath id="v-cut">
+      <rect x="0" y="184" width="740" height="700"/>
+    </clipPath>
+  </defs>
+  <g fill="currentColor" stroke="currentColor">
+    <polyline points="196 120 436 760 676 120" fill="none" stroke="currentColor" stroke-width="128" stroke-linecap="butt" stroke-linejoin="bevel" clip-path="url(#v-cut)"/>
+    <line x1="760" y1="550" x2="856" y2="438" stroke-width="24" stroke-linecap="round"/>
+    <line x1="760" y1="550" x2="890" y2="665" stroke-width="24" stroke-linecap="round"/>
+    <circle cx="760" cy="550" r="62"/>
+    <circle cx="856" cy="438" r="38"/>
+    <circle cx="890" cy="665" r="38"/>
+  </g>
+</svg>

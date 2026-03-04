@@ -11,18 +11,18 @@
 ## Current Product State
 - Visual theme:
   - Background uses blue gradients at the top only, fading into black for most of the page.
-  - No decorative top background shapes (no extra top line/circle overlays).
-  - Header/nav bar uses a black glass-style surface.
+  - Header/nav uses a black glass-style sticky bar with a faded-edge divider line.
   - Card surfaces are solid dark grey-blue (`--card-surface`) with no thin outline borders.
   - Footer is non-card style (transparent background + top border).
   - Primary and ghost buttons use no hover movement; hover behavior is color inversion.
+  - Favicon is `/assets/favicon.svg` (Vibe Node mark; white fill treatment).
 - Home (`/`):
-  - Header section uses the same core messaging style as Services.
-  - Includes right-side blue information panel with:
-    - `Build...`
-    - `Apps, games, tools`
-    - `Extensions, web apps, CLI tools`
-    - `Optimise your business with AI`
+  - Hero is 2-column; left side keeps core headline + CTA.
+  - Right side is a macOS-style app window panel with:
+    - top bar controls + Vibe Node logo/label
+    - rotating phrase line (`.hero-window-phrase`)
+    - static outcome bullets
+    - trust line with `3-5 business day response`
   - Main CTA in hero: `Build with Us` (links to `/services/#service-enquiry`).
   - Three stacked panels remain: `Game`, `Services`, `Platform`.
 - Products (`/products/`):
@@ -31,14 +31,20 @@
   - Single game card for `Dotz & Boxz` with App Store / Google Play badges.
 - Services (`/services/`):
   - Header copy: `Build with us at the practical frontier of AI.`
+  - Hero right side uses same app-window component pattern as Home.
+  - Includes `LATEST MODELS` marquee banner section (top global snapshot, March 2026).
   - Three service panels: `Individuals`, `Businesses`, `Build Tracks`.
-  - Stock imagery removed from service cards.
-  - Enquiry form is async and includes `I am a` selector (`Individual` / `Company / Business`).
+  - Enquiry form is `data-mailto-form` and opens prefilled email compose to `contact@vibenode.co.uk`.
+  - Includes `I am a` selector (`Individual` / `Company / Business`).
   - When `Individual` is selected, company field is disabled and visually greyed out.
+  - Service trust/reply messaging uses `3-5 business days`.
 - Apps (`/apps/`) and Tools (`/tools/`):
   - Minimal `Coming soon.` pages.
+- Thanks (`/thanks/`):
+  - Confirmation page after enquiry flow with `3-5 business days` response message.
 - Top navigation across site:
   - Primary links: `Products` and `Services`.
+  - Desktop links are text-only (no pill containers); active/hover state is blue color.
 
 ## Site Structure
 - Home page: `/index.html`
@@ -52,6 +58,7 @@
   - `/privacy/`
   - `/terms/`
   - `/cookies/`
+  - `/thanks/`
 - Static assets directory: `/assets/`
 - Reusable snippets directory: `/snippets/`
 
@@ -60,8 +67,9 @@
 - Global behavior: `/scripts.js`
 - Every page loads:
   - `<link rel="stylesheet" href="/styles.css?v=...">`
+  - `<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=...">`
   - `<script src="/scripts.js?v=..." defer></script>`
-- Current cache version in markup: `v=20260303g`
+- Current cache version in markup: `v=20260304l`
 - Rule: when CSS/JS changes, bump the shared `?v=` value across all HTML files.
 
 ## Key Behavior Notes
@@ -73,11 +81,18 @@
 - Cookie consent:
   - Storage key: `vibenode_cookie_consent_v1`.
   - Footer `.cookie-settings-link` opens consent settings panel.
+- Hero phrase motion:
+  - Home + Services hero windows use `.hero-window-phrase` with `data-hero-phrases`.
+  - Rotator logic is in `/scripts.js` (`initHeroWindowPhraseRotators`), with reduced-motion guard.
+- Scroll reveal + section tracking:
+  - Viewport animation system uses `[data-viewport]` + `.vn-onscreen` (`initViewportAnimations`).
+  - Section sticky nav is auto-generated for `.products-sections` (`initStickySectionNav`), desktop only.
+- Services models marquee:
+  - Auto-scrolls on desktop; touch/click toggles pause via `.is-paused` (`initModelIntelMarquee`).
 - Service form:
-  - Markup uses `form[data-async-form]`.
-  - Async submission handled in `/scripts.js` (`initAsyncForms`).
-  - Endpoint: `https://formsubmit.co/ajax/contact@vibenode.co.uk`.
-  - Includes honeypot field and inline status UI.
+  - Current live form markup uses `form[data-mailto-form]`.
+  - Prefill handling is in `/scripts.js` (`initMailtoForms`).
+  - `initAsyncForms` remains in codebase for forms that use `data-async-form`.
   - `select[name="client_type"]` controls `input[name="company"]` disabled state.
 - Scroll angle:
   - `/scripts.js` still updates CSS variable `--scroll-angle` (legacy support for motion/angle-driven effects).
@@ -91,7 +106,17 @@
   - `/assets/icons/social/linkedin.svg`
   - `/assets/icons/social/x.svg`
   - `/assets/icons/social/instagram.svg`
-  - `/assets/icons/social/tiktok.svg`
+- AI model provider icons:
+  - `/assets/icons/ai-models/openai.svg`
+  - `/assets/icons/ai-models/anthropic.svg`
+  - `/assets/icons/ai-models/google.svg`
+  - `/assets/icons/ai-models/x.svg`
+  - `/assets/icons/ai-models/mistralai.svg`
+  - `/assets/icons/ai-models/alibabacloud.svg`
+- Brand assets:
+  - `/assets/v-node-mark-gradient.svg`
+  - `/assets/v-node-mark-white.svg`
+  - `/assets/v-node-profile.png`
 
 ## Editing Rules
 - Keep clean folder URLs (edit `*/index.html`; do not introduce root-level route `.html` files).
@@ -103,14 +128,16 @@
 ## Quick QA Checklist
 - Desktop/mobile nav opens/closes correctly on all pages.
 - Active nav state (`aria-current="page"`) is correct per route.
-- Home hero left text + right blue panel render correctly.
+- Home + Services hero windows render correctly (header bar, phrase rotator, bullets, trust line).
 - Header intro text alignment is consistent between Home, Products, Services.
 - Button hover behavior inverts colors and does not move.
 - Products sections render in order: Apps, Games, Tools.
 - Games page shows one game and both store badges open external links.
+- Services model marquee scrolls, and pause/resume works on mobile tap.
 - Services form:
-  - async submit status works
+  - `Send enquiry` opens prefilled email compose to `contact@vibenode.co.uk`
   - selecting `Individual` disables/greys company field
+- Reply-time text shows `3-5 business days` where displayed.
 - Cookie banner/settings still work.
 - Updated CSS/JS is visible after cache version bump.
 
