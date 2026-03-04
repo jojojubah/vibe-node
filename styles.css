@@ -686,26 +686,59 @@ button {
   margin-bottom: 12px;
 }
 
-.model-intel-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  border-top: 1px solid rgba(120, 152, 228, 0.22);
+.model-intel-marquee {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(to right, rgba(120, 152, 228, 0), rgba(120, 152, 228, 0.22) 12%, rgba(120, 152, 228, 0.22) 88%, rgba(120, 152, 228, 0)) top / 100% 1px no-repeat,
+    linear-gradient(to right, rgba(120, 152, 228, 0), rgba(120, 152, 228, 0.22) 12%, rgba(120, 152, 228, 0.22) 88%, rgba(120, 152, 228, 0)) bottom / 100% 1px no-repeat;
+  padding: 12px 0;
+  --marquee-duration: 34s;
 }
 
-.model-intel-list li {
-  display: grid;
-  grid-template-columns: 44px 20px minmax(0, 1fr) auto;
+.model-intel-marquee::before,
+.model-intel-marquee::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 62px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.model-intel-marquee::before {
+  left: 0;
+  background: linear-gradient(to right, #000 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.model-intel-marquee::after {
+  right: 0;
+  background: linear-gradient(to left, #000 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.model-intel-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: model-intel-marquee-scroll var(--marquee-duration) linear infinite;
+  will-change: transform;
+}
+
+.model-intel-marquee-group {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin: 0;
+  padding: 0 22px 0 0;
+  flex-shrink: 0;
+}
+
+.model-intel-chip {
+  display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 11px 0;
-  border-bottom: 1px solid rgba(120, 152, 228, 0.22);
-}
-
-.model-intel-rank {
-  color: var(--muted);
-  font-size: 12px;
-  letter-spacing: 0.6px;
+  white-space: nowrap;
 }
 
 .model-intel-icon {
@@ -720,11 +753,36 @@ button {
   font-size: 15px;
 }
 
-.model-intel-company {
+.model-intel-dash {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.model-intel-provider {
   color: var(--accent-soft);
   font-size: 12px;
-  letter-spacing: 0.55px;
-  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.model-intel-marquee:hover .model-intel-marquee-track,
+.model-intel-marquee:focus-within .model-intel-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes model-intel-marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .model-intel-marquee-track {
+    animation: none;
+  }
 }
 
 .service-panel-media img {
@@ -1160,30 +1218,32 @@ body.cookie-consent-required {
     grid-template-columns: 1fr;
   }
 
-  .model-intel-list li {
-    grid-template-columns: 36px 18px minmax(0, 1fr);
-    grid-template-areas:
-      "rank icon name"
-      ". company company";
-    row-gap: 5px;
+  .model-intel-marquee {
+    --marquee-duration: 42s;
+    padding: 10px 0;
   }
 
-  .model-intel-rank {
-    grid-area: rank;
+  .model-intel-marquee-group {
+    gap: 18px;
+    padding-right: 18px;
+  }
+
+  .model-intel-chip {
+    gap: 8px;
   }
 
   .model-intel-icon {
-    grid-area: icon;
+    width: 16px;
+    height: 16px;
   }
 
   .model-intel-name {
-    grid-area: name;
+    font-size: 14px;
   }
 
-  .model-intel-company {
-    grid-area: company;
+  .model-intel-provider {
     font-size: 11px;
-    letter-spacing: 0.45px;
+    letter-spacing: 0.35px;
   }
 
   .about-grid,

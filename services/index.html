@@ -4,8 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Vibe Node Services</title>
-    <link rel="stylesheet" href="/styles.css?v=20260303ae" />
-    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=20260303ae" />
+    <link rel="stylesheet" href="/styles.css?v=20260304c" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=20260304c" />
   </head>
   <body>
     <div class="page">
@@ -47,71 +47,137 @@
       </section>
 
       <section class="model-intel" aria-labelledby="model-intel-title">
-        <p class="eyebrow">Latest Models</p>
+        <p class="eyebrow">LATEST MODELS</p>
         <h2 id="model-intel-title">Implement the latest models into your products.</h2>
         <p class="model-intel-note">Top global model snapshot (March 2026).</p>
-        <ol class="model-intel-list">
-          <li>
-            <span class="model-intel-rank">01</span>
-            <img class="model-intel-icon" src="/assets/icons/ai-models/openai.svg" alt="OpenAI logo" loading="lazy" decoding="async" />
-            <span class="model-intel-name">GPT-5.3-Codex</span>
-            <span class="model-intel-company">OpenAI</span>
-          </li>
-          <li>
-            <span class="model-intel-rank">02</span>
-            <img class="model-intel-icon" src="/assets/icons/ai-models/openai.svg" alt="OpenAI logo" loading="lazy" decoding="async" />
-            <span class="model-intel-name">GPT-5.2 Pro</span>
-            <span class="model-intel-company">OpenAI</span>
-          </li>
-          <li>
-            <span class="model-intel-rank">03</span>
-            <img class="model-intel-icon" src="/assets/icons/ai-models/anthropic.svg" alt="Anthropic logo" loading="lazy" decoding="async" />
-            <span class="model-intel-name">Claude Opus 4.6</span>
-            <span class="model-intel-company">Anthropic</span>
-          </li>
-          <li>
-            <span class="model-intel-rank">04</span>
-            <img class="model-intel-icon" src="/assets/icons/ai-models/anthropic.svg" alt="Anthropic logo" loading="lazy" decoding="async" />
-            <span class="model-intel-name">Claude Sonnet 4.6</span>
-            <span class="model-intel-company">Anthropic</span>
-          </li>
-          <li>
-            <span class="model-intel-rank">05</span>
-            <img class="model-intel-icon" src="/assets/icons/ai-models/google.svg" alt="Google logo" loading="lazy" decoding="async" />
-            <span class="model-intel-name">Gemini 3.1 Pro</span>
-            <span class="model-intel-company">Google</span>
-          </li>
-          <li>
-            <span class="model-intel-rank">06</span>
-            <img class="model-intel-icon" src="/assets/icons/ai-models/google.svg" alt="Google logo" loading="lazy" decoding="async" />
-            <span class="model-intel-name">Gemini 3 Pro</span>
-            <span class="model-intel-company">Google</span>
-          </li>
-          <li>
-            <span class="model-intel-rank">07</span>
-            <img class="model-intel-icon" src="/assets/icons/ai-models/x.svg" alt="xAI logo" loading="lazy" decoding="async" />
-            <span class="model-intel-name">Grok 4.1</span>
-            <span class="model-intel-company">xAI</span>
-          </li>
-          <li>
-            <span class="model-intel-rank">08</span>
-            <img class="model-intel-icon" src="/assets/icons/ai-models/x.svg" alt="xAI logo" loading="lazy" decoding="async" />
-            <span class="model-intel-name">Grok 4 Fast</span>
-            <span class="model-intel-company">xAI</span>
-          </li>
-          <li>
-            <span class="model-intel-rank">09</span>
-            <img class="model-intel-icon" src="/assets/icons/ai-models/mistralai.svg" alt="Mistral AI logo" loading="lazy" decoding="async" />
-            <span class="model-intel-name">Mistral Large 3</span>
-            <span class="model-intel-company">Mistral AI</span>
-          </li>
-          <li>
-            <span class="model-intel-rank">10</span>
-            <img class="model-intel-icon" src="/assets/icons/ai-models/alibabacloud.svg" alt="Alibaba Cloud logo" loading="lazy" decoding="async" />
-            <span class="model-intel-name">Qwen3-Max</span>
-            <span class="model-intel-company">Alibaba Cloud</span>
-          </li>
-        </ol>
+        <div class="model-intel-marquee" role="region" aria-label="Top global model snapshot">
+          <div class="model-intel-marquee-track">
+            <ul class="model-intel-marquee-group">
+              <li class="model-intel-chip">
+                <img class="model-intel-icon" src="/assets/icons/ai-models/openai.svg" alt="OpenAI logo" loading="lazy" decoding="async" />
+                <span class="model-intel-name">GPT-5.3 Codex</span>
+                <span class="model-intel-dash" aria-hidden="true">-</span>
+                <span class="model-intel-provider">OpenAI</span>
+              </li>
+              <li class="model-intel-chip">
+                <img class="model-intel-icon" src="/assets/icons/ai-models/openai.svg" alt="OpenAI logo" loading="lazy" decoding="async" />
+                <span class="model-intel-name">GPT-5.2 Pro</span>
+                <span class="model-intel-dash" aria-hidden="true">-</span>
+                <span class="model-intel-provider">OpenAI</span>
+              </li>
+              <li class="model-intel-chip">
+                <img class="model-intel-icon" src="/assets/icons/ai-models/anthropic.svg" alt="Anthropic logo" loading="lazy" decoding="async" />
+                <span class="model-intel-name">Claude Opus 4.6</span>
+                <span class="model-intel-dash" aria-hidden="true">-</span>
+                <span class="model-intel-provider">Anthropic</span>
+              </li>
+              <li class="model-intel-chip">
+                <img class="model-intel-icon" src="/assets/icons/ai-models/anthropic.svg" alt="Anthropic logo" loading="lazy" decoding="async" />
+                <span class="model-intel-name">Claude Sonnet 4.6</span>
+                <span class="model-intel-dash" aria-hidden="true">-</span>
+                <span class="model-intel-provider">Anthropic</span>
+              </li>
+              <li class="model-intel-chip">
+                <img class="model-intel-icon" src="/assets/icons/ai-models/google.svg" alt="Google logo" loading="lazy" decoding="async" />
+                <span class="model-intel-name">Gemini 3.1 Pro</span>
+                <span class="model-intel-dash" aria-hidden="true">-</span>
+                <span class="model-intel-provider">Google</span>
+              </li>
+              <li class="model-intel-chip">
+                <img class="model-intel-icon" src="/assets/icons/ai-models/google.svg" alt="Google logo" loading="lazy" decoding="async" />
+                <span class="model-intel-name">Gemini 3 Pro</span>
+                <span class="model-intel-dash" aria-hidden="true">-</span>
+                <span class="model-intel-provider">Google</span>
+              </li>
+              <li class="model-intel-chip">
+                <img class="model-intel-icon" src="/assets/icons/ai-models/x.svg" alt="xAI logo" loading="lazy" decoding="async" />
+                <span class="model-intel-name">Grok 4.1</span>
+                <span class="model-intel-dash" aria-hidden="true">-</span>
+                <span class="model-intel-provider">xAI</span>
+              </li>
+              <li class="model-intel-chip">
+                <img class="model-intel-icon" src="/assets/icons/ai-models/x.svg" alt="xAI logo" loading="lazy" decoding="async" />
+                <span class="model-intel-name">Grok 4 Fast</span>
+                <span class="model-intel-dash" aria-hidden="true">-</span>
+                <span class="model-intel-provider">xAI</span>
+              </li>
+              <li class="model-intel-chip">
+                <img class="model-intel-icon" src="/assets/icons/ai-models/mistralai.svg" alt="Mistral AI logo" loading="lazy" decoding="async" />
+                <span class="model-intel-name">Mistral Large 3</span>
+                <span class="model-intel-dash" aria-hidden="true">-</span>
+                <span class="model-intel-provider">Mistral AI</span>
+              </li>
+              <li class="model-intel-chip">
+                <img class="model-intel-icon" src="/assets/icons/ai-models/alibabacloud.svg" alt="Alibaba Cloud logo" loading="lazy" decoding="async" />
+                <span class="model-intel-name">Qwen3-Max</span>
+                <span class="model-intel-dash" aria-hidden="true">-</span>
+                <span class="model-intel-provider">Alibaba Cloud</span>
+              </li>
+            </ul>
+            <ul class="model-intel-marquee-group" aria-hidden="true">
+              <li class="model-intel-chip">
+                <img class="model-intel-icon" src="/assets/icons/ai-models/openai.svg" alt="" loading="lazy" decoding="async" />
+                <span class="model-intel-name">GPT-5.3 Codex</span>
+                <span class="model-intel-dash" aria-hidden="true">-</span>
+                <span class="model-intel-provider">OpenAI</span>
+              </li>
+              <li class="model-intel-chip">
+                <img class="model-intel-icon" src="/assets/icons/ai-models/openai.svg" alt="" loading="lazy" decoding="async" />
+                <span class="model-intel-name">GPT-5.2 Pro</span>
+                <span class="model-intel-dash" aria-hidden="true">-</span>
+                <span class="model-intel-provider">OpenAI</span>
+              </li>
+              <li class="model-intel-chip">
+                <img class="model-intel-icon" src="/assets/icons/ai-models/anthropic.svg" alt="" loading="lazy" decoding="async" />
+                <span class="model-intel-name">Claude Opus 4.6</span>
+                <span class="model-intel-dash" aria-hidden="true">-</span>
+                <span class="model-intel-provider">Anthropic</span>
+              </li>
+              <li class="model-intel-chip">
+                <img class="model-intel-icon" src="/assets/icons/ai-models/anthropic.svg" alt="" loading="lazy" decoding="async" />
+                <span class="model-intel-name">Claude Sonnet 4.6</span>
+                <span class="model-intel-dash" aria-hidden="true">-</span>
+                <span class="model-intel-provider">Anthropic</span>
+              </li>
+              <li class="model-intel-chip">
+                <img class="model-intel-icon" src="/assets/icons/ai-models/google.svg" alt="" loading="lazy" decoding="async" />
+                <span class="model-intel-name">Gemini 3.1 Pro</span>
+                <span class="model-intel-dash" aria-hidden="true">-</span>
+                <span class="model-intel-provider">Google</span>
+              </li>
+              <li class="model-intel-chip">
+                <img class="model-intel-icon" src="/assets/icons/ai-models/google.svg" alt="" loading="lazy" decoding="async" />
+                <span class="model-intel-name">Gemini 3 Pro</span>
+                <span class="model-intel-dash" aria-hidden="true">-</span>
+                <span class="model-intel-provider">Google</span>
+              </li>
+              <li class="model-intel-chip">
+                <img class="model-intel-icon" src="/assets/icons/ai-models/x.svg" alt="" loading="lazy" decoding="async" />
+                <span class="model-intel-name">Grok 4.1</span>
+                <span class="model-intel-dash" aria-hidden="true">-</span>
+                <span class="model-intel-provider">xAI</span>
+              </li>
+              <li class="model-intel-chip">
+                <img class="model-intel-icon" src="/assets/icons/ai-models/x.svg" alt="" loading="lazy" decoding="async" />
+                <span class="model-intel-name">Grok 4 Fast</span>
+                <span class="model-intel-dash" aria-hidden="true">-</span>
+                <span class="model-intel-provider">xAI</span>
+              </li>
+              <li class="model-intel-chip">
+                <img class="model-intel-icon" src="/assets/icons/ai-models/mistralai.svg" alt="" loading="lazy" decoding="async" />
+                <span class="model-intel-name">Mistral Large 3</span>
+                <span class="model-intel-dash" aria-hidden="true">-</span>
+                <span class="model-intel-provider">Mistral AI</span>
+              </li>
+              <li class="model-intel-chip">
+                <img class="model-intel-icon" src="/assets/icons/ai-models/alibabacloud.svg" alt="" loading="lazy" decoding="async" />
+                <span class="model-intel-name">Qwen3-Max</span>
+                <span class="model-intel-dash" aria-hidden="true">-</span>
+                <span class="model-intel-provider">Alibaba Cloud</span>
+              </li>
+            </ul>
+          </div>
+        </div>
       </section>
 
       <section class="products-sections" aria-label="Service sections">
@@ -242,6 +308,6 @@
         </div>
       </footer>
     </div>
-      <script src="/scripts.js?v=20260303ae" defer></script>
+      <script src="/scripts.js?v=20260304c" defer></script>
   </body>
 </html>
