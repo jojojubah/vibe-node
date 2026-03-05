@@ -69,7 +69,7 @@
   - `<link rel="stylesheet" href="/styles.css?v=...">`
   - `<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=...">`
   - `<script src="/scripts.js?v=..." defer></script>`
-- Current cache version in markup: `v=20260304q`
+- Current cache version in markup: `v=20260305b`
 - Rule: when CSS/JS changes, bump the shared `?v=` value across all HTML files.
 
 ## Key Behavior Notes

@@ -91,6 +91,76 @@ const writeCookieConsent = (value) => {
   localStorage.setItem(COOKIE_STORAGE_KEY, JSON.stringify(value));
 };
 
+// Replace with your live GA4 measurement ID (format: G-XXXXXXXXXX).
+const GA4_MEASUREMENT_ID = "G-WDLSD474GV";
+// Temporary test mode: load GA4 regardless of cookie selection.
+const FORCE_GA4_FOR_TESTING = true;
+let gaScriptLoaded = false;
+
+const hasConfiguredGa4 = () => /^G-[A-Z0-9]+$/i.test(GA4_MEASUREMENT_ID) && GA4_MEASUREMENT_ID !== "G-XXXXXXXXXX";
+
+const ensureGtagStub = () => {
+  if (!window.dataLayer) {
+    window.dataLayer = [];
+  }
+  if (!window.gtag) {
+    window.gtag = function gtag() {
+      window.dataLayer.push(arguments);
+    };
+  }
+};
+
+const loadGa4Script = () => {
+  if (gaScriptLoaded || !hasConfiguredGa4()) return;
+  gaScriptLoaded = true;
+  const script = document.createElement("script");
+  script.async = true;
+  script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(GA4_MEASUREMENT_ID)}`;
+  document.head.appendChild(script);
+};
+
+const initGoogleAnalytics = () => {
+  if (!hasConfiguredGa4()) return;
+  ensureGtagStub();
+  window.gtag("consent", "default", {
+    analytics_storage: "denied",
+    ad_storage: "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied",
+  });
+  window.gtag("js", new Date());
+  if (FORCE_GA4_FOR_TESTING) {
+    applyAnalyticsConsent(true);
+  }
+};
+
+const applyAnalyticsConsent = (enabled) => {
+  if (!hasConfiguredGa4()) return;
+  ensureGtagStub();
+
+  if (enabled || FORCE_GA4_FOR_TESTING) {
+    loadGa4Script();
+    window.gtag("consent", "update", {
+      analytics_storage: "granted",
+      ad_storage: "denied",
+      ad_user_data: "denied",
+      ad_personalization: "denied",
+    });
+    window.gtag("config", GA4_MEASUREMENT_ID, {
+      anonymize_ip: true,
+      transport_type: "beacon",
+    });
+    return;
+  }
+
+  window.gtag("consent", "update", {
+    analytics_storage: "denied",
+    ad_storage: "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied",
+  });
+};
+
 const initClientTypeFields = () => {
   const forms = document.querySelectorAll("form");
   if (!forms.length) return;
@@ -709,6 +779,7 @@ const initCookieConsent = () => {
       updatedAt: new Date().toISOString(),
     };
     writeCookieConsent(payload);
+    applyAnalyticsConsent(payload.analytics);
     hideBanner();
     closePanel();
   };
@@ -784,12 +855,15 @@ const initCookieConsent = () => {
 
   if (stored) {
     setSwitches(stored);
+    applyAnalyticsConsent(Boolean(stored.analytics));
   } else {
     showBanner();
     setSwitches({ analytics: false, preferences: false, marketing: false });
+    applyAnalyticsConsent(false);
   }
 };
 
+initGoogleAnalytics();
 initCookieConsent();
 initClientTypeFields();
 initMailtoForms();
