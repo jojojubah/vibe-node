@@ -936,10 +936,6 @@ button {
   background: transparent;
 }
 
-.store-badge-links a[data-coming-soon-tip] {
-  cursor: pointer;
-}
-
 .store-badges .app-store-badge,
 .store-badge-links .app-store-badge {
   height: 38px;
@@ -950,23 +946,6 @@ button {
 .store-badge-links .play-store-badge {
   height: 48px;
   width: auto;
-}
-
-.coming-soon-tip {
-  margin-top: 8px;
-  min-height: 20px;
-  color: var(--muted);
-  font-size: 12px;
-  letter-spacing: 0.24px;
-  opacity: 0;
-  transform: translateY(4px);
-  transition: opacity 170ms ease, transform 170ms ease, color 170ms ease;
-}
-
-.coming-soon-tip.show {
-  opacity: 1;
-  transform: translateY(0);
-  color: var(--accent-soft);
 }
 
 .service-panel-media {

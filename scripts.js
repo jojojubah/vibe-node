@@ -667,38 +667,6 @@ const initModelIntelMarquee = () => {
   });
 };
 
-const initComingSoonBadges = () => {
-  const groups = document.querySelectorAll("[data-coming-soon-group]");
-  if (!groups.length) return;
-
-  groups.forEach((group) => {
-    const tipNode = group.parentElement?.querySelector(".coming-soon-tip");
-    if (!tipNode) return;
-
-    const links = group.querySelectorAll("a[data-coming-soon-tip]");
-    if (!links.length) return;
-
-    let clearTipTimeout = 0;
-
-    const showTip = (message) => {
-      tipNode.textContent = message || "Coming soon.";
-      tipNode.classList.add("show");
-
-      window.clearTimeout(clearTipTimeout);
-      clearTipTimeout = window.setTimeout(() => {
-        tipNode.classList.remove("show");
-      }, 1800);
-    };
-
-    links.forEach((link) => {
-      link.addEventListener("click", (event) => {
-        event.preventDefault();
-        showTip(link.dataset.comingSoonTip || "Coming soon.");
-      });
-    });
-  });
-};
-
 const buildCookieBanner = () => {
   const banner = document.createElement("section");
   banner.className = "cookie-banner";
@@ -907,4 +875,3 @@ initLiquidGlassCardRotators();
 initStickySectionNav();
 initViewportAnimations();
 initModelIntelMarquee();
-initComingSoonBadges();
