@@ -38,8 +38,10 @@
   - Includes `I am a` selector (`Individual` / `Company / Business`).
   - When `Individual` is selected, company field is disabled and visually greyed out.
   - Service trust/reply messaging uses `3-5 business days`.
-- Apps (`/apps/`) and Tools (`/tools/`):
-  - Minimal `Coming soon.` pages.
+- Apps (`/apps/`):
+  - Indexed roadmap page with substantive copy and internal links.
+- Tools (`/tools/`):
+  - Minimal `Coming soon.` page.
   - Marked `noindex,follow` until full content is ready.
 - Thanks (`/thanks/`):
   - Confirmation page after enquiry flow with `3-5 business days` response message.
@@ -136,7 +138,7 @@
 - Header intro text alignment is consistent between Home, Products, Services.
 - Button hover behavior inverts colors and does not move.
 - Products sections render in order: Apps, Games, Tools.
-- `/apps/` and `/tools/` include `noindex,follow` meta tags.
+- `/tools/` includes `noindex,follow` meta tags.
 - Games page shows one game and both store badges open external links.
 - Services model marquee scrolls, and pause/resume works on mobile tap.
 - Services form:
