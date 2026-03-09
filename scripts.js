@@ -1,3 +1,30 @@
+(() => {
+  const url = new URL(window.location.href);
+  let shouldRedirect = false;
+
+  if (url.pathname === "/index.html") {
+    url.pathname = "/";
+    shouldRedirect = true;
+  } else if (url.pathname.endsWith("/index.html")) {
+    url.pathname = url.pathname.slice(0, -"index.html".length);
+    shouldRedirect = true;
+  }
+
+  if (/^www\./i.test(url.hostname)) {
+    url.hostname = url.hostname.replace(/^www\./i, "");
+    shouldRedirect = true;
+  }
+
+  if (url.hostname === "vibenode.co.uk" && url.protocol !== "https:") {
+    url.protocol = "https:";
+    shouldRedirect = true;
+  }
+
+  if (shouldRedirect) {
+    window.location.replace(url.toString());
+  }
+})();
+
 const MOBILE_BREAKPOINT = 960;
 
 document.querySelectorAll(".site-header").forEach((header) => {

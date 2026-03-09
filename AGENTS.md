@@ -40,6 +40,7 @@
   - Service trust/reply messaging uses `3-5 business days`.
 - Apps (`/apps/`) and Tools (`/tools/`):
   - Minimal `Coming soon.` pages.
+  - Marked `noindex,follow` until full content is ready.
 - Thanks (`/thanks/`):
   - Confirmation page after enquiry flow with `3-5 business days` response message.
 - Top navigation across site:
@@ -69,7 +70,7 @@
   - `<link rel="stylesheet" href="/styles.css?v=...">`
   - `<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=...">`
   - `<script src="/scripts.js?v=..." defer></script>`
-- Current cache version in markup: `v=20260305b`
+- Current cache version in markup: `v=20260309a`
 - Rule: when CSS/JS changes, bump the shared `?v=` value across all HTML files.
 
 ## Key Behavior Notes
@@ -96,6 +97,9 @@
   - `select[name="client_type"]` controls `input[name="company"]` disabled state.
 - Scroll angle:
   - `/scripts.js` still updates CSS variable `--scroll-angle` (legacy support for motion/angle-driven effects).
+- Canonical path handling:
+  - `/scripts.js` normalizes `*/index.html` URLs to clean folder paths.
+  - Also normalizes `www` to apex host and `http` to `https` for `vibenode.co.uk`.
 
 ## Reusable Assets
 - Store badges:
@@ -132,6 +136,7 @@
 - Header intro text alignment is consistent between Home, Products, Services.
 - Button hover behavior inverts colors and does not move.
 - Products sections render in order: Apps, Games, Tools.
+- `/apps/` and `/tools/` include `noindex,follow` meta tags.
 - Games page shows one game and both store badges open external links.
 - Services model marquee scrolls, and pause/resume works on mobile tap.
 - Services form:
