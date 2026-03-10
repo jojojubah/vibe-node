@@ -1,3 +1,4 @@
+// Y3JlYXRlZCBieSBKb2pvSnViYWggMjAyNQ==
 (() => {
   const url = new URL(window.location.href);
   let shouldRedirect = false;
