@@ -120,8 +120,8 @@ const writeCookieConsent = (value) => {
 
 // Replace with your live GA4 measurement ID (format: G-XXXXXXXXXX).
 const GA4_MEASUREMENT_ID = "G-WDLSD474GV";
-// Temporary test mode: load GA4 regardless of cookie selection.
-const FORCE_GA4_FOR_TESTING = true;
+// Production mode: respect consent selection for analytics loading.
+const FORCE_GA4_FOR_TESTING = false;
 let gaScriptLoaded = false;
 
 const hasConfiguredGa4 = () => /^G-[A-Z0-9]+$/i.test(GA4_MEASUREMENT_ID) && GA4_MEASUREMENT_ID !== "G-XXXXXXXXXX";
