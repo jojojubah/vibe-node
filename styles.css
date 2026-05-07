@@ -151,8 +151,30 @@ textarea {
 
 .nav {
   display: flex;
-  align-items: center;
-  gap: 18px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 22px;
+  width: min(280px, calc(100vw - 44px));
+  padding: 10px;
+  border: 1px solid rgba(123, 158, 234, 0.26);
+  border-radius: 14px;
+  background: rgba(2, 10, 24, 0.98);
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.46);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-7px);
+  transition: opacity 170ms ease, transform 170ms ease, visibility 170ms ease;
+}
+
+.site-header.menu-open .nav {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
 }
 
 .nav a {
@@ -160,14 +182,25 @@ textarea {
   text-decoration: none;
   font-size: 14px;
   letter-spacing: 0;
-  padding: 0;
-  border: 0;
-  background: transparent;
+  padding: 10px 12px;
+  border: 1px solid rgba(123, 158, 234, 0.25);
+  border-radius: 10px;
+  background: rgba(9, 20, 43, 0.85);
   transition: color 150ms ease;
 }
 
 .nav a:hover {
   color: var(--accent-soft);
+  border-color: rgba(139, 198, 255, 0.58);
+  background: rgba(75, 164, 255, 0.18);
+}
+
+.nav a:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  color: var(--text);
+  border-color: rgba(139, 198, 255, 0.78);
+  background: rgba(75, 164, 255, 0.22);
 }
 
 .nav a[aria-current="page"] {
@@ -175,13 +208,13 @@ textarea {
 }
 
 .menu-toggle {
-  display: none;
+  display: inline-flex;
   width: 42px;
   height: 42px;
   padding: 0;
-  border: 1px solid rgba(130, 169, 255, 0.28);
-  border-radius: 11px;
-  background: rgba(8, 20, 42, 0.8);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -697,6 +730,46 @@ textarea {
   margin-bottom: 16px;
 }
 
+.home-panel .product-status {
+  color: var(--accent-soft);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.24px;
+  margin-bottom: 12px;
+}
+
+.app-card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  align-items: center;
+}
+
+.app-card-grid > div:first-child {
+  flex: 1 1 360px;
+  min-width: 0;
+}
+
+.app-card-media {
+  flex: 0 0 auto;
+  width: 150px;
+  aspect-ratio: 1;
+  justify-self: end;
+  border-radius: 34px;
+  overflow: hidden;
+  border: 1px solid rgba(125, 170, 255, 0.24);
+  background: rgba(8, 18, 38, 0.62);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.36);
+}
+
+.app-card-media img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
 .liquid-glass-card {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 172px;
@@ -848,6 +921,15 @@ button {
   border-radius: var(--radius-md);
   border: 0;
   background: linear-gradient(180deg, rgba(8, 18, 37, 0.76), rgba(6, 13, 29, 0.8));
+}
+
+.about-copy a {
+  color: var(--accent-soft);
+  text-decoration: none;
+}
+
+.about-copy a:hover {
+  color: var(--text);
 }
 
 .about-copy p + p {
@@ -1268,7 +1350,7 @@ button {
 
 .footer-links {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
 }
 
@@ -1472,7 +1554,6 @@ body.cookie-consent-required {
   }
 
   .menu-toggle {
-    display: inline-flex;
     width: 34px;
     height: 34px;
     border: 0;
@@ -1481,37 +1562,18 @@ body.cookie-consent-required {
   }
 
   .nav {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 8px;
-    position: absolute;
     top: 100%;
     left: 0;
     right: 0;
     width: 100%;
     padding: 10px 16px 16px;
     border-top: 1px solid rgba(123, 158, 234, 0.3);
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 0;
+    border-radius: 0;
     background: rgba(2, 10, 24, 0.98);
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transform: translateY(-7px);
-    transition: opacity 170ms ease, transform 170ms ease, visibility 170ms ease;
-  }
-
-  .site-header.menu-open .nav {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transform: translateY(0);
-  }
-
-  .nav a {
-    border: 1px solid rgba(123, 158, 234, 0.25);
-    border-radius: 10px;
-    background: rgba(9, 20, 43, 0.85);
-    padding: 10px 12px;
+    box-shadow: none;
   }
 
   .products-intro {
@@ -1575,8 +1637,10 @@ body.cookie-consent-required {
   .site-footer,
   .footer-links,
   .stats,
-  .service-form-grid {
-    grid-template-columns: 1fr;
+  .service-form-grid,
+  .app-card-media {
+    justify-self: start;
+    width: min(140px, 42vw);
   }
 
   .game-item {

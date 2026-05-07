@@ -41,7 +41,7 @@ document.querySelectorAll(".site-header").forEach((header) => {
   const closeMenu = () => {
     header.classList.remove("menu-open");
     button.setAttribute("aria-expanded", "false");
-    nav.setAttribute("aria-hidden", isMobile() ? "true" : "false");
+    nav.setAttribute("aria-hidden", "true");
   };
 
   const openMenu = () => {
