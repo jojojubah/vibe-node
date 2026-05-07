@@ -1300,11 +1300,12 @@ button {
 
 .site-footer {
   margin-top: 54px;
-  padding-top: 44px;
+  padding: 44px 0 10px;
   border-top: 1px solid rgba(255, 255, 255, 0.14);
   display: grid;
-  grid-template-columns: 1fr 1.7fr;
-  gap: 30px;
+  grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.8fr);
+  gap: 48px;
+  align-items: start;
   background: transparent;
   border-radius: 0;
   box-shadow: none;
@@ -1351,7 +1352,7 @@ button {
 .footer-links {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
+  gap: 28px;
 }
 
 .footer-col h4 {
@@ -1366,8 +1367,9 @@ button {
   display: block;
   color: var(--muted);
   text-decoration: none;
-  font-size: 14px;
-  margin-bottom: 8px;
+  font-size: 13px;
+  line-height: 1.4;
+  margin-bottom: 10px;
   overflow-wrap: anywhere;
 }
 
@@ -1643,11 +1645,11 @@ body.cookie-consent-required {
   }
 
   .site-footer {
-    gap: 28px;
+    gap: 30px;
   }
 
   .footer-links {
-    gap: 24px;
+    gap: 22px;
   }
 
   .app-card-media {
@@ -1720,21 +1722,42 @@ body.cookie-consent-required {
 
   .site-footer {
     margin-top: 46px;
-    padding-top: 34px;
+    padding: 34px 0 8px;
   }
 
   .footer-brand {
-    padding-bottom: 4px;
+    padding-bottom: 0;
   }
 
-  .footer-col {
-    padding-top: 18px;
-    border-top: 1px solid rgba(120, 152, 228, 0.16);
+  .footer-brand p {
+    margin: 10px 0 14px;
   }
 
-  .footer-col:first-child {
-    padding-top: 0;
-    border-top: 0;
+  .footer-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 22px;
+    row-gap: 24px;
+    padding-top: 2px;
+  }
+
+  .footer-col:last-child {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 22px;
+  }
+
+  .footer-col:last-child h4 {
+    grid-column: 1 / -1;
+  }
+
+  .footer-col h4 {
+    margin-bottom: 12px;
+  }
+
+  .footer-col a {
+    font-size: 13px;
+    margin-bottom: 11px;
   }
 
   .store-badges .play-store-badge,
