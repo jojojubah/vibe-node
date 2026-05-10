@@ -738,6 +738,25 @@ textarea {
   margin-bottom: 12px;
 }
 
+.app-meta-links {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.app-meta-links a,
+.stat-label a {
+  color: var(--accent-soft);
+  text-decoration: none;
+}
+
+.app-meta-links a:hover,
+.stat-label a:hover {
+  color: var(--text);
+}
+
 .app-card-grid {
   display: flex;
   flex-wrap: wrap;
