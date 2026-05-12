@@ -1047,6 +1047,25 @@ button {
   width: auto;
 }
 
+.store-badge-links .macos-soon-button {
+  min-height: 38px;
+  padding: 0 14px;
+  border: 1px solid rgba(139, 198, 255, 0.42);
+  border-radius: 8px;
+  color: var(--accent-soft);
+  background: rgba(75, 164, 255, 0.12);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-decoration: none;
+}
+
+.store-badge-links .macos-soon-button:hover {
+  border-color: rgba(139, 198, 255, 0.78);
+  color: var(--text);
+  background: rgba(75, 164, 255, 0.2);
+}
+
 .store-badges .play-store-badge,
 .store-badge-links .play-store-badge {
   height: 48px;
