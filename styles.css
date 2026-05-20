@@ -1035,10 +1035,17 @@ button {
   border-radius: 0;
   padding: 0;
   background: transparent;
+  cursor: pointer;
+  line-height: 0;
 }
 
 .store-badge-links a[data-coming-soon-tip] {
   cursor: pointer;
+}
+
+.store-badges img,
+.store-badge-links img {
+  display: block;
 }
 
 .store-badges .app-store-badge,
