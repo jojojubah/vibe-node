@@ -789,6 +789,16 @@ textarea {
   border-radius: inherit;
 }
 
+.app-card-media-vroulette {
+  border-color: rgba(173, 116, 255, 0.34);
+  background:
+    radial-gradient(circle at 20% 15%, rgba(232, 201, 255, 0.28), transparent 36%),
+    linear-gradient(145deg, rgba(22, 6, 50, 0.88), rgba(6, 9, 24, 0.94));
+  box-shadow:
+    0 16px 34px rgba(47, 16, 96, 0.42),
+    0 0 28px rgba(143, 77, 255, 0.16);
+}
+
 .liquid-glass-card {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 172px;
