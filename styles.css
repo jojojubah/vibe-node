@@ -1101,7 +1101,13 @@ button {
 }
 
 .model-intel {
-  margin: 0 4px 50px;
+  margin: 0 4px;
+  min-width: 0;
+}
+
+.model-intel > .eyebrow {
+  font-size: 13px;
+  letter-spacing: 1.35px;
 }
 
 .model-intel h2 {
@@ -1114,6 +1120,10 @@ button {
 .model-intel-note {
   color: var(--muted);
   margin-bottom: 12px;
+}
+
+.model-intel-contact-card {
+  margin-top: 24px;
 }
 
 .model-intel-marquee {
