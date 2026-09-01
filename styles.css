@@ -70,119 +70,6 @@ textarea {
   padding-bottom: 88px;
 }
 
-.promo-banner {
-  position: relative;
-  z-index: 70;
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-  color: #fff;
-  background:
-    radial-gradient(circle at 82% -35%, rgba(104, 235, 255, 0.7), transparent 44%),
-    linear-gradient(112deg, #1649d8 0%, #3e45e8 48%, #7238cc 100%);
-  box-shadow: 0 14px 38px rgba(25, 54, 180, 0.32);
-}
-
-.promo-banner[hidden] {
-  display: none;
-}
-
-.promo-banner::after {
-  content: "";
-  position: absolute;
-  inset: auto 0 0;
-  height: 1px;
-  background: rgba(210, 235, 255, 0.38);
-  pointer-events: none;
-}
-
-.promo-banner-inner {
-  position: relative;
-  width: min(1180px, 100% - 44px);
-  min-height: 76px;
-  margin: 0 auto;
-  padding: 15px 58px 15px 4px;
-  display: flex;
-  align-items: center;
-}
-
-.promo-banner-message {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 3px 8px;
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.55;
-  letter-spacing: 0.04px;
-}
-
-.promo-banner-message strong {
-  font-weight: 600;
-}
-
-.promo-banner-message > span {
-  color: rgba(244, 248, 255, 0.86);
-}
-
-.promo-banner-message a {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: #fff;
-  font-weight: 600;
-  text-underline-offset: 4px;
-  text-decoration-thickness: 1px;
-}
-
-.promo-banner-message a:hover {
-  color: #d9f8ff;
-}
-
-.promo-banner-message a:focus-visible,
-.promo-banner-dismiss:focus-visible {
-  outline: 2px solid #fff;
-  outline-offset: 4px;
-  border-radius: 6px;
-}
-
-.promo-banner-dismiss {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  width: 44px;
-  height: 44px;
-  padding: 0;
-  border-radius: 0;
-  background: transparent;
-  display: grid;
-  place-items: center;
-  color: #fff;
-  transition: color 160ms ease, opacity 160ms ease, transform 160ms ease;
-  transform: translateY(-50%);
-}
-
-.promo-banner-dismiss:hover {
-  color: #d9f8ff;
-  opacity: 0.76;
-}
-
-.promo-banner-dismiss span {
-  position: absolute;
-  width: 14px;
-  height: 1.5px;
-  border-radius: 999px;
-  background: currentColor;
-}
-
-.promo-banner-dismiss span:first-child {
-  transform: rotate(45deg);
-}
-
-.promo-banner-dismiss span:last-child {
-  transform: rotate(-45deg);
-}
-
 .site-header {
   position: sticky;
   top: 0;
@@ -1702,11 +1589,6 @@ body.cookie-consent-required {
     width: min(1180px, 100% - 30px);
   }
 
-  .promo-banner-inner {
-    width: min(1180px, 100% - 30px);
-    padding-left: 0;
-  }
-
   .site-header {
     margin-bottom: 34px;
     padding: 10px 16px;
@@ -1858,37 +1740,6 @@ body.cookie-consent-required {
   .page {
     width: min(1180px, 100% - 22px);
     padding-bottom: 62px;
-  }
-
-  .promo-banner-inner {
-    width: min(1180px, 100% - 22px);
-    min-height: 106px;
-    padding: 14px 52px 14px 0;
-  }
-
-  .promo-banner-message {
-    display: block;
-    font-size: 13px;
-    line-height: 1.45;
-  }
-
-  .promo-banner-message strong,
-  .promo-banner-message > span,
-  .promo-banner-message a {
-    width: fit-content;
-  }
-
-  .promo-banner-message strong,
-  .promo-banner-message > span {
-    display: block;
-  }
-
-  .promo-banner-message a {
-    margin-top: 7px;
-  }
-
-  .promo-banner-dismiss {
-    right: -3px;
   }
 
   .products-intro h1 {

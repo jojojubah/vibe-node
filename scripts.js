@@ -28,39 +28,6 @@
 
 const MOBILE_BREAKPOINT = 960;
 
-const PROMO_STORAGE_KEY = "vibenode_learn_liquid_glass_promo_dismissed_v1";
-
-const initPromoBanner = () => {
-  const banner = document.querySelector("[data-promo-banner]");
-  const dismissButton = banner?.querySelector("[data-promo-dismiss]");
-  if (!banner || !dismissButton) return;
-
-  const userAgent = window.navigator.userAgent;
-  const isIpadOS = window.navigator.platform === "MacIntel" && window.navigator.maxTouchPoints > 1;
-  const isIOS = /iPad|iPhone|iPod/i.test(userAgent) || isIpadOS;
-  const isSafari = /Safari/i.test(userAgent) && !/CriOS|FxiOS|EdgiOS|OPiOS/i.test(userAgent);
-  if (!isIOS || !isSafari) return;
-
-  try {
-    if (window.localStorage.getItem(PROMO_STORAGE_KEY) === "true") {
-      return;
-    }
-  } catch {
-    // Keep the banner available when browser storage is unavailable.
-  }
-
-  banner.hidden = false;
-
-  dismissButton.addEventListener("click", () => {
-    banner.hidden = true;
-    try {
-      window.localStorage.setItem(PROMO_STORAGE_KEY, "true");
-    } catch {
-      // Dismissing still works for the current page without browser storage.
-    }
-  });
-};
-
 document.querySelectorAll(".site-header").forEach((header) => {
   const button = header.querySelector(".menu-toggle");
   const nav = header.querySelector(".nav");
@@ -957,7 +924,6 @@ const initCookieConsent = () => {
 };
 
 initGoogleAnalytics();
-initPromoBanner();
 initCookieConsent();
 initClientTypeFields();
 initMailtoForms();
