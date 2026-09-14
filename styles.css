@@ -154,20 +154,20 @@ textarea {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  gap: 8px;
+  gap: 0;
   position: absolute;
-  top: calc(100% + 8px);
+  top: calc(100% + 6px);
   right: 22px;
-  width: min(280px, calc(100vw - 44px));
-  padding: 10px;
-  border: 1px solid rgba(123, 158, 234, 0.26);
-  border-radius: 14px;
-  background: rgba(2, 10, 24, 0.98);
-  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.46);
+  width: min(240px, calc(100vw - 44px));
+  padding: 5px 0;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 10px;
+  background: rgba(7, 10, 16, 0.98);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.42);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transform: translateY(-7px);
+  transform: translateY(-4px);
   transition: opacity 170ms ease, transform 170ms ease, visibility 170ms ease;
 }
 
@@ -183,25 +183,27 @@ textarea {
   text-decoration: none;
   font-size: 14px;
   letter-spacing: 0;
-  padding: 10px 12px;
-  border: 1px solid rgba(123, 158, 234, 0.25);
-  border-radius: 10px;
-  background: rgba(9, 20, 43, 0.85);
-  transition: color 150ms ease;
+  padding: 11px 14px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  transition: color 150ms ease, background-color 150ms ease;
+}
+
+.nav a + a {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .nav a:hover {
-  color: var(--accent-soft);
-  border-color: rgba(139, 198, 255, 0.58);
-  background: rgba(75, 164, 255, 0.18);
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .nav a:focus-visible {
   outline: 2px solid var(--focus);
-  outline-offset: 2px;
+  outline-offset: -3px;
   color: var(--text);
-  border-color: rgba(139, 198, 255, 0.78);
-  background: rgba(75, 164, 255, 0.22);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .nav a[aria-current="page"] {
@@ -1500,6 +1502,29 @@ button {
   font-size: 13px;
 }
 
+.cookie-inline-action {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  font: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.cookie-inline-action:hover {
+  color: var(--text);
+}
+
+.cookie-inline-action:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
 .cookie-actions,
 .cookie-panel-actions {
   display: flex;
@@ -1588,10 +1613,6 @@ button {
 
 .cookie-link-btn:hover {
   color: var(--text);
-}
-
-body.cookie-consent-required {
-  cursor: default;
 }
 
 @media (prefers-reduced-motion: reduce) {

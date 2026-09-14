@@ -735,10 +735,12 @@ const buildCookieBanner = () => {
     <div class="cookie-banner-content">
       <div class="cookie-banner-text">
         <strong>Cookie Preferences 2026</strong>
-        <p>We use cookies to run this site and improve performance. You can accept, reject optional cookies, or customize your settings.</p>
+        <p>
+          We use cookies to run this site and improve performance. You can accept optional cookies or customize your settings.
+          <button class="cookie-inline-action" data-cookie-action="reject">Reject optional cookies</button>.
+        </p>
       </div>
       <div class="cookie-actions">
-        <button class="cookie-btn" data-cookie-action="reject">Reject Optional</button>
         <button class="cookie-btn" data-cookie-action="settings">Cookie Settings</button>
         <button class="cookie-btn primary" data-cookie-action="accept">Accept All</button>
       </div>
@@ -821,12 +823,10 @@ const initCookieConsent = () => {
 
   const showBanner = () => {
     banner.classList.add("show");
-    document.body.classList.add("cookie-consent-required");
   };
 
   const hideBanner = () => {
     banner.classList.remove("show");
-    document.body.classList.remove("cookie-consent-required");
   };
 
   const saveConsent = (prefs, status) => {
@@ -859,16 +859,6 @@ const initCookieConsent = () => {
     });
     saveConsent(preferences, "custom");
   };
-
-  const blockInteractionsUntilChoice = (event) => {
-    if (!document.body.classList.contains("cookie-consent-required")) return;
-    if (event.target.closest(".cookie-banner") || event.target.closest(".cookie-panel")) return;
-    event.preventDefault();
-    event.stopPropagation();
-  };
-
-  document.addEventListener("click", blockInteractionsUntilChoice, true);
-  document.addEventListener("submit", blockInteractionsUntilChoice, true);
 
   bannerButtons.forEach((button) => {
     button.addEventListener("click", () => {
