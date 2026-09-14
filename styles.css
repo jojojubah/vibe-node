@@ -1117,30 +1117,69 @@ button {
   aspect-ratio: 16 / 6;
 }
 
-.model-intel {
+.work-with-us {
   margin: 0 4px;
-  min-width: 0;
+  padding: 58px 0 32px;
+  border-top: 1px solid rgba(139, 198, 255, 0.32);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  scroll-margin-top: 96px;
 }
 
-.model-intel > .eyebrow {
-  font-size: 13px;
-  letter-spacing: 1.35px;
+.work-with-us-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(230px, 0.5fr);
+  gap: clamp(40px, 7vw, 88px);
+  align-items: end;
 }
 
-.model-intel h2 {
+.work-with-us h2 {
   font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
-  font-size: clamp(1.5rem, 3.6vw, 2.2rem);
-  line-height: 1.14;
-  margin-bottom: 8px;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  max-width: 16ch;
+  margin-bottom: 18px;
 }
 
-.model-intel-note {
+.work-with-us-copy > p:last-child {
   color: var(--muted);
-  margin-bottom: 12px;
+  max-width: 62ch;
 }
 
-.model-intel-contact-card {
-  margin-top: 24px;
+.work-with-us-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  padding-bottom: 5px;
+}
+
+.work-with-us-email {
+  color: var(--muted);
+  font-size: 13px;
+  text-decoration-color: rgba(143, 159, 190, 0.52);
+  text-underline-offset: 4px;
+  transition: color 140ms ease, text-decoration-color 140ms ease;
+}
+
+.work-with-us-email:hover,
+.work-with-us-email:focus-visible {
+  color: var(--text);
+  text-decoration-color: currentColor;
+}
+
+.model-intel {
+  min-width: 0;
+  margin-top: 52px;
+}
+
+.model-intel-label {
+  margin-bottom: 14px;
+  color: var(--accent-soft);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
 }
 
 .model-intel-marquee {
@@ -1701,6 +1740,23 @@ button {
     padding: 10px 0;
   }
 
+  .work-with-us {
+    padding: 48px 0 28px;
+  }
+
+  .work-with-us-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .work-with-us-actions {
+    padding-bottom: 0;
+  }
+
+  .model-intel {
+    margin-top: 42px;
+  }
+
   .model-intel-marquee-group {
     gap: 18px;
     padding-right: 18px;
@@ -1794,6 +1850,15 @@ button {
 
   .home-panel h2 {
     font-size: clamp(1.45rem, 7vw, 1.95rem);
+  }
+
+  .work-with-us {
+    margin-inline: 0;
+    padding-top: 42px;
+  }
+
+  .work-with-us h2 {
+    font-size: clamp(1.9rem, 9vw, 2.55rem);
   }
 
   .section-header {
