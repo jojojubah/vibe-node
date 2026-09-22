@@ -1214,6 +1214,17 @@ button {
   max-width: 36ch;
 }
 
+.app-feature-close {
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+  text-align: center;
+}
+
+.app-feature-close .store-badge-links {
+  justify-content: center;
+}
+
 .app-feature-meta {
   margin: 0;
 }
