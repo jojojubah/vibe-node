@@ -40,12 +40,14 @@ document.querySelectorAll(".site-header").forEach((header) => {
 
   const closeMenu = () => {
     header.classList.remove("menu-open");
+    document.body.classList.remove("nav-open");
     button.setAttribute("aria-expanded", "false");
     nav.setAttribute("aria-hidden", "true");
   };
 
   const openMenu = () => {
     header.classList.add("menu-open");
+    document.body.classList.add("nav-open");
     button.setAttribute("aria-expanded", "true");
     nav.setAttribute("aria-hidden", "false");
   };
@@ -349,96 +351,7 @@ const initScrollGradientRims = () => {
   window.addEventListener("resize", queueUpdate);
 };
 
-const initHomeHeroTypewriter = () => {
-  const typewriterNode = document.querySelector(".home-hero-typewriter");
-  if (!typewriterNode) return;
 
-  const items = (typewriterNode.dataset.typewriterItems || "")
-    .split(",")
-    .map((item) => item.trim())
-    .filter(Boolean);
-
-  if (!items.length) return;
-
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (reduceMotion) {
-    typewriterNode.textContent = items[0];
-    return;
-  }
-
-  let itemIndex = 0;
-  let charIndex = 0;
-  let isDeleting = false;
-
-  const typeSpeed = 90;
-  const deleteSpeed = 55;
-  const holdAtWordMs = 1100;
-  const pauseAfterDeleteMs = 260;
-
-  const tick = () => {
-    const activeItem = items[itemIndex];
-
-    if (!isDeleting) {
-      charIndex = Math.min(activeItem.length, charIndex + 1);
-      typewriterNode.textContent = activeItem.slice(0, charIndex);
-
-      if (charIndex === activeItem.length) {
-        isDeleting = true;
-        window.setTimeout(tick, holdAtWordMs);
-        return;
-      }
-
-      window.setTimeout(tick, typeSpeed);
-      return;
-    }
-
-    charIndex = Math.max(0, charIndex - 1);
-    typewriterNode.textContent = activeItem.slice(0, charIndex);
-
-    if (charIndex === 0) {
-      isDeleting = false;
-      itemIndex = (itemIndex + 1) % items.length;
-      window.setTimeout(tick, pauseAfterDeleteMs);
-      return;
-    }
-
-    window.setTimeout(tick, deleteSpeed);
-  };
-
-  tick();
-};
-
-const initHeroWindowPhraseRotators = () => {
-  const phraseNodes = document.querySelectorAll(".hero-window-phrase");
-  if (!phraseNodes.length) return;
-
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const cycleDelayMs = 3200;
-  const fadeDurationMs = 180;
-
-  phraseNodes.forEach((phraseNode) => {
-    const items = (phraseNode.dataset.heroPhrases || "")
-      .split(",")
-      .map((item) => item.trim())
-      .filter(Boolean);
-
-    if (!items.length) return;
-
-    let itemIndex = 0;
-    phraseNode.textContent = items[itemIndex];
-
-    if (items.length === 1 || reduceMotion) return;
-
-    window.setInterval(() => {
-      phraseNode.classList.add("is-exiting");
-      window.setTimeout(() => {
-        itemIndex = (itemIndex + 1) % items.length;
-        phraseNode.textContent = items[itemIndex];
-        phraseNode.classList.remove("is-exiting");
-      }, fadeDurationMs);
-    }, cycleDelayMs);
-  });
-};
 
 const initLiquidGlassCardRotators = () => {
   const rotators = document.querySelectorAll("[data-liquid-glass-rotator]");
@@ -469,126 +382,13 @@ const initLiquidGlassCardRotators = () => {
   });
 };
 
-const initStickySectionNav = () => {
-  const sectionGroup = document.querySelector(".products-sections");
-  if (!sectionGroup) return;
-
-  const sections = Array.from(sectionGroup.children).filter((node) => node.classList.contains("home-panel"));
-  if (sections.length < 3) return;
-
-  const usedIds = new Set(Array.from(document.querySelectorAll("[id]")).map((node) => node.id));
-  const slugify = (value) =>
-    value
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/^-+|-+$/g, "");
-
-  sections.forEach((section, index) => {
-    if (section.id) return;
-    const labelSource =
-      section.querySelector(".home-panel-kicker")?.textContent ||
-      section.querySelector("h2, h3")?.textContent ||
-      `section-${index + 1}`;
-    const baseId = slugify(labelSource) || `section-${index + 1}`;
-    let candidate = baseId;
-    let suffix = 2;
-    while (usedIds.has(candidate)) {
-      candidate = `${baseId}-${suffix}`;
-      suffix += 1;
-    }
-    section.id = candidate;
-    usedIds.add(candidate);
-  });
-
-  const nav = document.createElement("nav");
-  nav.className = "vn-sticky-nav";
-  nav.setAttribute("aria-label", "Section navigation");
-  nav.setAttribute("data-viewport", "in");
-  nav.setAttribute("data-viewport-threshold", "0.05");
-
-  const list = document.createElement("ul");
-  list.className = "vn-sticky-nav-list";
-
-  const links = [];
-  sections.forEach((section) => {
-    const item = document.createElement("li");
-    item.className = "vn-sticky-nav-item";
-
-    const link = document.createElement("a");
-    link.className = "vn-sticky-nav-link";
-    link.href = `#${section.id}`;
-    link.textContent =
-      section.querySelector(".home-panel-kicker")?.textContent?.trim() ||
-      section.querySelector("h2, h3")?.textContent?.trim() ||
-      "Section";
-    link.setAttribute("data-section-target", `#${section.id}`);
-
-    link.addEventListener("click", (event) => {
-      event.preventDefault();
-      section.scrollIntoView({ behavior: "smooth", block: "start" });
-      history.replaceState(null, "", `#${section.id}`);
-    });
-
-    links.push({ section, link: item });
-    item.appendChild(link);
-    list.appendChild(item);
-  });
-
-  nav.appendChild(list);
-  sectionGroup.before(nav);
-
-  const setActiveLink = (activeSection) => {
-    links.forEach(({ section, link }) => {
-      link.classList.toggle("is-active", section === activeSection);
-    });
-  };
-
-  const sectionEntries = new Map();
-  const sectionObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        sectionEntries.set(entry.target, entry);
-      });
-
-      let activeEntry = null;
-      sectionEntries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        if (!activeEntry) {
-          activeEntry = entry;
-          return;
-        }
-        if (entry.intersectionRatio > activeEntry.intersectionRatio) {
-          activeEntry = entry;
-          return;
-        }
-        if (
-          entry.intersectionRatio === activeEntry.intersectionRatio &&
-          entry.boundingClientRect.top < activeEntry.boundingClientRect.top
-        ) {
-          activeEntry = entry;
-        }
-      });
-
-      if (activeEntry) {
-        setActiveLink(activeEntry.target);
-      }
-    },
-    {
-      threshold: Array.from({ length: 21 }, (_, index) => index * 0.05),
-      rootMargin: "-8% 0px -58% 0px",
-    },
-  );
-
-  sections.forEach((section) => sectionObserver.observe(section));
-  setActiveLink(sections[0]);
-};
 
 const initViewportAnimations = () => {
   const targets = new Set();
   const rules = [
     {
       selector:
-        ".products-intro, .about, .games, .section-header, .model-intel, .home-hero-copy, .home-hero-shell, .site-footer",
+        ".products-intro, .about, .games, .section-header, .capability-strip, .home-hero-copy, .site-footer",
       mode: "once",
       threshold: 0.14,
     },
@@ -668,8 +468,8 @@ const initViewportAnimations = () => {
   targets.forEach((element) => viewportObserver.observe(element));
 };
 
-const initModelIntelMarquee = () => {
-  const marquees = document.querySelectorAll(".model-intel-marquee");
+const initCapabilityMarquee = () => {
+  const marquees = document.querySelectorAll(".capability-marquee");
   if (!marquees.length) return;
 
   const isTouchPrimary = window.matchMedia("(hover: none), (pointer: coarse)").matches;
@@ -677,7 +477,7 @@ const initModelIntelMarquee = () => {
 
   marquees.forEach((marquee) => {
     marquee.setAttribute("tabindex", "0");
-    marquee.setAttribute("aria-label", `${marquee.getAttribute("aria-label") || "Model banner"}. Tap to pause or resume.`);
+    marquee.setAttribute("aria-label", `${marquee.getAttribute("aria-label") || "Capability banner"}. Tap to pause or resume.`);
     marquee.setAttribute("data-paused", "false");
 
     const togglePaused = () => {
@@ -695,37 +495,6 @@ const initModelIntelMarquee = () => {
   });
 };
 
-const initComingSoonBadges = () => {
-  const groups = document.querySelectorAll("[data-coming-soon-group]");
-  if (!groups.length) return;
-
-  groups.forEach((group) => {
-    const tipNode = group.parentElement?.querySelector(".coming-soon-tip");
-    if (!tipNode) return;
-
-    const links = group.querySelectorAll("a[data-coming-soon-tip]");
-    if (!links.length) return;
-
-    let clearTipTimeout = 0;
-
-    const showTip = (message) => {
-      tipNode.textContent = message || "Coming soon.";
-      tipNode.classList.add("show");
-
-      window.clearTimeout(clearTipTimeout);
-      clearTipTimeout = window.setTimeout(() => {
-        tipNode.classList.remove("show");
-      }, 1800);
-    };
-
-    links.forEach((link) => {
-      link.addEventListener("click", (event) => {
-        event.preventDefault();
-        showTip(link.dataset.comingSoonTip || "Coming soon.");
-      });
-    });
-  });
-};
 
 const buildCookieBanner = () => {
   const banner = document.createElement("section");
@@ -919,10 +688,6 @@ initClientTypeFields();
 initMailtoForms();
 initAsyncForms();
 initScrollGradientRims();
-initHomeHeroTypewriter();
-initHeroWindowPhraseRotators();
 initLiquidGlassCardRotators();
-initStickySectionNav();
 initViewportAnimations();
-initModelIntelMarquee();
-initComingSoonBadges();
+initCapabilityMarquee();

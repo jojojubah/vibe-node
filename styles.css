@@ -150,68 +150,64 @@ textarea {
   border-radius: 8px;
 }
 
+/* Desktop: links inline across the header — logo left, links centred, CTA right.
+   The two margin-left:auto rules split the free space either side of the link
+   group, which centres it while pinning the CTA to the right. */
 .nav {
+  flex: 1 1 auto;
   display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 0;
-  position: absolute;
-  top: calc(100% + 6px);
-  right: 22px;
-  width: min(240px, calc(100vw - 44px));
-  padding: 5px 0;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 10px;
-  background: rgba(7, 10, 16, 0.98);
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.42);
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transform: translateY(-4px);
-  transition: opacity 170ms ease, transform 170ms ease, visibility 170ms ease;
+  align-items: center;
+  gap: 30px;
 }
 
-.site-header.menu-open .nav {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transform: translateY(0);
+.nav > a:first-child,
+.nav .nav-cta {
+  margin-left: auto;
 }
 
 .nav a {
   color: var(--muted);
   text-decoration: none;
-  font-size: 14px;
-  letter-spacing: 0;
-  padding: 11px 14px;
+  font-size: 14.5px;
+  white-space: nowrap;
+  padding: 8px 2px;
   border: 0;
-  border-radius: 0;
   background: transparent;
   transition: color 150ms ease, background-color 150ms ease;
 }
 
-.nav a + a {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-
 .nav a:hover {
   color: var(--text);
-  background: rgba(255, 255, 255, 0.06);
 }
 
 .nav a:focus-visible {
   outline: 2px solid var(--focus);
-  outline-offset: -3px;
+  outline-offset: 3px;
   color: var(--text);
-  background: rgba(255, 255, 255, 0.08);
 }
 
 .nav a[aria-current="page"] {
   color: var(--accent-soft);
 }
 
+.nav .nav-cta {
+  color: #fff;
+  font-weight: 600;
+  padding: 9px 18px;
+  border-radius: 999px;
+  background: var(--accent-strong);
+}
+
+.nav .nav-cta:hover {
+  color: #fff;
+  background: var(--accent);
+}
+
 .menu-toggle {
-  display: inline-flex;
+  display: none;
+}
+
+.menu-toggle {
   width: 42px;
   height: 42px;
   padding: 0;
@@ -262,231 +258,81 @@ textarea {
   padding: 36px 4px;
 }
 
+.products-intro h1 {
+  font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+  font-size: clamp(2rem, 6vw, 3.45rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  margin-bottom: 16px;
+  max-width: 18ch;
+}
+
 .products-intro.home-hero {
   max-width: none;
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 28px;
-  align-items: center;
+  place-items: center;
+  gap: 52px;
+  padding: 72px 4px 24px;
   background: transparent;
   border: 0;
   box-shadow: none;
 }
 
-.home-hero-copy {
-  max-width: 620px;
-}
-
-.home-hero-copy .home-link-inline {
-  margin-top: 10px;
-}
-
-.home-hero-shell {
-  border-radius: var(--radius-md);
-  border: 0;
-  background:
-    radial-gradient(circle at 84% 22%, rgba(71, 156, 255, 0.2), transparent 42%),
-    linear-gradient(180deg, rgba(8, 20, 42, 0.88), rgba(5, 11, 23, 0.92));
-  padding: 18px;
-}
-
-.home-chat-head {
-  display: flex;
-  align-items: center;
-  margin-bottom: 12px;
-}
-
-.home-hero-title {
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  color: var(--accent-soft);
-  margin: 0;
-  font-weight: 600;
-}
-
-.home-hero-typewriter {
-  color: #eaf4ff;
-  text-transform: none;
-  margin-left: 0.35ch;
-}
-
-.home-hero-caret {
-  display: inline-block;
-  width: 1ch;
-  color: #eaf4ff;
-  animation: hero-caret-blink 900ms step-end infinite;
-}
-
-.home-hero-caret::before {
-  content: "|";
-}
-
-.home-chat-body {
-  display: grid;
-  gap: 9px;
-}
-
-.home-hero-shell-chat {
-  padding: 0;
-  overflow: hidden;
-}
-
-.home-hero-window {
-  border: 1px solid rgba(123, 168, 252, 0.24);
-  box-shadow: var(--shadow);
-}
-
-.home-hero-shell-chat .home-chat-head {
-  margin-bottom: 0;
-  padding: 10px 12px;
-  border-radius: 0;
-  border: 0;
-  border-bottom: 1px solid rgba(123, 168, 252, 0.24);
-  background: rgba(3, 11, 26, 0.84);
-  justify-content: space-between;
-}
-
-.home-hero-shell-chat .home-chat-body {
-  padding: 12px 14px 14px;
-}
-
-.home-chat-window-controls {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.home-chat-window-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.34);
-}
-
-.home-chat-window-dot-close {
-  background: #ff5f57;
-}
-
-.home-chat-window-dot-minimize {
-  background: #ffbd2e;
-}
-
-.home-chat-window-dot-expand {
-  background: #28c840;
-}
-
-.home-chat-window-brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.home-chat-window-logo {
-  width: 15px;
-  height: 15px;
-  display: block;
-  flex-shrink: 0;
-}
-
-.home-hero-shell-chat .home-hero-title {
-  margin: 0;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.24px;
-  text-transform: none;
-  color: #dbe9ff;
-}
-
-#services.home-hero {
-  grid-template-columns: 1fr minmax(0, 1fr);
-}
-
-#services.home-hero .home-hero-shell {
-  width: 100%;
-  justify-self: stretch;
-  padding: 0;
-  border-radius: var(--radius-md);
-  border: 1px solid rgba(123, 168, 252, 0.24);
-  background:
-    radial-gradient(circle at 86% 18%, rgba(94, 181, 255, 0.24), transparent 48%),
-    linear-gradient(180deg, rgba(9, 21, 44, 0.94), rgba(5, 12, 25, 0.94));
-  box-shadow: var(--shadow);
-}
-
-#services.home-hero .home-chat-head {
-  justify-content: space-between;
-  margin-bottom: 0;
-}
-
-#services.home-hero .home-hero-title {
-  white-space: nowrap;
-}
-
-.hero-window-body {
-  gap: 12px;
-}
-
-.hero-window-label {
-  margin: 0;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.82px;
-  color: var(--accent-soft);
-}
-
-.hero-window-rotator {
-  margin: 0;
-  color: #d9e9ff;
-  font-size: 15px;
-  line-height: 1.4;
-}
-
-.hero-window-phrase {
-  display: inline-block;
-  margin-left: 0.35ch;
-  font-weight: 600;
-  color: #f0f7ff;
-  transition: opacity 180ms ease, transform 180ms ease;
-}
-
-.hero-window-phrase.is-exiting {
-  opacity: 0;
-  transform: translateY(4px);
-}
-
-.hero-window-points {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: 7px;
-}
-
-.hero-window-points li {
+/* The Mac screenshot stays full width so the app UI holds ~36% scale and
+   stays readable; a side column would drop it to ~20% and it stops being proof. */
+.home-hero-figure {
   position: relative;
-  padding-left: 12px;
+  margin: 0;
+  width: min(1060px, 100%);
+  isolation: isolate;
+}
+
+.home-hero-copy {
+  max-width: 62ch;
+  text-align: center;
+  display: grid;
+  justify-items: center;
+  gap: 20px;
+}
+
+.home-hero-copy h1 {
+  margin: 0;
+  max-width: 20ch;
+}
+
+.home-hero-copy .lead {
+  margin: 0;
+}
+
+.home-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px 22px;
+  margin-top: 4px;
+}
+
+.home-hero-actions .home-link-inline {
+  margin-top: 0;
+}
+
+.home-hero-secondary {
+  color: var(--accent-soft);
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.home-hero-secondary:hover {
+  text-decoration: underline;
+}
+
+.home-hero-proof {
+  margin: 4px 0 0;
+  color: var(--muted);
   font-size: 13px;
-  line-height: 1.45;
-  color: #c7daf6;
-}
-
-.hero-window-points li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.62em;
-  width: 5px;
-  height: 5px;
-  border-radius: 999px;
-  background: #5fb9ff;
-}
-
-.hero-window-trust {
-  margin: 2px 0 0;
-  font-size: 11px;
-  letter-spacing: 0.35px;
-  color: #9ab5da;
+  letter-spacing: 0.2px;
 }
 
 .home-chat-bubble {
@@ -577,74 +423,6 @@ textarea {
   transform: translateY(0);
 }
 
-.vn-sticky-nav {
-  --vn-sticky-height: 44px;
-  --vn-sticky-bottom: 26px;
-  position: sticky;
-  top: calc(100vh - var(--vn-sticky-height) - var(--vn-sticky-bottom));
-  z-index: 42;
-  display: none;
-  justify-content: center;
-  align-items: flex-end;
-  height: 0;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity 0.45s ease, visibility 0.45s ease;
-}
-
-@media (min-width: 1024px) {
-  .vn-sticky-nav {
-    display: flex;
-  }
-}
-
-.vn-sticky-nav.vn-onscreen {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-}
-
-.vn-sticky-nav-list {
-  list-style: none;
-  margin: 0;
-  padding: 6px;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  border-radius: 999px;
-  border: 1px solid rgba(130, 169, 255, 0.3);
-  background: rgba(7, 18, 39, 0.92);
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.42);
-}
-
-.vn-sticky-nav-item {
-  border-radius: 999px;
-}
-
-.vn-sticky-nav-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 30px;
-  padding: 0 14px;
-  border-radius: 999px;
-  color: var(--muted);
-  text-decoration: none;
-  font-size: 12px;
-  letter-spacing: 0.35px;
-  transition: color 160ms ease, background-color 160ms ease;
-}
-
-.vn-sticky-nav-item.is-active .vn-sticky-nav-link {
-  color: var(--text);
-  background: rgba(75, 164, 255, 0.28);
-}
-
-.vn-sticky-nav-link:hover {
-  color: var(--text);
-}
-
 .build-kicker {
   text-align: center;
   font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
@@ -689,15 +467,6 @@ textarea {
   letter-spacing: 1.25px;
   text-transform: uppercase;
   font-weight: 600;
-}
-
-.products-intro h1 {
-  font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
-  font-size: clamp(2rem, 6vw, 3.45rem);
-  line-height: 1.08;
-  letter-spacing: -0.03em;
-  margin-bottom: 16px;
-  max-width: 18ch;
 }
 
 .lead {
@@ -790,21 +559,6 @@ textarea {
   display: block;
   object-fit: cover;
   border-radius: inherit;
-}
-
-.app-card-media-liquid-glass {
-  border-color: rgba(181, 218, 241, 0.34);
-  background:
-    radial-gradient(circle at 24% 16%, rgba(224, 240, 251, 0.28), transparent 38%),
-    linear-gradient(145deg, rgba(8, 36, 65, 0.92), rgba(2, 15, 32, 0.96));
-  box-shadow:
-    0 14px 28px rgba(0, 52, 103, 0.24),
-    0 0 18px rgba(52, 166, 235, 0.07),
-    -5px -4px 12px rgba(207, 230, 244, 0.03);
-}
-
-.app-card-media-liquid-glass img {
-  transform: scale(1.2);
 }
 
 .app-card-media-vroulette {
@@ -1067,10 +821,6 @@ button {
   line-height: 0;
 }
 
-.store-badge-links a[data-coming-soon-tip] {
-  cursor: pointer;
-}
-
 .store-badges img,
 .store-badge-links img {
   display: block;
@@ -1091,23 +841,6 @@ button {
 .store-badge-links .play-store-badge {
   height: 48px;
   width: auto;
-}
-
-.coming-soon-tip {
-  margin-top: 8px;
-  min-height: 20px;
-  color: var(--muted);
-  font-size: 12px;
-  letter-spacing: 0.24px;
-  opacity: 0;
-  transform: translateY(4px);
-  transition: opacity 170ms ease, transform 170ms ease, color 170ms ease;
-}
-
-.coming-soon-tip.show {
-  opacity: 1;
-  transform: translateY(0);
-  color: var(--accent-soft);
 }
 
 .service-panel-media {
@@ -1168,12 +901,12 @@ button {
   text-decoration-color: currentColor;
 }
 
-.model-intel {
+.capability-strip {
   min-width: 0;
   margin-top: 52px;
 }
 
-.model-intel-label {
+.capability-strip-label {
   margin-bottom: 14px;
   color: var(--accent-soft);
   font-size: 11px;
@@ -1182,96 +915,85 @@ button {
   text-transform: uppercase;
 }
 
-.model-intel-marquee {
+.capability-marquee {
   position: relative;
   overflow: hidden;
   background:
     linear-gradient(to right, rgba(120, 152, 228, 0), rgba(120, 152, 228, 0.22) 12%, rgba(120, 152, 228, 0.22) 88%, rgba(120, 152, 228, 0)) top / 100% 1px no-repeat,
     linear-gradient(to right, rgba(120, 152, 228, 0), rgba(120, 152, 228, 0.22) 12%, rgba(120, 152, 228, 0.22) 88%, rgba(120, 152, 228, 0)) bottom / 100% 1px no-repeat;
-  padding: 12px 0;
-  --marquee-duration: 34s;
+  padding: 14px 0;
+  --marquee-duration: 56s;
 }
 
-.model-intel-marquee::before,
-.model-intel-marquee::after {
+.capability-marquee::before,
+.capability-marquee::after {
   content: "";
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 62px;
+  width: 96px;
   z-index: 1;
   pointer-events: none;
 }
 
-.model-intel-marquee::before {
+.capability-marquee::before {
   left: 0;
-  background: linear-gradient(to right, #000 0%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(to right, var(--bg) 0%, var(--bg) 38%, rgba(2, 5, 15, 0) 100%);
 }
 
-.model-intel-marquee::after {
+.capability-marquee::after {
   right: 0;
-  background: linear-gradient(to left, #000 0%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(to left, var(--bg) 0%, var(--bg) 38%, rgba(2, 5, 15, 0) 100%);
 }
 
-.model-intel-marquee-track {
+.capability-marquee-track {
   display: flex;
   width: max-content;
-  animation: model-intel-marquee-scroll var(--marquee-duration) linear infinite;
+  animation: capability-marquee-scroll var(--marquee-duration) linear infinite;
   will-change: transform;
 }
 
-.model-intel-marquee-group {
+.capability-marquee-group {
   list-style: none;
   display: flex;
   align-items: center;
-  gap: 22px;
+  gap: 26px;
   margin: 0;
-  padding: 0 22px 0 0;
+  padding: 0 26px 0 0;
   flex-shrink: 0;
 }
 
-.model-intel-chip {
+.capability-chip {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
   white-space: nowrap;
-}
-
-.model-intel-icon {
-  width: 18px;
-  height: 18px;
-  display: block;
-  filter: brightness(0) invert(0.9);
-}
-
-.model-intel-name {
   color: var(--text);
   font-size: 15px;
 }
 
-.model-intel-dash {
-  color: var(--muted);
-  font-size: 12px;
+.capability-chip::before {
+  content: "";
+  width: 4px;
+  height: 4px;
+  margin-right: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.55;
+  flex-shrink: 0;
 }
 
-.model-intel-provider {
-  color: var(--accent-soft);
-  font-size: 12px;
-  letter-spacing: 0.4px;
-}
-
-.model-intel-marquee.is-paused .model-intel-marquee-track {
+.capability-marquee.is-paused .capability-marquee-track {
   animation-play-state: paused;
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .model-intel-marquee:hover .model-intel-marquee-track,
-  .model-intel-marquee:focus-within .model-intel-marquee-track {
+  .capability-marquee:hover .capability-marquee-track,
+  .capability-marquee:focus-within .capability-marquee-track {
     animation-play-state: paused;
   }
 }
 
-@keyframes model-intel-marquee-scroll {
+@keyframes capability-marquee-scroll {
   from {
     transform: translateX(0);
   }
@@ -1282,8 +1004,263 @@ button {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .model-intel-marquee-track {
+  .capability-marquee-track {
     animation: none;
+  }
+}
+
+/* Learn Liquid Glass — full-width feature section (no card) */
+.app-feature {
+  display: grid;
+  gap: 72px;
+  padding: 26px 0 8px;
+  scroll-margin-top: 114px;
+}
+
+.app-feature-head {
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+  max-width: 60ch;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.app-feature-head .home-panel-kicker {
+  margin-bottom: 0;
+}
+
+.app-feature-head h2 {
+  margin: 0;
+  font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+  font-size: clamp(2.1rem, 5vw, 3.2rem);
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+}
+
+.app-feature-lead {
+  margin: 0;
+  color: var(--muted);
+  font-size: 19px;
+  line-height: 1.6;
+}
+
+.app-feature-head .store-badge-links {
+  margin-top: 6px;
+  justify-content: center;
+}
+
+/* Hero screenshot sits on the page, lit from behind */
+/* MacBook Pro M5 14-inch bezel. Screen cutout measured from the PNG alpha:
+   left 10.8290%, top 11.3386%, width 78.3420%, height 77.3228% of 3860x2540.
+   The app window sits on a plain desktop inside that cutout — a full-screen
+   macOS capture would fill it properly and is the better long-term asset. */
+.device-macbook {
+  position: relative;
+  width: 100%;
+  container-type: inline-size;
+}
+
+.macbook-desktop {
+  position: absolute;
+  left: 10.829%;
+  top: 11.3386%;
+  width: 78.342%;
+  height: 77.3228%;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(165deg, #0b1830 0%, #071022 45%, #050c1a 100%);
+}
+
+.macbook-desktop img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* cutout radius 1.05% of screen width; screen is 78.34% of device width */
+  border-radius: 9px;
+  border-radius: 0.82cqw;
+}
+
+/* Alternating feature rows */
+.app-feature-rows {
+  display: grid;
+  gap: 92px;
+}
+
+.app-feature-row {
+  display: grid;
+  grid-template-columns: 1fr 290px;
+  gap: 70px;
+  align-items: center;
+}
+
+.app-feature-row:nth-child(even) {
+  grid-template-columns: 290px 1fr;
+}
+
+.app-feature-row:nth-child(even) .app-feature-copy {
+  order: 2;
+}
+
+.app-feature-row:nth-child(even) .app-feature-shot {
+  order: 1;
+}
+
+.app-feature-copy {
+  max-width: 46ch;
+}
+
+.app-feature-eyebrow {
+  margin: 0 0 12px;
+  color: var(--accent-soft);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+}
+
+.app-feature-copy h3 {
+  margin: 0 0 14px;
+  font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+  font-size: clamp(1.4rem, 2.6vw, 1.95rem);
+  line-height: 1.16;
+  letter-spacing: -0.02em;
+}
+
+.app-feature-copy p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.app-feature-shot {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  justify-content: center;
+}
+
+/* Official Apple product bezel (iPhone 17 Pro Max, Deep Blue, Portrait) from
+   Apple Design Resources. The screen cutout was measured from the PNG's alpha
+   channel: 1320x2868 at left 5.1020%, top 2.2000%, width 89.7959%, height 95.6000%
+   of the 1470x3000 bezel — an exact match for the screenshots, so they seat
+   pixel-perfect and Apple's Dynamic Island lands over the one baked into the
+   code example. Apple's licence requires the bezel be shown unmodified: no added
+   shadows, highlights, tilts or crops. */
+.device-iphone {
+  --dw: 320px;
+  position: relative;
+  width: var(--dw);
+  max-width: 100%;
+  /* container unit so the screen's corner radius tracks the rendered width */
+  container-type: inline-size;
+}
+
+.device-screen {
+  position: relative;
+  display: block;
+}
+
+.device-screen > img:not(.device-bezel) {
+  position: absolute;
+  left: 5.102%;
+  top: 2.2%;
+  width: 89.7959%;
+  height: 95.6%;
+  object-fit: cover;
+  z-index: 0;
+  /* The bezel is fully transparent at the cutout's bounding-box corners (that
+     area is outside the device outline), so the JPEG's square corners would
+     otherwise stick out. Cutout radius measured at 14.88% of screen width;
+     screen is 89.52% of device width -> 13.32% of device width. */
+  border-radius: 42px;
+  border-radius: 13.32cqw;
+}
+
+.device-bezel {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+}
+
+/* Closing facts */
+.app-feature-grid {
+  list-style: none;
+  margin: 0;
+  padding: 40px 0 0;
+  border-top: 1px solid var(--line-soft);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+  gap: 30px;
+}
+
+.app-feature-grid h3 {
+  margin: 0 0 8px;
+  font-size: 15px;
+}
+
+.app-feature-grid p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+  max-width: 36ch;
+}
+
+.app-feature-meta {
+  margin: 0;
+}
+
+@media (max-width: 880px) {
+  .app-feature {
+    gap: 48px;
+    padding-top: 8px;
+  }
+
+  .app-feature-lead {
+    font-size: 16px;
+  }
+
+  .app-feature-rows {
+    gap: 56px;
+  }
+
+  .app-feature-row,
+  .app-feature-row:nth-child(even) {
+    grid-template-columns: 1fr;
+    gap: 26px;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .app-feature-row .app-feature-copy,
+  .app-feature-row:nth-child(even) .app-feature-copy {
+    order: 1;
+    max-width: 48ch;
+  }
+
+  .app-feature-row .app-feature-shot,
+  .app-feature-row:nth-child(even) .app-feature-shot {
+    order: 2;
+    display: flex;
+    justify-content: center;
+  }
+
+  .device-iphone {
+    --dw: 281px;
+  }
+
+  .app-feature-grid {
+    text-align: left;
+    gap: 24px;
+    padding-top: 32px;
   }
 }
 
@@ -1666,10 +1643,6 @@ button {
 }
 
 @media (max-width: 960px) {
-  .vn-sticky-nav {
-    display: none !important;
-  }
-
   .page {
     width: min(1180px, 100% - 30px);
   }
@@ -1684,6 +1657,7 @@ button {
   }
 
   .menu-toggle {
+    display: inline-flex;
     width: 34px;
     height: 34px;
     border: 0;
@@ -1691,23 +1665,72 @@ button {
     background: transparent;
   }
 
+  /* Mobile: the links become a sheet under the header */
   .nav {
+    position: absolute;
     top: 100%;
     left: 0;
     right: 0;
+    z-index: 2;
+    flex: 0 0 auto;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
     width: 100%;
-    padding: 10px 16px 16px;
+    padding: 6px 16px 22px;
     border-top: 1px solid rgba(123, 158, 234, 0.3);
-    border-right: 0;
-    border-bottom: 0;
-    border-left: 0;
-    border-radius: 0;
-    background: rgba(2, 10, 24, 0.98);
-    box-shadow: none;
+    background: rgba(2, 10, 24, 0.99);
+    box-shadow: 0 22px 44px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition: opacity 200ms ease, transform 200ms ease, visibility 200ms ease;
   }
 
-  .products-intro {
-    padding: 26px;
+  .site-header.menu-open .nav {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .nav > a:first-child,
+  .nav .nav-cta {
+    margin-left: 0;
+  }
+
+  .nav a {
+    font-size: 16px;
+    padding: 15px 4px;
+  }
+
+  .nav a + a {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .nav a:hover {
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  /* CTA reads as a button, not another row */
+  .nav .nav-cta {
+    margin-top: 16px;
+    padding: 15px 18px;
+    border-top: 0;
+    text-align: center;
+  }
+
+  /* Dim the page behind the open menu. This lives on <body> rather than the
+     header: the header is its own stacking context (sticky, z-index 60), so a
+     pseudo-element inside it cannot sit between the header and the page. */
+  body.nav-open::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    background: rgba(2, 5, 15, 0.82);
+    pointer-events: none;
   }
 
   .home-panel {
@@ -1727,16 +1750,8 @@ button {
     margin-bottom: 74px;
   }
 
-  .products-intro.home-hero {
-    grid-template-columns: 1fr;
-  }
-
-  #services.home-hero {
-    grid-template-columns: 1fr;
-  }
-
-  .model-intel-marquee {
-    --marquee-duration: 42s;
+  .capability-marquee {
+    --marquee-duration: 62s;
     padding: 10px 0;
   }
 
@@ -1753,31 +1768,13 @@ button {
     padding-bottom: 0;
   }
 
-  .model-intel {
+  .capability-strip {
     margin-top: 42px;
   }
 
-  .model-intel-marquee-group {
+  .capability-marquee-group {
     gap: 18px;
     padding-right: 18px;
-  }
-
-  .model-intel-chip {
-    gap: 8px;
-  }
-
-  .model-intel-icon {
-    width: 16px;
-    height: 16px;
-  }
-
-  .model-intel-name {
-    font-size: 14px;
-  }
-
-  .model-intel-provider {
-    font-size: 11px;
-    letter-spacing: 0.35px;
   }
 
   .about-grid,
@@ -1842,10 +1839,6 @@ button {
   .page {
     width: min(1180px, 100% - 22px);
     padding-bottom: 62px;
-  }
-
-  .products-intro h1 {
-    font-size: clamp(1.8rem, 8.2vw, 2.4rem);
   }
 
   .home-panel h2 {

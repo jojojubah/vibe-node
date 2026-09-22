@@ -30,7 +30,7 @@
     <meta name="twitter:image" content="https://vibenode.co.uk/assets/v-node-profile.png" />
     <meta name="theme-color" content="#02050f" />
     <meta name="apple-itunes-app" content="app-id=6768110722" />
-    <link rel="stylesheet" href="/styles.css?v=20260914d" />
+    <link rel="stylesheet" href="/styles.css?v=20260922v" />
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
     <link rel="apple-touch-icon" href="/assets/v-node-profile.png" />
     <script type="application/ld+json">
@@ -60,79 +60,164 @@
         <nav class="nav" id="primary-nav">
           <a href="#learn-liquid-glass">Learn Liquid Glass</a>
           <a href="#vroulette">Vroulette</a>
-          <a href="#dotz-and-boxz">Dotz &amp; Boxz</a>
-          <a href="#contact">Contact</a>
           <a href="/support/">Support</a>
+          <a class="nav-cta" href="#contact">Work with us</a>
         </nav>
       </header>
 
       <section class="products-intro home-hero">
         <div class="home-hero-copy">
-          <h1>Welcome to Vibe Node.</h1>
-          <p class="lead">Nice to have you here. We are building small, focused apps and games for Apple platforms and beyond.</p>
-          <a class="home-link-inline" href="#learn-liquid-glass">See Learn Liquid Glass</a>
+          <h1>Focused software for every platform.</h1>
+          <p class="lead">
+            Vibe Node is an independent UK studio. We design and ship apps, games, and AI
+            features for iPhone, Mac, Windows, Android and the web &mdash; from first
+            prototype through to release.
+          </p>
+          <div class="home-hero-actions">
+            <a class="home-link-inline" href="https://apps.apple.com/app/learn-liquid-glass/id6768110722" target="_blank" rel="noopener noreferrer">Download Learn Liquid Glass</a>
+            <a class="home-hero-secondary" href="#contact">Work with us <span aria-hidden="true">&rarr;</span></a>
+          </div>
+          <p class="home-hero-proof">Shipping on iOS, macOS, Windows and Android</p>
         </div>
-        <aside class="home-hero-shell home-hero-shell-chat home-hero-window" aria-label="Vibe Node welcome panel">
-          <div class="home-chat-head">
-            <div class="home-chat-window-controls" aria-hidden="true">
-              <span class="home-chat-window-dot home-chat-window-dot-close"></span>
-              <span class="home-chat-window-dot home-chat-window-dot-minimize"></span>
-              <span class="home-chat-window-dot home-chat-window-dot-expand"></span>
-            </div>
-            <div class="home-chat-window-brand">
-              <img class="home-chat-window-logo" src="/assets/v-node-mark-gradient.svg" alt="" aria-hidden="true" />
-              <p class="home-hero-title">Vibe Node</p>
+
+        <figure class="home-hero-figure">
+          <div class="device device-macbook">
+            <div class="device-screen">
+              <div class="macbook-desktop">
+                <img
+                  src="/assets/learn-liquid-glass/mac-lessons.jpg"
+                  width="1600"
+                  height="1069"
+                  alt="Learn Liquid Glass on macOS, showing the Getting Started lesson beside the full lesson sidebar."
+                  loading="lazy"
+                  decoding="async" />
+              </div>
+              <img class="device-bezel" src="/assets/learn-liquid-glass/macbook-pro-m5.png"
+                width="2200" height="1447" alt="" aria-hidden="true"
+                loading="lazy" decoding="async" />
             </div>
           </div>
-          <div class="home-chat-body hero-window-body">
-            <p class="hero-window-label">Hello from Vibe Node.</p>
-            <p class="hero-window-rotator">We design and build thoughtful software for learning, play, and everyday creative work.</p>
-            <ul class="hero-window-points" aria-label="Quick overview">
-              <li>Independent software studio based in the UK</li>
-              <li>Learn Liquid Glass is now available on the App Store</li>
-              <li>Vroulette is now available on the App Store</li>
-            </ul>
-            <p class="hero-window-trust">Say hello: contact@vibenode.co.uk</p>
-          </div>
-        </aside>
+        </figure>
       </section>
 
       <section class="products-sections" aria-label="Homepage sections">
-        <article class="home-panel home-panel-app" id="learn-liquid-glass">
-          <div class="app-card-grid">
-            <div>
-              <p class="home-panel-kicker">App</p>
-              <h2>Learn Liquid Glass</h2>
-              <p>
-                A focused educational app for learning Apple Liquid Glass concepts, SwiftUI patterns,
-                and modern interface details through concise lessons and examples.
-              </p>
-              <p>
-                Available now for iPhone, iPad, and Mac, with local progress
-                tracking, bookmarked topics, and optional on-device Apple
-                Intelligence guidance where available.
-              </p>
-              <p class="product-status">Available now on the App Store and Mac App Store.</p>
-              <div class="store-badge-links" data-coming-soon-group aria-label="Store badges for Learn Liquid Glass">
-                <a href="https://apps.apple.com/app/learn-liquid-glass/id6768110722" target="_blank" rel="noopener noreferrer" aria-label="Download Learn Liquid Glass on the App Store">
-                  <img class="app-store-badge" src="/assets/badges/download-on-the-app-store.svg" alt="Download on the App Store" decoding="async" />
-                </a>
-                <a href="https://apps.apple.com/app/learn-liquid-glass/id6768110722?mt=12" target="_blank" rel="noopener noreferrer" aria-label="Download Learn Liquid Glass on the Mac App Store">
-                  <img class="mac-app-store-badge" src="/assets/badges/download-on-the-mac-app-store.svg" alt="Download on the Mac App Store" decoding="async" />
-                </a>
-              </div>
-              <p class="app-meta-links">
-                <a href="/support/">Support</a>
-                <span aria-hidden="true">·</span>
-                <a href="/privacy/">Privacy Policy</a>
-              </p>
-              <p class="coming-soon-tip" aria-live="polite"></p>
+        <section class="app-feature" id="learn-liquid-glass" aria-labelledby="llg-title" data-viewport="once">
+          <header class="app-feature-head">
+            <h2 id="llg-title">Learn Liquid Glass</h2>
+            <p class="app-feature-lead">
+              Apple&rsquo;s Liquid Glass, learned by doing. Over 200 working examples you can open,
+              adjust live, and lift the Swift straight out of &mdash; on iPhone, iPad, and Mac.
+            </p>
+            <div class="store-badge-links" aria-label="Store badges for Learn Liquid Glass">
+              <a href="https://apps.apple.com/app/learn-liquid-glass/id6768110722" target="_blank" rel="noopener noreferrer" aria-label="Download Learn Liquid Glass on the App Store">
+                <img class="app-store-badge" src="/assets/badges/download-on-the-app-store.svg" alt="Download on the App Store" decoding="async" />
+              </a>
+              <a href="https://apps.apple.com/app/learn-liquid-glass/id6768110722?mt=12" target="_blank" rel="noopener noreferrer" aria-label="Download Learn Liquid Glass on the Mac App Store">
+                <img class="mac-app-store-badge" src="/assets/badges/download-on-the-mac-app-store.svg" alt="Download on the Mac App Store" decoding="async" />
+              </a>
             </div>
-            <div class="app-card-media app-card-media-liquid-glass" aria-hidden="true">
-              <img src="/assets/learn-liquid-glass-app-icon.png" alt="" decoding="async" />
+          </header>
+
+
+          <div class="app-feature-rows">
+            <div class="app-feature-row" data-viewport="once">
+              <div class="app-feature-copy">
+                <p class="app-feature-eyebrow">Start here</p>
+                <h3>Every example, one tap away</h3>
+                <p>Open a live example straight away, or follow the guided path from the placement rules onward. Progress and bookmarks stay on your device.</p>
+              </div>
+              <div class="app-feature-shot">
+                <div class="device device-iphone">
+                  <div class="device-screen">
+                    <img
+                      src="/assets/learn-liquid-glass/phone-dashboard.jpg"
+                      width="560"
+                      height="1216"
+                      alt="The Learn Liquid Glass home screen on iPhone, listing guided lessons and quick tools."
+                      loading="lazy"
+                      decoding="async" />
+                    <img class="device-bezel" src="/assets/learn-liquid-glass/iphone-17-pro-max.png"
+                      width="668" height="1363" alt="" aria-hidden="true"
+                      loading="lazy" decoding="async" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="app-feature-row" data-viewport="once">
+              <div class="app-feature-copy">
+                <p class="app-feature-eyebrow">Liquid AI</p>
+                <h3>Ask, and stay private</h3>
+                <p>On-device guidance from Apple Intelligence answers where glass belongs and why. Your questions never leave the device.</p>
+              </div>
+              <div class="app-feature-shot">
+                <div class="device device-iphone">
+                  <div class="device-screen">
+                    <img
+                      src="/assets/learn-liquid-glass/phone-liquid-ai.jpg"
+                      width="560"
+                      height="1216"
+                      alt="The Liquid AI screen on iPhone answering a question about where Liquid Glass belongs."
+                      loading="lazy"
+                      decoding="async" />
+                    <img class="device-bezel" src="/assets/learn-liquid-glass/iphone-17-pro-max.png"
+                      width="668" height="1363" alt="" aria-hidden="true"
+                      loading="lazy" decoding="async" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="app-feature-row" data-viewport="once">
+              <div class="app-feature-copy">
+                <p class="app-feature-eyebrow">Real Swift</p>
+                <h3>Copy the code, not just the concept</h3>
+                <p>Every example carries the Swift behind it, formatted and ready to paste into your project — glass effects, custom shapes, and controls included.</p>
+              </div>
+              <div class="app-feature-shot">
+                <div class="device device-iphone">
+                  <div class="device-screen">
+                    <img
+                      src="/assets/learn-liquid-glass/phone-code.jpg"
+                      width="560"
+                      height="1216"
+                      alt="A Liquid Glass example on iPhone with a floating glass button over a photo and its Swift source beneath."
+                      loading="lazy"
+                      decoding="async" />
+                    <img class="device-bezel" src="/assets/learn-liquid-glass/iphone-17-pro-max.png"
+                      width="668" height="1363" alt="" aria-hidden="true"
+                      loading="lazy" decoding="async" />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </article>
+
+          <ul class="app-feature-grid" aria-label="What the app includes">
+            <li>
+              <h3>50+ guided lessons</h3>
+              <p>A control-first path through placement, materials, and the rules Apple actually recommends.</p>
+            </li>
+            <li>
+              <h3>Live appearance labs</h3>
+              <p>Compare clear and regular glass, tune tint and contrast, and watch scroll edges react as you change them.</p>
+            </li>
+            <li>
+              <h3>Kept current</h3>
+              <p>Adaptive toolbars, minimized tab bars, and bottom accessories, updated as the platform moves.</p>
+            </li>
+            <li>
+              <h3>Private by design</h3>
+              <p>Progress, bookmarks, and settings stay on your device. No accounts, no tracking.</p>
+            </li>
+          </ul>
+
+          <p class="app-meta-links app-feature-meta">
+            <a href="/support/">Support</a>
+            <span aria-hidden="true">&middot;</span>
+            <a href="/privacy/">Privacy Policy</a>
+          </p>
+        </section>
 
         <article class="home-panel home-panel-game" id="vroulette">
           <div class="app-card-grid">
@@ -162,28 +247,11 @@
                 <span aria-hidden="true">·</span>
                 <a href="/terms/">Terms</a>
               </p>
-              <p class="coming-soon-tip" aria-live="polite"></p>
             </div>
             <div class="app-card-media app-card-media-vroulette" aria-hidden="true">
               <img src="/assets/vroulette-app-icon.png" alt="" decoding="async" />
             </div>
           </div>
-        </article>
-
-        <article class="home-panel home-panel-game" id="dotz-and-boxz">
-          <p class="home-panel-kicker">Game coming soon</p>
-          <h2>Dotz &amp; Boxz</h2>
-          <p>Our upcoming puzzle title, designed for fast sessions and replayable mastery.</p>
-          <p class="product-status">Coming soon.</p>
-          <div class="store-badge-links" data-coming-soon-group aria-label="Store badges for Dotz and Boxz">
-            <a href="#" data-coming-soon-tip="App Store launch coming soon" aria-label="Download on the App Store">
-              <img class="app-store-badge" src="/assets/badges/download-on-the-app-store.svg" alt="Download on the App Store" decoding="async" />
-            </a>
-            <a href="#" data-coming-soon-tip="Google Play launch coming soon" aria-label="Get it on Google Play">
-              <img class="play-store-badge" src="/assets/badges/google-play-badge.png" alt="Get it on Google Play" decoding="async" />
-            </a>
-          </div>
-          <p class="coming-soon-tip" aria-live="polite"></p>
         </article>
 
       </section>
@@ -204,89 +272,40 @@
           </div>
         </div>
 
-        <div class="model-intel" aria-labelledby="model-intel-title">
-          <p class="model-intel-label" id="model-intel-title">Models we work with</p>
-          <div class="model-intel-marquee" role="region" aria-label="Models Vibe Node works with">
-            <div class="model-intel-marquee-track">
-              <ul class="model-intel-marquee-group">
-                <li class="model-intel-chip">
-                  <img class="model-intel-icon" src="/assets/icons/ai-models/openai.svg" alt="OpenAI" decoding="async" />
-                  <span class="model-intel-name">GPT-5.6 Sol</span><span class="model-intel-dash" aria-hidden="true">—</span><span class="model-intel-provider">OpenAI</span>
-                </li>
-                <li class="model-intel-chip">
-                  <img class="model-intel-icon" src="/assets/icons/ai-models/openai.svg" alt="OpenAI" decoding="async" />
-                  <span class="model-intel-name">GPT-5.6 Terra</span><span class="model-intel-dash" aria-hidden="true">—</span><span class="model-intel-provider">OpenAI</span>
-                </li>
-                <li class="model-intel-chip">
-                  <img class="model-intel-icon" src="/assets/icons/ai-models/anthropic.svg" alt="Anthropic" decoding="async" />
-                  <span class="model-intel-name">Claude Fable 5</span><span class="model-intel-dash" aria-hidden="true">—</span><span class="model-intel-provider">Anthropic</span>
-                </li>
-                <li class="model-intel-chip">
-                  <img class="model-intel-icon" src="/assets/icons/ai-models/anthropic.svg" alt="Anthropic" decoding="async" />
-                  <span class="model-intel-name">Claude Opus 5</span><span class="model-intel-dash" aria-hidden="true">—</span><span class="model-intel-provider">Anthropic</span>
-                </li>
-                <li class="model-intel-chip">
-                  <img class="model-intel-icon" src="/assets/icons/ai-models/google.svg" alt="Google" decoding="async" />
-                  <span class="model-intel-name">Gemini 3.7 Flash</span><span class="model-intel-dash" aria-hidden="true">—</span><span class="model-intel-provider">Google</span>
-                </li>
-                <li class="model-intel-chip">
-                  <img class="model-intel-icon" src="/assets/icons/ai-models/google.svg" alt="Google" decoding="async" />
-                  <span class="model-intel-name">Gemini 3.1 Pro</span><span class="model-intel-dash" aria-hidden="true">—</span><span class="model-intel-provider">Google</span>
-                </li>
-                <li class="model-intel-chip">
-                  <img class="model-intel-icon" src="/assets/icons/ai-models/x.svg" alt="xAI" decoding="async" />
-                  <span class="model-intel-name">Grok 4.6</span><span class="model-intel-dash" aria-hidden="true">—</span><span class="model-intel-provider">xAI</span>
-                </li>
-                <li class="model-intel-chip">
-                  <img class="model-intel-icon" src="/assets/icons/ai-models/mistralai.svg" alt="Mistral AI" decoding="async" />
-                  <span class="model-intel-name">Mistral Medium 3.5</span><span class="model-intel-dash" aria-hidden="true">—</span><span class="model-intel-provider">Mistral AI</span>
-                </li>
-                <li class="model-intel-chip">
-                  <img class="model-intel-icon" src="/assets/icons/ai-models/alibabacloud.svg" alt="Alibaba Cloud" decoding="async" />
-                  <span class="model-intel-name">Qwen3.8-Max</span><span class="model-intel-dash" aria-hidden="true">—</span><span class="model-intel-provider">Alibaba Cloud</span>
-                </li>
+        <div class="capability-strip" aria-labelledby="capability-strip-title">
+          <p class="capability-strip-label" id="capability-strip-title">What we build</p>
+          <div class="capability-marquee" role="region" aria-label="What Vibe Node builds">
+            <div class="capability-marquee-track">
+              <ul class="capability-marquee-group">
+                <li class="capability-chip">iOS &amp; iPadOS apps</li>
+                <li class="capability-chip">macOS apps</li>
+                <li class="capability-chip">Windows apps</li>
+                <li class="capability-chip">Android apps</li>
+                <li class="capability-chip">Chrome extensions</li>
+                <li class="capability-chip">Web apps &amp; sites</li>
+                <li class="capability-chip">SwiftUI &amp; native UI</li>
+                <li class="capability-chip">On-device Apple Intelligence</li>
+                <li class="capability-chip">AI features &amp; integrations</li>
+                <li class="capability-chip">Automation workflows</li>
+                <li class="capability-chip">App Store &amp; Play Store release</li>
+                <li class="capability-chip">Prototype to launch</li>
               </ul>
-              <ul class="model-intel-marquee-group" aria-hidden="true">
-                <li class="model-intel-chip">
-                  <img class="model-intel-icon" src="/assets/icons/ai-models/openai.svg" alt="" decoding="async" />
-                  <span class="model-intel-name">GPT-5.6 Sol</span><span class="model-intel-dash">—</span><span class="model-intel-provider">OpenAI</span>
-                </li>
-                <li class="model-intel-chip">
-                  <img class="model-intel-icon" src="/assets/icons/ai-models/openai.svg" alt="" decoding="async" />
-                  <span class="model-intel-name">GPT-5.6 Terra</span><span class="model-intel-dash">—</span><span class="model-intel-provider">OpenAI</span>
-                </li>
-                <li class="model-intel-chip">
-                  <img class="model-intel-icon" src="/assets/icons/ai-models/anthropic.svg" alt="" decoding="async" />
-                  <span class="model-intel-name">Claude Fable 5</span><span class="model-intel-dash">—</span><span class="model-intel-provider">Anthropic</span>
-                </li>
-                <li class="model-intel-chip">
-                  <img class="model-intel-icon" src="/assets/icons/ai-models/anthropic.svg" alt="" decoding="async" />
-                  <span class="model-intel-name">Claude Opus 5</span><span class="model-intel-dash">—</span><span class="model-intel-provider">Anthropic</span>
-                </li>
-                <li class="model-intel-chip">
-                  <img class="model-intel-icon" src="/assets/icons/ai-models/google.svg" alt="" decoding="async" />
-                  <span class="model-intel-name">Gemini 3.7 Flash</span><span class="model-intel-dash">—</span><span class="model-intel-provider">Google</span>
-                </li>
-                <li class="model-intel-chip">
-                  <img class="model-intel-icon" src="/assets/icons/ai-models/google.svg" alt="" decoding="async" />
-                  <span class="model-intel-name">Gemini 3.1 Pro</span><span class="model-intel-dash">—</span><span class="model-intel-provider">Google</span>
-                </li>
-                <li class="model-intel-chip">
-                  <img class="model-intel-icon" src="/assets/icons/ai-models/x.svg" alt="" decoding="async" />
-                  <span class="model-intel-name">Grok 4.6</span><span class="model-intel-dash">—</span><span class="model-intel-provider">xAI</span>
-                </li>
-                <li class="model-intel-chip">
-                  <img class="model-intel-icon" src="/assets/icons/ai-models/mistralai.svg" alt="" decoding="async" />
-                  <span class="model-intel-name">Mistral Medium 3.5</span><span class="model-intel-dash">—</span><span class="model-intel-provider">Mistral AI</span>
-                </li>
-                <li class="model-intel-chip">
-                  <img class="model-intel-icon" src="/assets/icons/ai-models/alibabacloud.svg" alt="" decoding="async" />
-                  <span class="model-intel-name">Qwen3.8-Max</span><span class="model-intel-dash">—</span><span class="model-intel-provider">Alibaba Cloud</span>
-                </li>
+              <ul class="capability-marquee-group" aria-hidden="true">
+                <li class="capability-chip">iOS &amp; iPadOS apps</li>
+                <li class="capability-chip">macOS apps</li>
+                <li class="capability-chip">Windows apps</li>
+                <li class="capability-chip">Android apps</li>
+                <li class="capability-chip">Chrome extensions</li>
+                <li class="capability-chip">Web apps &amp; sites</li>
+                <li class="capability-chip">SwiftUI &amp; native UI</li>
+                <li class="capability-chip">On-device Apple Intelligence</li>
+                <li class="capability-chip">AI features &amp; integrations</li>
+                <li class="capability-chip">Automation workflows</li>
+                <li class="capability-chip">App Store &amp; Play Store release</li>
+                <li class="capability-chip">Prototype to launch</li>
               </ul>
             </div>
           </div>
-
         </div>
       </section>
 
@@ -316,7 +335,6 @@
             <a href="/">Home</a>
             <a href="#learn-liquid-glass">Learn Liquid Glass</a>
             <a href="#vroulette">Vroulette</a>
-            <a href="#dotz-and-boxz">Dotz &amp; Boxz</a>
           </div>
           <div class="footer-col">
             <h4>Support</h4>
@@ -334,6 +352,6 @@
         </div>
       </footer>
     </div>
-    <script src="/scripts.js?v=20260914a" defer></script>
+    <script src="/scripts.js?v=20260922v" defer></script>
   </body>
 </html>
