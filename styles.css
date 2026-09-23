@@ -1422,6 +1422,13 @@ button {
   pointer-events: none;
 }
 
+/* The capability marquee already ends on a rule, so the footer's own border
+   would read as a second divider. Only the home page has that section, so the
+   sub-pages keep their border. */
+.work-with-us + .site-footer {
+  border-top: 0;
+}
+
 .site-footer {
   margin-top: 54px;
   padding: 44px 0 10px;
