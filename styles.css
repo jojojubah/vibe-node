@@ -510,6 +510,12 @@ textarea {
   margin-bottom: 12px;
 }
 
+.home-panel .product-disclaimer {
+  color: rgba(143, 159, 190, 0.78);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
 .app-meta-links {
   display: inline-flex;
   flex-wrap: wrap;
@@ -1009,6 +1015,102 @@ button {
   }
 }
 
+
+/* ---- Animated Vibe Node mark ------------------------------------------
+   One idea, restrained: the V draws in, the hub wakes, a signal travels the
+   two edges, the satellites light, then a long rest before repeating.
+   Timing is deliberately slow with a custom ease; the rest is half the loop
+   so it never nags in the corner of the eye. Static under reduced motion. */
+.mark-anim {
+  display: grid;
+  place-items: center;
+  padding: 88px 0 24px;
+}
+
+.mark-anim-svg {
+  width: clamp(190px, 26vw, 290px);
+  height: auto;
+  overflow: visible;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* The V is drawn as a single stroke; pathLength=100 normalises the dash maths */
+.mark-v {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: mark-draw 7s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+.mark-edge {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: mark-edge-draw 7s cubic-bezier(0.33, 0, 0.2, 1) infinite;
+}
+
+.mark-edge-b { animation-delay: 0.22s; }
+
+.mark-hub {
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: scale(0);
+  animation: mark-pop 7s cubic-bezier(0.34, 1.3, 0.5, 1) infinite;
+}
+
+.mark-node {
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: scale(0);
+  animation: mark-pop 7s cubic-bezier(0.34, 1.3, 0.5, 1) infinite;
+}
+
+.mark-node-a { animation-delay: 1.5s; }
+.mark-node-b { animation-delay: 1.72s; }
+
+@keyframes mark-draw {
+  0%   { stroke-dashoffset: 100; }
+  26%  { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: 0; }
+}
+
+@keyframes mark-edge-draw {
+  0%, 18% { stroke-dashoffset: 100; }
+  34%     { stroke-dashoffset: 0; }
+  100%    { stroke-dashoffset: 0; }
+}
+
+@keyframes mark-pop {
+  0%, 14% { transform: scale(0); opacity: 0; }
+  24%     { transform: scale(1); opacity: 1; }
+  100%    { transform: scale(1); opacity: 1; }
+}
+
+@media (max-width: 720px) {
+  .mark-anim { padding: 64px 0 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mark-v,
+  .mark-edge,
+  .mark-hub,
+  .mark-node {
+    animation: none;
+    stroke-dashoffset: 0;
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 /* Learn Liquid Glass — full-width feature section (no card) */
 .app-feature {
   display: grid;
@@ -1070,7 +1172,7 @@ button {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: linear-gradient(165deg, #0b1830 0%, #071022 45%, #050c1a 100%);
+  background: #eef3f8;
 }
 
 .macbook-desktop img {

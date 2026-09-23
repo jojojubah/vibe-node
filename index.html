@@ -232,14 +232,13 @@
         <article class="home-panel home-panel-game" id="vroulette">
           <div class="app-card-grid">
             <div>
-              <p class="home-panel-kicker">Game</p>
               <h2>Vroulette</h2>
               <p>
                 A premium-feeling roulette game for iPhone and iPad with classic table play,
                 chip placement, animated wheel spins, result history, and optional
                 cosmetic Diamond Pack themes.
               </p>
-              <p>
+              <p class="product-disclaimer">
                 Vroulette uses play chips for simulated play only. There is no
                 real-money gambling, cash-out, prize redemption, trading, or
                 gameplay advantage from purchases.
@@ -319,6 +318,38 @@
         </div>
       </section>
 
+
+      <section class="mark-anim" aria-labelledby="mark-anim-title">
+        <h2 id="mark-anim-title" class="visually-hidden">Vibe Node</h2>
+        <svg class="mark-anim-svg" viewBox="0 0 1024 1024" role="img" aria-label="Vibe Node mark">
+          <defs>
+            <linearGradient id="mark-anim-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#1f5ebf" />
+              <stop offset="36%" stop-color="#2c76e6" />
+              <stop offset="72%" stop-color="#4ea2ff" />
+              <stop offset="100%" stop-color="#8bc6ff" />
+            </linearGradient>
+            <clipPath id="mark-anim-cut">
+              <rect x="0" y="184" width="740" height="700" />
+            </clipPath>
+          </defs>
+
+          <polyline class="mark-v" points="196 120 436 760 676 120" pathLength="100"
+            fill="none" stroke="url(#mark-anim-grad)" stroke-width="128"
+            stroke-linecap="butt" stroke-linejoin="bevel" clip-path="url(#mark-anim-cut)" />
+
+          <g stroke="url(#mark-anim-grad)" fill="url(#mark-anim-grad)">
+            <line class="mark-edge mark-edge-a" x1="760" y1="550" x2="856" y2="438"
+              pathLength="100" stroke-width="24" stroke-linecap="round" />
+            <line class="mark-edge mark-edge-b" x1="760" y1="550" x2="890" y2="665"
+              pathLength="100" stroke-width="24" stroke-linecap="round" />
+            <circle class="mark-hub" cx="760" cy="550" r="62" />
+            <circle class="mark-node mark-node-a" cx="856" cy="438" r="38" />
+            <circle class="mark-node mark-node-b" cx="890" cy="665" r="38" />
+          </g>
+        </svg>
+      </section>
+
       <footer class="site-footer">
         <div class="footer-brand">
           <a class="logo" href="/" aria-label="Vibe Node Home">
@@ -362,6 +393,6 @@
         </div>
       </footer>
     </div>
-    <script src="/scripts.js?v=20260923a" defer></script>
+    <script src="/scripts.js?v=20260923b" defer></script>
   </body>
 </html>
