@@ -1050,11 +1050,9 @@ button {
   justify-content: center;
 }
 
-/* Hero screenshot sits on the page, lit from behind */
-/* MacBook Pro M5 14-inch bezel. Screen cutout measured from the PNG alpha:
-   left 10.8290%, top 11.3386%, width 78.3420%, height 77.3228% of 3860x2540.
-   The app window sits on a plain desktop inside that cutout — a full-screen
-   macOS capture would fill it properly and is the better long-term asset. */
+/* Hero screenshot sits inside Apple's MacBook Pro product bezel. The bezel is
+   kept intact; the current app-window capture is contained inside the measured
+   screen opening so its rounded window corners are never cropped or stretched. */
 .device-macbook {
   position: relative;
   width: 100%;
@@ -1079,7 +1077,7 @@ button {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   /* cutout radius 1.05% of screen width; screen is 78.34% of device width */
   border-radius: 9px;
   border-radius: 0.82cqw;
@@ -1108,6 +1106,11 @@ button {
 
 .app-feature-row:nth-child(even) .app-feature-shot {
   order: 1;
+}
+
+.app-feature-row-ipad {
+  grid-template-columns: minmax(0, 1fr) minmax(390px, 500px);
+  gap: 54px;
 }
 
 .app-feature-copy {
@@ -1166,7 +1169,7 @@ button {
   display: block;
 }
 
-.device-screen > img:not(.device-bezel) {
+.device-iphone .device-screen > img:not(.device-bezel) {
   position: absolute;
   left: 5.102%;
   top: 2.2%;
@@ -1180,6 +1183,24 @@ button {
      screen is 89.52% of device width -> 13.32% of device width. */
   border-radius: 42px;
   border-radius: 13.32cqw;
+}
+
+/* Official iPad Pro M5 13-inch portrait bezel. Apple's 2300 x 3000 artwork has
+   a 2064 x 2752 screen opening at x=118, y=124. The screenshot stays behind the
+   unmodified bezel, matching the same source used for the App Store artwork. */
+.device-ipad {
+  position: relative;
+  width: min(500px, 100%);
+}
+
+.device-ipad .device-screen > img:not(.device-bezel) {
+  position: absolute;
+  left: 5.1304%;
+  top: 4.1333%;
+  width: 89.7391%;
+  height: 91.7333%;
+  object-fit: cover;
+  z-index: 0;
 }
 
 .device-bezel {
@@ -1244,7 +1265,8 @@ button {
   }
 
   .app-feature-row,
-  .app-feature-row:nth-child(even) {
+  .app-feature-row:nth-child(even),
+  .app-feature-row-ipad {
     grid-template-columns: 1fr;
     gap: 26px;
     justify-items: center;
