@@ -131,13 +131,19 @@ textarea {
   letter-spacing: 0.24px;
 }
 
-/* The VibeNode lockup: the brand pack's original glossy lockup (assets/source/original-generated-lockup.png), trimmed
-   and exported at ~5x the display height. The vector lockup is only a fallback. */
-.logo-lockup {
+/* The VibeNode logo: the brand pack's original glossy mark and wordmark (assets/logo/raster/original-generated),
+   placed side by side so the word sits centred on the mark. Exported at ~4x the display size. */
+.logo-mark {
   display: block;
   width: auto;
-  /* The glossy mark stands much taller than the wordmark, so the lockup needs more height than a flat logo. */
-  height: 48px;
+  height: 34px;
+  flex-shrink: 0;
+}
+
+.logo-wordmark {
+  display: block;
+  width: auto;
+  height: 17px;
   flex-shrink: 0;
 }
 
@@ -149,8 +155,12 @@ textarea {
   text-decoration: none;
 }
 
-.footer-brand .logo .logo-lockup {
-  height: 52px;
+.footer-brand .logo .logo-mark {
+  height: 38px;
+}
+
+.footer-brand .logo .logo-wordmark {
+  height: 19px;
 }
 
 .logo:focus-visible {
