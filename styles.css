@@ -2132,16 +2132,23 @@ button {
 }
 
 @media (max-width: 620px) {
+  .app-feature-vroulette .device-iphone-landscape {
+    width: min(580px, 88%);
+  }
+
+  /* Same composition as desktop, scaled down: the phone sits left and the chips fill the gap on its right.
+     Centring the phone here would cover the chips completely. */
   .vroulette-win-stage {
-    justify-content: center;
-    padding: 0;
+    justify-content: flex-start;
+    padding: 0 16% 0 0;
   }
 
   .vroulette-win-stage .device-iphone-landscape {
-    width: min(580px, 100%);
+    width: 100%;
   }
 
   .vroulette-chip-stack {
-    display: none;
+    right: -4px;
+    width: 38%;
   }
 }
