@@ -131,11 +131,13 @@ textarea {
   letter-spacing: 0.24px;
 }
 
-/* The VibeNode lockup (mark + outlined Sora wordmark) from the brand pack; the tagline is dropped at this size. */
+/* The VibeNode lockup: the brand pack's original glossy lockup (assets/source/original-generated-lockup.png), trimmed
+   and exported at ~5x the display height. The vector lockup is only a fallback. */
 .logo-lockup {
   display: block;
   width: auto;
-  height: 32px;
+  /* The glossy mark stands much taller than the wordmark, so the lockup needs more height than a flat logo. */
+  height: 48px;
   flex-shrink: 0;
 }
 
@@ -148,7 +150,7 @@ textarea {
 }
 
 .footer-brand .logo .logo-lockup {
-  height: 30px;
+  height: 52px;
 }
 
 .logo:focus-visible {

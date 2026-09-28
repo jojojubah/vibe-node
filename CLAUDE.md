@@ -28,9 +28,11 @@ Brand pack: github.com/jojojubah/BrandVNode-Pack (logos, colours, Sora, guidelin
 (one word) in headings, logos and prose; **Vibe Node Ltd** stays for legal/formal references (legal pages, copyright,
 page titles of legal pages, JSON-LD `name`). Tagline: "Build with Vibes." (footer).
 The expressive (glossy, merged-node) logo is used wherever it holds up; the plain flat SVG only where it must.
-Site copies live in `assets/brand/`: `vibenode-logo.svg` (expressive vector lockup without the tagline, 1782×400; header
-and footer), `favicon.svg` (expressive vector mark), `apple-touch-icon.png` (180, glossy), `vibenode-og-1200x630.jpg`
-(og/twitter image), `vibenode-mark-512.png` (JSON-LD logo).
+Site copies live in `assets/brand/`: `vibenode-logo.png` (header and footer: the pack's exact
+`vibenode-original-lockup-tight.png`, 1858×572, shown 48px tall in the header and 52px in the footer), `vibenode-logo.svg` (vector
+fallback, unused), `favicon.svg` (the pack's flat gradient mark: flat only where tiny), `apple-touch-icon.png` (180,
+glossy), `vibenode-og-1200x630.jpg` (og/twitter image), `vibenode-mark-512.png` (JSON-LD logo). The user prefers the
+original glossy raster everywhere it works; SVG/flat only when truly necessary.
 Typeface: Sora, self-hosted variable woff2 in `assets/fonts/sora/` with its OFL licence. Don't recreate the wordmark as text.
 
 ## Conventions
@@ -38,7 +40,7 @@ Typeface: Sora, self-hosted variable woff2 in `assets/fonts/sora/` with its OFL 
 - **Plain HTML/CSS/JS only.** No framework, no bundler, no npm. Keep it that way.
 - Absolute root paths for assets and pages: `/styles.css`, `/assets/...`, `/privacy/`.
 - **Cache-busting:** `styles.css` and `scripts.js` are linked with `?v=YYYYMMDD<letter>`
-  (currently `styles.css?v=20260928d`, `scripts.js?v=20260923d`). When you edit either file, bump the query string in **every**
+  (currently `styles.css?v=20260928e`, `scripts.js?v=20260923d`). When you edit either file, bump the query string in **every**
   HTML file that references it, or returning visitors get stale CSS.
 - Product sections on the home page use slug ids used by the nav: `#learn-liquid-glass`,
   `#vroulette`, `#dotz-and-boxz`, `#contact`.
