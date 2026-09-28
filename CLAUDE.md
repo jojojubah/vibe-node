@@ -22,12 +22,23 @@ Legal pages exist because the App Store requires them — see
 `VIBENODE_WEBSITE_REQUIREMENTS.md` in the Learn Liquid Glass repo
 (`~/Documents/ChatGPT/Learn Liquid Glass/`) for exactly what each URL must say.
 
+## Brand
+
+Brand pack: github.com/jojojubah/BrandVNode-Pack (logos, colours, Sora, guidelines). Display name is **VibeNode**
+(one word) in headings, logos and prose; **Vibe Node Ltd** stays for legal/formal references (legal pages, copyright,
+page titles of legal pages, JSON-LD `name`). Tagline: "Build with Vibes." (footer).
+The expressive (glossy, merged-node) logo is used wherever it holds up; the plain flat SVG only where it must.
+Site copies live in `assets/brand/`: `vibenode-logo.svg` (expressive vector lockup without the tagline, 1782×400; header
+and footer), `favicon.svg` (expressive vector mark), `apple-touch-icon.png` (180, glossy), `vibenode-og-1200x630.jpg`
+(og/twitter image), `vibenode-mark-512.png` (JSON-LD logo).
+Typeface: Sora, self-hosted variable woff2 in `assets/fonts/sora/` with its OFL licence. Don't recreate the wordmark as text.
+
 ## Conventions
 
 - **Plain HTML/CSS/JS only.** No framework, no bundler, no npm. Keep it that way.
 - Absolute root paths for assets and pages: `/styles.css`, `/assets/...`, `/privacy/`.
 - **Cache-busting:** `styles.css` and `scripts.js` are linked with `?v=YYYYMMDD<letter>`
-  (currently `styles.css?v=20260928c`, `scripts.js?v=20260923d`). When you edit either file, bump the query string in **every**
+  (currently `styles.css?v=20260928d`, `scripts.js?v=20260923d`). When you edit either file, bump the query string in **every**
   HTML file that references it, or returning visitors get stale CSS.
 - Product sections on the home page use slug ids used by the nav: `#learn-liquid-glass`,
   `#vroulette`, `#dotz-and-boxz`, `#contact`.

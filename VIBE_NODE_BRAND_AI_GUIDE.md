@@ -1,6 +1,9 @@
-# Vibe Node Brand Guide for AI Coding Assistants
+# VibeNode Brand Guide for AI Coding Assistants
 
-Use this file as the canonical handoff when you want an AI assistant to re-skin an app/game into Vibe Node branding.
+The identity itself (logos, colours, Sora typeface, name usage) is defined by the brand pack at
+https://github.com/jojojubah/BrandVNode-Pack. Display name **VibeNode**; formal name **Vibe Node Ltd**.
+
+Use this file as the canonical handoff when you want an AI assistant to re-skin an app/game into VibeNode branding.
 
 ## Goal
 Make every page feel like `vibenode.co.uk`, especially the background system.

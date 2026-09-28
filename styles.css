@@ -1,4 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&display=swap");
+/* Sora (VibeNode brand typeface, SIL OFL 1.1; licence in /assets/fonts/sora/OFL.txt). Self-hosted variable font, 100–800. */
+@font-face {
+  font-family: "Sora";
+  src: url("/assets/fonts/sora/Sora-Variable.woff2") format("woff2");
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   --bg: #02050f;
@@ -41,7 +48,7 @@ html {
 }
 
 body {
-  font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+  font-family: "Sora", system-ui, "Segoe UI", sans-serif;
   color: var(--text);
   background:
     radial-gradient(circle at 14% 0%, rgba(36, 112, 255, 0.22), transparent 18%),
@@ -118,16 +125,17 @@ textarea {
   gap: 10px;
   text-decoration: none;
   color: var(--text);
-  font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+  font-family: "Sora", system-ui, "Segoe UI", sans-serif;
   font-size: 1.03rem;
   font-weight: 500;
   letter-spacing: 0.24px;
 }
 
-.logo-mark {
+/* The VibeNode lockup (mark + outlined Sora wordmark) from the brand pack; the tagline is dropped at this size. */
+.logo-lockup {
   display: block;
-  width: 27px;
-  height: 27px;
+  width: auto;
+  height: 32px;
   flex-shrink: 0;
 }
 
@@ -139,9 +147,8 @@ textarea {
   text-decoration: none;
 }
 
-.footer-brand .logo .logo-mark {
-  width: 24px;
-  height: 24px;
+.footer-brand .logo .logo-lockup {
+  height: 30px;
 }
 
 .logo:focus-visible {
@@ -259,7 +266,7 @@ textarea {
 }
 
 .products-intro h1 {
-  font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+  font-family: "Sora", system-ui, "Segoe UI", sans-serif;
   font-size: clamp(2rem, 6vw, 3.45rem);
   line-height: 1.08;
   letter-spacing: -0.03em;
@@ -425,7 +432,7 @@ textarea {
 
 .build-kicker {
   text-align: center;
-  font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+  font-family: "Sora", system-ui, "Segoe UI", sans-serif;
   font-size: 1.2rem;
   margin: 0 0 14px;
   color: #d7e8ff;
@@ -489,7 +496,7 @@ textarea {
 }
 
 .home-panel h2 {
-  font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+  font-family: "Sora", system-ui, "Segoe UI", sans-serif;
   font-size: clamp(1.6rem, 4vw, 2.5rem);
   line-height: 1.12;
   margin-bottom: 12px;
@@ -706,7 +713,7 @@ button {
 }
 
 .section-header h2 {
-  font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+  font-family: "Sora", system-ui, "Segoe UI", sans-serif;
   font-size: clamp(1.4rem, 3vw, 2rem);
   line-height: 1.14;
   margin-bottom: 8px;
@@ -757,7 +764,7 @@ button {
 
 .stat-number {
   display: block;
-  font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+  font-family: "Sora", system-ui, "Segoe UI", sans-serif;
   font-size: 1.02rem;
   margin-bottom: 8px;
 }
@@ -872,7 +879,7 @@ button {
 }
 
 .work-with-us h2 {
-  font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+  font-family: "Sora", system-ui, "Segoe UI", sans-serif;
   font-size: clamp(2rem, 5vw, 3.4rem);
   line-height: 1.08;
   letter-spacing: -0.03em;
@@ -1038,7 +1045,7 @@ button {
 
 .app-feature-head h2 {
   margin: 0;
-  font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+  font-family: "Sora", system-ui, "Segoe UI", sans-serif;
   font-size: clamp(2.1rem, 5vw, 3.2rem);
   line-height: 1.06;
   letter-spacing: -0.03em;
@@ -1134,7 +1141,7 @@ button {
 
 .app-feature-copy h3 {
   margin: 0 0 14px;
-  font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+  font-family: "Sora", system-ui, "Segoe UI", sans-serif;
   font-size: clamp(1.4rem, 2.6vw, 1.95rem);
   line-height: 1.16;
   letter-spacing: -0.02em;
@@ -1601,7 +1608,7 @@ button {
 }
 
 .cookie-panel h3 {
-  font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+  font-family: "Sora", system-ui, "Segoe UI", sans-serif;
   font-size: 1.4rem;
   margin-bottom: 6px;
 }
