@@ -45,6 +45,9 @@ Typeface: Sora, self-hosted variable woff2 in `assets/fonts/sora/` with its OFL 
   HTML file that references it, or returning visitors get stale CSS.
 - Product sections on the home page use slug ids used by the nav: `#learn-liquid-glass`,
   `#vroulette`, `#dotz-and-boxz`, `#contact`.
+- The roulette app is **Roulette Play** (App Store name "Roulette Play: Casino Game", formerly Vroulette; renamed in
+  1.2026.1, live Oct 2026). The `#vroulette` anchor, `assets/vroulette/` folder and CSS class names keep the old name on
+  purpose so existing links keep working. App Store link: `https://apps.apple.com/app/id6786365002`.
 - New page → also add it to `sitemap.xml`.
 - Contact is `contact@vibenode.co.uk` everywhere.
 
