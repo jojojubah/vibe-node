@@ -736,6 +736,65 @@ button {
   color: var(--muted);
 }
 
+.philosophy-page {
+  width: min(820px, 100%);
+  margin: 0 auto 96px;
+  padding: 36px 0 28px;
+}
+
+.philosophy-statement {
+  max-width: 760px;
+}
+
+.philosophy-heading {
+  margin-bottom: 34px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.philosophy-heading .eyebrow {
+  margin-bottom: 13px;
+}
+
+.philosophy-heading h1 {
+  max-width: 20ch;
+  color: #f5f8ff;
+  font-size: clamp(2rem, 4.6vw, 3.2rem);
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+}
+
+.philosophy-copy {
+  max-width: 68ch;
+}
+
+.philosophy-copy p {
+  color: #b6c2d9;
+  font-size: clamp(1.02rem, 1.8vw, 1.15rem);
+  line-height: 1.85;
+}
+
+.philosophy-copy p + p {
+  margin-top: 22px;
+}
+
+.philosophy-copy .philosophy-closing {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.philosophy-signoff {
+  display: flex;
+  gap: 9px;
+  margin-top: 54px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .about-grid {
   display: grid;
   grid-template-columns: 1.25fr 1fr;
@@ -1742,7 +1801,7 @@ button {
     align-items: stretch;
     gap: 0;
     width: 100%;
-    padding: 6px 16px 58px;
+    padding: 6px 16px 82px;
     border-top: 1px solid rgba(123, 158, 234, 0.3);
     background: rgba(4, 12, 28, 0.975);
     -webkit-backdrop-filter: blur(18px);
@@ -1754,15 +1813,15 @@ button {
     -webkit-mask-image: linear-gradient(
       180deg,
       #000 0%,
-      #000 66%,
-      rgba(0, 0, 0, 0.55) 86%,
+      #000 78%,
+      rgba(0, 0, 0, 0.55) 91%,
       rgba(0, 0, 0, 0) 100%
     );
     mask-image: linear-gradient(
       180deg,
       #000 0%,
-      #000 66%,
-      rgba(0, 0, 0, 0.55) 86%,
+      #000 78%,
+      rgba(0, 0, 0, 0.55) 91%,
       rgba(0, 0, 0, 0) 100%
     );
     opacity: 0;
@@ -1950,6 +2009,20 @@ button {
 
   .section-header {
     padding: 26px;
+  }
+
+  .philosophy-page {
+    margin-bottom: 66px;
+    padding-top: 24px;
+  }
+
+  .philosophy-heading {
+    margin-bottom: 28px;
+    padding-bottom: 26px;
+  }
+
+  .philosophy-copy p {
+    line-height: 1.75;
   }
 
   .about-copy {
