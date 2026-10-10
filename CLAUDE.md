@@ -9,7 +9,8 @@ present so `_`-prefixed paths aren't stripped.
 ## Layout
 
 ```
-index.html            home page — all product sections live here
+index.html            home page — showcase section per app, each linking to its app page
+learn-liquid-glass/ roulette-play/       app pages: full detail, facts, FAQ, JSON-LD (canonical page per app)
 styles.css            visual source of truth for the brand (see VIBE_NODE_BRAND_AI_GUIDE.md)
 scripts.js            all shared behaviour, plain IIFE/module-free JS
 assets/               logos, app icons, favicon, store badges
@@ -41,10 +42,13 @@ Typeface: Sora, self-hosted variable woff2 in `assets/fonts/sora/` with its OFL 
 - **Plain HTML/CSS/JS only.** No framework, no bundler, no npm. Keep it that way.
 - Absolute root paths for assets and pages: `/styles.css`, `/assets/...`, `/privacy/`.
 - **Cache-busting:** `styles.css` and `scripts.js` are linked with `?v=YYYYMMDD<letter>`
-  (currently `styles.css?v=20260928f`, `scripts.js?v=20260923d`). When you edit either file, bump the query string in **every**
+  (currently `styles.css?v=20261010a`, `scripts.js?v=20260923d`). When you edit either file, bump the query string in **every**
   HTML file that references it, or returning visitors get stale CSS.
-- Product sections on the home page use slug ids used by the nav: `#learn-liquid-glass`,
-  `#vroulette`, `#dotz-and-boxz`, `#contact`.
+- Each app has its own page (`/learn-liquid-glass/`, `/roulette-play/`) and the nav/footer link there. The home
+  page keeps its showcase sections with ids `#learn-liquid-glass`, `#vroulette`, `#contact` so old links still work.
+- SEO: Search Console is verified via the `google-site-verification` meta on the home page (don't remove it).
+  JSON-LD uses `@id`s: `https://vibenode.co.uk/#organization`, `/#website`, and `/<app>/#app`; app pages reference
+  the organization by `@id`. Keep app facts (price, OS, version) in step with the App Store listings.
 - The roulette app is **Roulette Play** (App Store name "Roulette Play: Casino Game", formerly Vroulette; renamed in
   1.2026.1, live Oct 2026). The `#vroulette` anchor, `assets/vroulette/` folder and CSS class names keep the old name on
   purpose so existing links keep working. App Store link: `https://apps.apple.com/app/id6786365002`.
