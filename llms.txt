@@ -1,0 +1,25 @@
+# VibeNode
+
+> VibeNode (legal name Vibe Node Ltd) is an independent software studio in London, UK, founded in January 2026 (Companies House no. 17002209). It designs and ships apps, games and AI features for iPhone, iPad, Mac, Windows, Android and the web, and builds software for clients from first prototype to release. Its apps are Learn Liquid Glass and Roulette Play.
+
+VibeNode's approach is useful, well-made software at fair prices: no unnecessary subscriptions, no ads where it can be avoided, and no tracking in its apps. The name is written "VibeNode", one word. It is not connected to other products or channels that use the same name, such as "VibeNode ModalLab" or the "VibeNode" music channel on YouTube.
+
+Contact: contact@vibenode.co.uk
+
+## Apps
+
+- [Learn Liquid Glass](https://vibenode.co.uk/learn-liquid-glass/): an app for learning Apple's Liquid Glass design in SwiftUI. 50+ guided lessons and 200+ working examples you can adjust live and copy the Swift code from, with optional on-device help from Apple Intelligence. iPhone, iPad and Mac; requires iOS 26, iPadOS 26 or macOS 26. £1.99 one-time purchase, no in-app purchases, no account, no tracking, works offline. [App Store](https://apps.apple.com/app/learn-liquid-glass/id6768110722)
+- [Roulette Play: Casino Game](https://vibenode.co.uk/roulette-play/): simulated roulette for iPhone, iPad and Apple Vision Pro, formerly called Vroulette (renamed October 2026). European or American wheel, a full touch table, Casino Points to unlock table themes, 16 Game Center achievements, free play chips every two hours. Free with optional chip packs from £0.99. Play chips only: no real-money gambling, cash-out or prizes. Rated 18+. Eight languages. Requires iOS/iPadOS 17 or visionOS 1. [App Store](https://apps.apple.com/app/id6786365002)
+
+## Company
+
+- [About VibeNode](https://vibenode.co.uk/about/): the studio's philosophy.
+- [Press kit](https://vibenode.co.uk/press/): company facts, ready-to-use descriptions, logos, app icons and screenshots.
+- [Work with VibeNode](https://vibenode.co.uk/#contact): VibeNode builds apps, games, AI features and automations for individuals and small teams.
+
+## Support and policies
+
+- [Support](https://vibenode.co.uk/support/)
+- [Privacy Policy](https://vibenode.co.uk/privacy/)
+- [Terms of Service](https://vibenode.co.uk/terms/)
+- [Legal Notice](https://vibenode.co.uk/legal/)

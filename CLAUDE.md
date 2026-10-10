@@ -11,10 +11,13 @@ present so `_`-prefixed paths aren't stripped.
 ```
 index.html            home page — showcase section per app, each linking to its app page
 learn-liquid-glass/ roulette-play/       app pages: full detail, facts, FAQ, JSON-LD (canonical page per app)
+press/                press kit: company facts, boilerplate, downloads (logos, icons, screenshots)
+llms.txt              plain-language site summary for AI assistants — update when apps/facts change
 styles.css            visual source of truth for the brand (see VIBE_NODE_BRAND_AI_GUIDE.md)
 scripts.js            all shared behaviour, plain IIFE/module-free JS
 assets/               logos, app icons, favicon, store badges
 privacy/ legal/ terms/ support/ cookies/   one index.html each
+                      (company: Vibe Node Ltd, Companies House 17002209, incorporated 30 Jan 2026, London)
 snippets/store-badge-links.html            reusable App Store badge markup
 sitemap.xml robots.txt CNAME .nojekyll
 ```
@@ -42,7 +45,7 @@ Typeface: Sora, self-hosted variable woff2 in `assets/fonts/sora/` with its OFL 
 - **Plain HTML/CSS/JS only.** No framework, no bundler, no npm. Keep it that way.
 - Absolute root paths for assets and pages: `/styles.css`, `/assets/...`, `/privacy/`.
 - **Cache-busting:** `styles.css` and `scripts.js` are linked with `?v=YYYYMMDD<letter>`
-  (currently `styles.css?v=20261010a`, `scripts.js?v=20260923d`). When you edit either file, bump the query string in **every**
+  (currently `styles.css?v=20261010c`, `scripts.js?v=20260923d`). When you edit either file, bump the query string in **every**
   HTML file that references it, or returning visitors get stale CSS.
 - Each app has its own page (`/learn-liquid-glass/`, `/roulette-play/`) and the nav/footer link there. The home
   page keeps its showcase sections with ids `#learn-liquid-glass`, `#vroulette`, `#contact` so old links still work.
