@@ -45,7 +45,7 @@ Typeface: Sora, self-hosted variable woff2 in `assets/fonts/sora/` with its OFL 
 - **Plain HTML/CSS/JS only.** No framework, no bundler, no npm. Keep it that way.
 - Absolute root paths for assets and pages: `/styles.css`, `/assets/...`, `/privacy/`.
 - **Cache-busting:** `styles.css` and `scripts.js` are linked with `?v=YYYYMMDD<letter>`
-  (currently `styles.css?v=20261010c`, `scripts.js?v=20260923d`). When you edit either file, bump the query string in **every**
+  (currently `styles.css?v=20261010d`, `scripts.js?v=20260923d`). When you edit either file, bump the query string in **every**
   HTML file that references it, or returning visitors get stale CSS.
 - Each app has its own page (`/learn-liquid-glass/`, `/roulette-play/`) and the nav/footer link there. The home
   page keeps its showcase sections with ids `#learn-liquid-glass`, `#vroulette`, `#contact` so old links still work.

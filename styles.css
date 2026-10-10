@@ -2629,3 +2629,16 @@ button {
 .press-assets a:hover {
   color: var(--accent-soft);
 }
+
+/* Facts block under the About philosophy statement; reuses the app pages' .app-facts list. */
+.about-facts {
+  width: min(820px, 100%);
+  margin: -40px auto 96px;
+}
+
+.about-facts h2 {
+  margin: 0 0 22px;
+  font-family: "Sora", system-ui, "Segoe UI", sans-serif;
+  font-size: clamp(1.4rem, 2.8vw, 1.9rem);
+  letter-spacing: -0.02em;
+}

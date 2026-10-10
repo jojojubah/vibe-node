@@ -27,9 +27,31 @@
     />
     <meta name="twitter:image" content="https://vibenode.co.uk/assets/brand/vibenode-og-1200x630.jpg" />
     <meta name="theme-color" content="#02050f" />
-    <link rel="stylesheet" href="/styles.css?v=20261010c" />
+    <link rel="stylesheet" href="/styles.css?v=20261010d" />
     <link rel="icon" type="image/svg+xml" href="/assets/brand/favicon.svg" />
     <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "AboutPage",
+            "@id": "https://vibenode.co.uk/about/",
+            "name": "About VibeNode",
+            "url": "https://vibenode.co.uk/about/",
+            "about": { "@id": "https://vibenode.co.uk/#organization" },
+            "isPartOf": { "@id": "https://vibenode.co.uk/#website" }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "VibeNode", "item": "https://vibenode.co.uk/" },
+              { "@type": "ListItem", "position": 2, "name": "About", "item": "https://vibenode.co.uk/about/" }
+            ]
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div class="page">
@@ -68,6 +90,20 @@
           </div>
           <p class="philosophy-signoff">VibeNode Ltd <span aria-hidden="true">&bull;</span> London</p>
         </article>
+
+        <section class="about-facts" aria-labelledby="about-facts-heading">
+          <h2 id="about-facts-heading">VibeNode at a glance</h2>
+          <dl class="app-facts">
+            <div><dt>Company</dt><dd>Vibe Node Ltd, trading as VibeNode</dd></div>
+            <div><dt>Founded</dt><dd>January 2026</dd></div>
+            <div><dt>Based in</dt><dd>London, United Kingdom</dd></div>
+            <div><dt>Company no.</dt><dd>17002209 (registered in England and Wales)</dd></div>
+            <div><dt>What we build</dt><dd>Apps, games and AI features for iPhone, iPad, Mac, Windows, Android and the web, for ourselves and for clients</dd></div>
+            <div><dt>Our apps</dt><dd><a href="/learn-liquid-glass/">Learn Liquid Glass</a> &middot; <a href="/roulette-play/">Roulette Play</a></dd></div>
+            <div><dt>Press</dt><dd><a href="/press/">Press kit</a></dd></div>
+            <div><dt>Contact</dt><dd><a href="mailto:contact@vibenode.co.uk">contact@vibenode.co.uk</a></dd></div>
+          </dl>
+        </section>
       </main>
 
       <footer class="site-footer">
