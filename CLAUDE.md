@@ -19,6 +19,8 @@ assets/               logos, app icons, favicon, store badges
 privacy/ legal/ terms/ support/ cookies/   one index.html each
                       (company: Vibe Node Ltd, Companies House 17002209, incorporated 30 Jan 2026, London)
 snippets/store-badge-links.html            reusable App Store badge markup
+404.html              branded not-found page (GitHub Pages serves it for any missing path)
+services/ products/ games/ vroulette/   noindex redirect stubs for old URLs that still get visits — keep them
 sitemap.xml robots.txt CNAME .nojekyll
 ```
 
@@ -62,7 +64,8 @@ Typeface: Sora, self-hosted variable woff2 in `assets/fonts/sora/` with its OFL 
 
 One file, small init functions called on DOM ready. Notable ones:
 mobile nav + sticky header, cookie consent (`readCookieConsent`/`writeCookieConsent`),
-GA4 gated behind consent (`GA4_MEASUREMENT_ID` = `G-WDLSD474GV`, only loads after opt-in),
+GA4 gated behind consent (`GA4_MEASUREMENT_ID` = `G-WDLSD474GV`, only loads after opt-in; it's the "VIBENODE" property on
+the user's VibeNode Google account, the *second* Chrome login (`authuser=1`), not the JojoJubah account),
 `initMailtoForms` / `initAsyncForms`, `initScrollGradientRims` (scroll-driven gradient angle),
 `initHomeHeroTypewriter` (items come from `data-typewriter-items`).
 
