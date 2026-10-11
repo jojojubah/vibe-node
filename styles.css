@@ -60,6 +60,21 @@ body {
 
 img {
   max-width: 100%;
+  pointer-events: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Press-kit previews are intentionally downloadable and remain interactive. */
+.press-app-head img,
+.press-asset-preview img {
+  pointer-events: auto;
+  -webkit-touch-callout: default;
+  -webkit-user-select: auto;
+  user-select: auto;
+  -webkit-user-drag: auto;
 }
 
 a,
