@@ -57,6 +57,12 @@ Typeface: Sora, self-hosted variable woff2 in `assets/fonts/sora/` with its OFL 
 - The roulette app is **Roulette Play** (App Store name "Roulette Play: Casino Game", formerly Vroulette; renamed in
   1.2026.1, live Oct 2026). The `#vroulette` anchor, `assets/vroulette/` folder and CSS class names keep the old name on
   purpose so existing links keep working. App Store link: `https://apps.apple.com/app/id6786365002`.
+- Roulette Play screenshots on the site are raw in-game iPhone captures, 1600×736 JPEG (quality ~70, ~300 KB), shown
+  inside the site's own landscape bezel: `assets/vroulette/iphone-table.jpg`, `iphone-winner-v2.jpg`, `iphone-customise.jpg`
+  (from the Roulette repo's `AppStoreScreenshots/Sources-Production-iPhone18ProMax/` `table`, `win`, `theme`). They carry
+  their own `?v=YYYYMMDD<letter>` (currently `20261012a`) in `index.html` and `roulette-play/index.html`; bump it when the
+  images change. The press kit's `roulette-play-app-store-screenshots.zip` holds the 8 English portrait App Store
+  screenshots. Last refreshed for 1.2026.3 (12 Oct 2026), with JSON-LD `softwareVersion` 1.2026.3.
 - New page → also add it to `sitemap.xml`.
 - Contact is `contact@vibenode.co.uk` everywhere.
 
