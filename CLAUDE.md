@@ -63,6 +63,37 @@ Typeface: Sora, self-hosted variable woff2 in `assets/fonts/sora/` with its OFL 
   their own `?v=YYYYMMDD<letter>` (currently `20261012a`) in `index.html` and `roulette-play/index.html`; bump it when the
   images change. The press kit's `roulette-play-app-store-screenshots.zip` holds the 8 English portrait App Store
   screenshots. Last refreshed for 1.2026.3 (12 Oct 2026), with JSON-LD `softwareVersion` 1.2026.3.
+- **Learn Liquid Glass** (App Store id `6768110722`, bundle `com.vibenode.learn-liquid-glass`). **Free since
+  1.2026.2** (live 12 Oct 2026; checked 17 Oct via `itunes.apple.com/lookup?id=6768110722&country=gb`). Category is
+  still Education on the public listing; the app repo plans a switch to Developer Tools in App Store Connect, so only
+  change "Education" on the site once the listing shows it. 1.2026.3 (iOS build 12, Mac build 11) is prepared locally,
+  not yet uploaded: new Unsplash photography behind many more lesson examples (Morphing Transitions, Animations, Touch,
+  Pencil Hover, Gestures, State Machines, AppKit…), share-an-example-page flow, rating prompt only after 8 completed
+  lessons. Release copy: the app repo's `Documentation/APP_STORE_RELEASE_<version>.md`. The marketing line stays
+  "50+ guided lessons, 200+ working examples", no account, no tracking, works offline, iOS/iPadOS/macOS 26+.
+  Facts to keep in step on the site: price (JSON-LD `offers` on the home page and app page, FAQ, facts list, meta
+  description, press kit card), `softwareVersion` in `learn-liquid-glass/index.html`, `llms.txt`.
+- Learn Liquid Glass site screenshots (in `assets/learn-liquid-glass/`) are raw app captures shown inside the site's
+  own bezels, used on `index.html`, `learn-liquid-glass/index.html` (also JSON-LD `screenshot`) and as press downloads:
+  `mac-lessons.png` (2292×1532, in `macbook-pro-m5.png`), `ipad-dashboard.png` (2064×2752 portrait, in
+  `ipad-pro-m5.png`), `phone-liquid-ai.jpg` + `phone-code.jpg` (560×1216, in `iphone-17-pro-max.png`). Replace them at
+  the same pixel size and aspect so the bezel fit holds (or update the `width`/`height` attributes everywhere). Replaced
+  ones carry `?v=YYYYMMDD<letter>` (`phone-code.jpg` + `ipad-dashboard.png` at `20261017a`) in `index.html`,
+  `learn-liquid-glass/index.html` and `press/index.html`; bump it whenever an image changes. Despite its name,
+  `phone-code.jpg` shows the Morphing Transitions lesson since 17 Oct 2026; `phone-liquid-ai.jpg` is still the Sep shot
+  (Liquid AI fails to answer in the simulator, so a conversation needs real hardware).
+  **How they're made:** the app has a Debug-only `--marketing-capture=<name>` launch argument (`MarketingCaptureView.swift`:
+  `dashboard`, `lessons`, `liquid-ai`, `code-example`, …) and `--lesson=<LiquidGlassSection raw value>` (e.g.
+  `--lesson=Morphing Transitions`). Build Debug into the scratchpad, run on the iPhone 17 Pro Max simulator (1320×2868 →
+  `sips -z 1216 560`, JPEG ~80) and iPad Pro 13-inch (M5) (2064×2752, used as is), status bar overridden to 9:41 via
+  `simctl status_bar`. First launch after a fresh boot can take minutes and capture blank: re-check before using.
+  Mac: launch the Debug Mac app with `--marketing-capture=lessons`; it opens at 1100×720. Get its window id from
+  `CGWindowListCopyWindowInfo` (small Swift snippet), then `screencapture -x -l <id> mac-lessons.png` gives the
+  2292×1532 transparent-shadow PNG directly. Do it yourself, never stitch or hand it to the user. All three
+  (`mac-lessons.png` too) are at `?v=20261017a`.
+  The finished App Store sets (with captions, not for the site bezels) are in the app repo under
+  `App Store Screenshots/Final/`, `iPad App Store Screenshots/Final/`, `Mac App Store Screenshots/Final/` and
+  `iPhone Duo App Store Screenshots/`; the press kit has no Learn Liquid Glass screenshot ZIP yet.
 - New page → also add it to `sitemap.xml`.
 - Contact is `contact@vibenode.co.uk` everywhere.
 
