@@ -8,7 +8,7 @@ Contact: contact@vibenode.co.uk
 
 ## Apps
 
-- [Learn Liquid Glass](https://vibenode.co.uk/learn-liquid-glass/): an app for learning Apple's Liquid Glass design in SwiftUI. 50+ guided lessons and 200+ working examples you can adjust live and copy the Swift code from, with optional on-device help from Apple Intelligence. iPhone, iPad and Mac; requires iOS 26, iPadOS 26 or macOS 26. £1.99 one-time purchase, no in-app purchases, no account, no tracking, works offline. [App Store](https://apps.apple.com/app/learn-liquid-glass/id6768110722)
+- [Learn Liquid Glass](https://vibenode.co.uk/learn-liquid-glass/): an app for learning Apple's Liquid Glass design in SwiftUI. 50+ guided lessons and 200+ working examples you can adjust live and copy the Swift code from, with optional on-device help from Apple Intelligence. iPhone, iPad and Mac; requires iOS 26, iPadOS 26 or macOS 26. Free, no in-app purchases, no account, no tracking, works offline. [App Store](https://apps.apple.com/app/learn-liquid-glass/id6768110722)
 - [Roulette Play: Casino Game](https://vibenode.co.uk/roulette-play/): simulated roulette for iPhone, iPad and Apple Vision Pro, formerly called Vroulette (renamed October 2026). European or American wheel, a full touch table, Casino Points to unlock table themes, 16 Game Center achievements, free play chips every two hours. Free with optional chip packs from £0.99. Play chips only: no real-money gambling, cash-out or prizes. Rated 18+. Eight languages. Requires iOS/iPadOS 17 or visionOS 1. [App Store](https://apps.apple.com/app/id6786365002)
 
 ## Company

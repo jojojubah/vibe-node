@@ -72,7 +72,8 @@ Typeface: Sora, self-hosted variable woff2 in `assets/fonts/sora/` with its OFL 
   lessons. Release copy: the app repo's `Documentation/APP_STORE_RELEASE_<version>.md`. The marketing line stays
   "50+ guided lessons, 200+ working examples", no account, no tracking, works offline, iOS/iPadOS/macOS 26+.
   Facts to keep in step on the site: price (JSON-LD `offers` on the home page and app page, FAQ, facts list, meta
-  description, press kit card), `softwareVersion` in `learn-liquid-glass/index.html`, `llms.txt`.
+  description, press kit card), `softwareVersion` in `learn-liquid-glass/index.html` (bump to 1.2026.3 once that version
+  is live), `llms.txt`. The site says Free (no subscription, no in-app purchases, no ads) since 17 Oct 2026.
 - Learn Liquid Glass site screenshots (in `assets/learn-liquid-glass/`) are raw app captures shown inside the site's
   own bezels, used on `index.html`, `learn-liquid-glass/index.html` (also JSON-LD `screenshot`) and as press downloads:
   `mac-lessons.png` (2292×1532, in `macbook-pro-m5.png`), `ipad-dashboard.png` (2064×2752 portrait, in
