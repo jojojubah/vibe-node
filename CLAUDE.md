@@ -10,7 +10,7 @@ present so `_`-prefixed paths aren't stripped.
 
 ```
 index.html            home page — showcase section per app, each linking to its app page
-learn-liquid-glass/ roulette-play/       app pages: full detail, facts, FAQ, JSON-LD (canonical page per app)
+learn-liquid-glass/ roulette-play/ dotz-boxz/   app pages: full detail, facts, FAQ, JSON-LD (canonical page per app)
 press/                press kit: company facts, boilerplate, downloads (logos, icons, screenshots)
 llms.txt              plain-language site summary for AI assistants — update when apps/facts change
 styles.css            visual source of truth for the brand (see VIBE_NODE_BRAND_AI_GUIDE.md)
@@ -47,13 +47,21 @@ Typeface: Sora, self-hosted variable woff2 in `assets/fonts/sora/` with its OFL 
 - **Plain HTML/CSS/JS only.** No framework, no bundler, no npm. Keep it that way.
 - Absolute root paths for assets and pages: `/styles.css`, `/assets/...`, `/privacy/`.
 - **Cache-busting:** `styles.css` and `scripts.js` are linked with `?v=YYYYMMDD<letter>`
-  (currently `styles.css?v=20261010d`, `scripts.js?v=20260923d`). When you edit either file, bump the query string in **every**
+  (currently `styles.css?v=20261030a`, `scripts.js?v=20260923d`). When you edit either file, bump the query string in **every**
   HTML file that references it, or returning visitors get stale CSS.
-- Each app has its own page (`/learn-liquid-glass/`, `/roulette-play/`) and the nav/footer link there. The home
-  page keeps its showcase sections with ids `#learn-liquid-glass`, `#vroulette`, `#contact` so old links still work.
+- Each app has its own page (`/learn-liquid-glass/`, `/roulette-play/`, `/dotz-boxz/`) and the nav/footer link there. The home
+  page keeps its showcase sections with ids `#learn-liquid-glass`, `#vroulette`, `#dotz-boxz`, `#contact` so old links still work.
 - SEO: Search Console is verified via the `google-site-verification` meta on the home page (don't remove it).
   JSON-LD uses `@id`s: `https://vibenode.co.uk/#organization`, `/#website`, and `/<app>/#app`; app pages reference
   the organization by `@id`. Keep app facts (price, OS, version) in step with the App Store listings.
+- **Dotz & Boxz** (App Store id `6828686411`, source `~/Documents/Dotz&Boxz`): dots and boxes with real ropes, iPhone and
+  iPad, iOS 26+, free with an optional £1.99 Animal Friends Pack, rated 4+, English only. First version 1.2026.1 submitted
+  30 Oct 2026. Until it's live, its home section and app page show "Coming soon to the App Store" (`.app-feature-soon`)
+  under the badge: remove those lines and that CSS rule at launch. Pink accent `#ff9fd0` (`.app-feature-dotz`,
+  `.app-page-dotz`, `.press-app-dotz`). Site shots are portrait 560×1216 JPEGs in `assets/dotz-boxz/` inside the Learn
+  Liquid Glass iPhone 17 Pro Max bezel, made from the app repo's `AppStoreScreenshots/Sources-iPhone17ProMax/`; the press
+  ZIP is the 7 App Store iPhone shots as JPEGs. Privacy, support, terms, legal and about pages cover it (iCloud key-value
+  sync, tilt motion stays on device, opt-in reminder, grown-up check, children's statement).
 - The roulette app is **Roulette Play** (App Store name "Roulette Play: Casino Game", formerly Vroulette; renamed in
   1.2026.1, live Oct 2026). The `#vroulette` anchor, `assets/vroulette/` folder and CSS class names keep the old name on
   purpose so existing links keep working. App Store link: `https://apps.apple.com/app/id6786365002`.

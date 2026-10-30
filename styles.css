@@ -2114,7 +2114,25 @@ button {
   border-top: 1px solid rgba(255, 255, 255, 0.14);
 }
 
-/* App icon above each product name (Learn Liquid Glass and Vroulette). */
+/* Dotz & Boxz: the same compact section in the game's bubblegum pink. */
+.app-feature-dotz {
+  --accent-soft: #ff9fd0;
+  gap: 60px;
+  margin-top: 30px;
+  padding-top: 72px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+/* Shown under the App Store badge until the app is live. Delete it (and this rule) at launch. */
+.app-feature-soon {
+  margin: -6px 0 0;
+  color: var(--accent-soft);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* App icon above each product name (Learn Liquid Glass, Roulette Play, Dotz & Boxz). */
 .app-feature-icon {
   width: 96px;
   height: 96px;
@@ -2215,7 +2233,8 @@ button {
 }
 
 @media (max-width: 880px) {
-  .app-feature-vroulette {
+  .app-feature-vroulette,
+  .app-feature-dotz {
     gap: 44px;
     margin-top: 18px;
     padding-top: 52px;
@@ -2272,7 +2291,12 @@ button {
   --accent-soft: #f4d37b;
 }
 
-.app-page .app-feature-vroulette {
+.app-page-dotz {
+  --accent-soft: #ff9fd0;
+}
+
+.app-page .app-feature-vroulette,
+.app-page .app-feature-dotz {
   margin-top: 0;
   padding-top: 26px;
   border-top: 0;
@@ -2537,6 +2561,10 @@ button {
 
 .press-app-vroulette {
   --accent-soft: #f4d37b;
+}
+
+.press-app-dotz {
+  --accent-soft: #ff9fd0;
 }
 
 .press-app-head {
