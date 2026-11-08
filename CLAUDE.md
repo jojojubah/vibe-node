@@ -65,12 +65,17 @@ Typeface: Sora, self-hosted variable woff2 in `assets/fonts/sora/` with its OFL 
 - The roulette app is **Roulette Play** (App Store name "Roulette Play: Casino Game", formerly Vroulette; renamed in
   1.2026.1, live Oct 2026). The `#vroulette` anchor, `assets/vroulette/` folder and CSS class names keep the old name on
   purpose so existing links keep working. App Store link: `https://apps.apple.com/app/id6786365002`.
-- Roulette Play screenshots on the site are raw in-game iPhone captures, 1600×736 JPEG (quality ~70, ~300 KB), shown
+- Keep Roulette Play sales copy focused on the experience. On the home page and app page, state “play chips only” and
+  “no cash value” once in the compliance disclaimer; do not repeat that language in the lead, feature cards or FAQ.
+  Support, privacy, terms and other legal/review-facing pages may use the wording wherever accuracy requires it.
+- Roulette Play screenshots on the site are raw in-game iPhone captures, 1600×736 JPEG (quality ~74, ~324–360 KB), shown
   inside the site's own landscape bezel: `assets/vroulette/iphone-table.jpg`, `iphone-winner-v2.jpg`, `iphone-customise.jpg`
   (from the Roulette repo's `AppStoreScreenshots/Sources-Production-iPhone18ProMax/` `table`, `win`, `theme`). They carry
-  their own `?v=YYYYMMDD<letter>` (currently `20261012a`) in `index.html` and `roulette-play/index.html`; bump it when the
-  images change. The press kit's `roulette-play-app-store-screenshots.zip` holds the 8 English portrait App Store
-  screenshots. Last refreshed for 1.2026.3 (12 Oct 2026), with JSON-LD `softwareVersion` 1.2026.3.
+  their own `?v=YYYYMMDD<letter>` (currently `20261108a`) in `index.html` and `roulette-play/index.html`; bump it when the
+  images change. The result composition keeps the generated `chip-stack.png` behind the unmodified Apple device image.
+  The press kit's `roulette-play-app-store-screenshots.zip` holds the 8 English portrait App Store
+  screenshots. Visuals were refreshed from the 1.2026.5 capture set on 8 Nov 2026. JSON-LD `softwareVersion` remains the
+  publicly live App Store version (currently 1.2026.4); do not advance it merely because a later build was submitted.
 - **Learn Liquid Glass** (App Store id `6768110722`, bundle `com.vibenode.learn-liquid-glass`). **Free since
   1.2026.2** (live 12 Oct 2026; checked 17 Oct via `itunes.apple.com/lookup?id=6768110722&country=gb`). Category is
   still Education on the public listing; the app repo plans a switch to Developer Tools in App Store Connect, so only
