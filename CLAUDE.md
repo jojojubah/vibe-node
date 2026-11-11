@@ -55,8 +55,9 @@ Typeface: Sora, self-hosted variable woff2 in `assets/fonts/sora/` with its OFL 
   JSON-LD uses `@id`s: `https://vibenode.co.uk/#organization`, `/#website`, and `/<app>/#app`; app pages reference
   the organization by `@id`. Keep app facts (price, OS, version) in step with the App Store listings.
 - **Dotz & Boxz** (App Store id `6828686411`, source `~/Documents/Dotz&Boxz`): dots and boxes with real ropes, iPhone and
-  iPad, iOS 26+, free with an optional £1.99 Animal Friends Pack, rated 4+, English only. First version 1.2026.1 submitted
-  30 Oct 2026. Until it's live, its home section and app page show "Coming soon to the App Store" (`.app-feature-soon`)
+  iPad, iOS 26+, free with an optional £1.99 Animal Friends Pack, rated 4+, English only. First version 1.2026.1: build 1
+  (submitted 30 Oct 2026) was rejected 11 Nov under 2.1(b) (the IAP sandbox said "Item Unavailable"); build 2 was
+  resubmitted 11 Nov and is Waiting for Review. Until it's live, its home section and app page show "Coming soon to the App Store" (`.app-feature-soon`)
   under the badge: remove those lines and that CSS rule at launch. Pink accent `#ff9fd0` (`.app-feature-dotz`,
   `.app-page-dotz`, `.press-app-dotz`). Site shots are portrait 560×1216 JPEGs in `assets/dotz-boxz/` inside the Learn
   Liquid Glass iPhone 17 Pro Max bezel, made from the app repo's `AppStoreScreenshots/Sources-iPhone17ProMax/`; the press
